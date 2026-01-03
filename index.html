@@ -1,13 +1,505 @@
----
-layout: presentation
----
+<!DOCTYPE html>
+<html lang="vi">
 
-{% for post in site.posts reversed %}
-	{% include slide.html %}
-	<div class="page-break"></div>
-{% endfor %}
-{% unless site.simple-slideshow %}
-{% if site.overview %}
-<section id="overview" class="step" {% for attr in site.overview-data %} data-{{attr[0]}}="{{attr[1]}}"{% endfor %}></section>
-{% endif %}
-{% endunless %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+
+    <!-- Primary Meta Tags -->
+    <title>Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp</title>
+    <meta name="title" content="Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp">
+    <meta name="description"
+        content="Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương. Pháp lý minh bạch, tư vấn chuyên sâu, hỗ trợ tài chính.">
+    <meta name="keywords" content="bất động sản, căn hộ cao cấp, Green Tower, Setia Edenia, Bình Dương, TP.HCM">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thachvuland.com/">
+    <meta property="og:title" content="Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp">
+    <meta property="og:description" content="Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương.">
+    <meta property="og:image" content="https://thachvuland.com/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- Page Transition Loader -->
+    <div class="page-transition" id="pageTransition">
+        <div class="page-transition-logo">
+            <h1 class="logo-text">Thạch Vũ Land</h1>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <a href="/" class="logo">
+                <i class="fas fa-building"></i>
+                <span>Thạch Vũ Land</span>
+            </a>
+
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="active">Trang Chủ</a></li>
+                    <li><a href="#projects">Dự Án</a></li>
+                    <li><a href="#news">Tin Tức</a></li>
+                    <li><a href="#about">Về Chúng Tôi</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:0903469888" class="header-phone">
+                    <i class="fas fa-phone"></i>
+                    <span>0903.469.888</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home">Trang Chủ</a></li>
+            <li><a href="#projects">Dự Án</a></li>
+            <li><a href="#news">Tin Tức</a></li>
+            <li><a href="#about">Về Chúng Tôi</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+        </ul>
+        <div class="mobile-menu-contact">
+            <a href="tel:0903469888" class="btn-primary">
+                <i class="fas fa-phone"></i> Gọi Ngay
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-background" id="heroBackground"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title text-gradient" data-aos="fade-up" data-aos-duration="1000">
+                Sở Hữu Vị Thế,<br>Khởi Tạo Di Sản
+            </h1>
+            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                Tư vấn bất động sản cao cấp - Pháp lý minh bạch - Giá trị bền vững
+            </p>
+            <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
+                <a href="#projects" class="btn-primary neon-glow">Khám Phá Dự Án</a>
+                <a href="#contact" class="btn-secondary glass-morphism">Tư Vấn Ngay</a>
+            </div>
+            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
+                <i class="fas fa-chevron-down"></i>
+                <span>Scroll to Explore</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number text-gradient">10+</div>
+                    <div class="stat-label">Năm Kinh Nghiệm</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number text-gradient">500+</div>
+                    <div class="stat-label">Khách Hàng Hài Lòng</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number text-gradient">20+</div>
+                    <div class="stat-label">Dự Án Phân Phối</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number text-gradient">100%</div>
+                    <div class="stat-label">Pháp Lý Minh Bạch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Dự Án Nổi Bật</h2>
+                <a href="projects.html" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="projects-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper" id="projectSliderWrapper">
+                    <!-- Projects will be rendered here by JS -->
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Slideshow -->
+    <section class="floor-plans-section" id="floor-plans">
+        <div class="container">
+            <div class="section-header text-center" style="display: block; margin-bottom: 60px;">
+                <h2 class="section-title text-gradient" data-aos="fade-up">Mặt Bằng Điển Hình</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Kiến trúc tinh tế, tối ưu không gian
+                    sống cho cư dân hiện đại</p>
+            </div>
+
+            <div class="floor-plans-slider swiper" data-aos="zoom-in" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_41PM.jpeg"
+                                    alt="Mặt bằng điển hình 1">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Căn Hộ 2 Phòng Ngủ</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 75m²</span>
+                                    <span><i class="fas fa-bed"></i> 2 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 2 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_42PM%20(1).jpeg"
+                                    alt="Mặt bằng điển hình 2">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Căn Hộ 3 Phòng Ngủ</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 95m²</span>
+                                    <span><i class="fas fa-bed"></i> 3 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 2 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_43PM.jpeg"
+                                    alt="Mặt bằng điển hình 3">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Penthouse Sang Trọng</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 150m²</span>
+                                    <span><i class="fas fa-bed"></i> 4 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 3 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_44PM.jpeg"
+                                    alt="Mặt bằng điển hình 4">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Studio Hiện Đại</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 45m²</span>
+                                    <span><i class="fas fa-bed"></i> 1 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 1 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-watermark">LEGACY & TRUST</div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="parallax" data-speed="0.3">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="Thạch Vũ"
+                            loading="lazy">
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <h2 class="section-title">Về Thạch Vũ</h2>
+                    <p class="about-text">
+                        Với kinh nghiệm thực chiến trong lĩnh vực bất động sản, tôi cam kết mang đến cho khách hàng
+                        những giải pháp đầu tư thông minh, pháp lý minh bạch và giá trị bền vững.
+                    </p>
+                    <ul class="about-values">
+                        <li><i class="fas fa-check-circle"></i> Trung thực trong mọi giao dịch</li>
+                        <li><i class="fas fa-check-circle"></i> Chuyên nghiệp trong tư vấn</li>
+                        <li><i class="fas fa-check-circle"></i> Hiệu quả trong hỗ trợ tài chính</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Tìm Hiểu Thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Tại Sao Chọn Thạch Vũ Land?</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="service-title">Pháp Lý Minh Bạch</h3>
+                    <p class="service-description">Đảm bảo 100% pháp lý rõ ràng, minh bạch cho mọi giao dịch</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="service-title">Tư Vấn Chuyên Sâu</h3>
+                    <p class="service-description">Đội ngũ chuyên gia giàu kinh nghiệm, tư vấn tận tâm</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Hỗ Trợ Tài Chính</h3>
+                    <p class="service-description">Hỗ trợ vay vốn, tư vấn chính sách thanh toán tối ưu</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-title">Giá Trị Thực</h3>
+                    <p class="service-description">Cam kết giá trị thực, không phát sinh chi phí ẩn</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Đối Tác Uy Tín</h3>
+                    <p class="service-description">Hợp tác với các chủ đầu tư uy tín hàng đầu</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">Hậu Mãi Tận Tâm</h3>
+                    <p class="service-description">Chăm sóc khách hàng chu đáo, hỗ trợ 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Góc Chia Sẻ</h2>
+                <a href="#all-news" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="news-grid">
+                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="news-card-image">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Tin tức 1"
+                            loading="lazy">
+                        <span class="news-card-category">Thị Trường</span>
+                        <span class="news-card-date">03/01/2026</span>
+                    </div>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title">Xu hướng thị trường BĐS 2026</h3>
+                        <p class="news-card-excerpt">Phân tích chi tiết về xu hướng phát triển của thị trường bất động
+                            sản trong năm 2026...</p>
+                        <div class="news-card-footer">
+                            <div class="news-card-author">
+                                <i class="fas fa-user"></i>
+                                <span>Thạch Vũ</span>
+                            </div>
+                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="news-card-image">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600" alt="Tin tức 2"
+                            loading="lazy">
+                        <span class="news-card-category">Pháp Lý</span>
+                        <span class="news-card-date">02/01/2026</span>
+                    </div>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title">Hướng dẫn thủ tục mua nhà</h3>
+                        <p class="news-card-excerpt">Tổng hợp đầy đủ các thủ tục pháp lý cần thiết khi mua bất động
+                            sản...</p>
+                        <div class="news-card-footer">
+                            <div class="news-card-author">
+                                <i class="fas fa-user"></i>
+                                <span>Thạch Vũ</span>
+                            </div>
+                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="news-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="news-card-image">
+                        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600" alt="Tin tức 3"
+                            loading="lazy">
+                        <span class="news-card-category">Tài Chính</span>
+                        <span class="news-card-date">01/01/2026</span>
+                    </div>
+                    <div class="news-card-content">
+                        <h3 class="news-card-title">Tối ưu hóa khoản vay mua nhà</h3>
+                        <p class="news-card-excerpt">Bí quyết để có được gói vay ưu đãi nhất khi mua bất động sản...</p>
+                        <div class="news-card-footer">
+                            <div class="news-card-author">
+                                <i class="fas fa-user"></i>
+                                <span>Thạch Vũ</span>
+                            </div>
+                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-parallax-bg"></div>
+        <div class="container">
+            <div class="cta-glass-card" data-aos="zoom-in">
+                <h2 class="cta-title">Cần Tư Vấn Chuyên Sâu?</h2>
+                <p class="cta-subtitle">Hãy liên hệ trực tiếp để có giải pháp phù hợp nhất cho dự án của bạn</p>
+                <div class="cta-actions">
+                    <a href="tel:0903469888" class="btn-primary neon-glow">
+                        <i class="fas fa-phone"></i> 0903.469.888
+                    </a>
+                    <a href="#contact-details" class="btn-secondary glass-morphism">Thông tin chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <h4>Thạch Vũ Land</h4>
+                        <p>Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương. Pháp lý minh bạch, tư vấn
+                            chuyên sâu, hỗ trợ tài chính.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-zalo"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h4>Liên Kết</h4>
+                        <ul>
+                            <li><a href="#home">Trang Chủ</a></li>
+                            <li><a href="#projects">Dự Án</a></li>
+                            <li><a href="#news">Tin Tức</a></li>
+                            <li><a href="#about">Về Chúng Tôi</a></li>
+                            <li><a href="#contact">Liên Hệ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h4>Dự Án</h4>
+                        <ul>
+                            <li><a href="#projects">Green Skyline (TBS Land)</a></li>
+                            <li><a href="#projects">Setia Edenia (EcoXuân)</a></li>
+                            <li><a href="tel:0903469888">Liên Hệ Tư Vấn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h4>Liên Hệ</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0903.469.888</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@thachvuland.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>TP. Hồ Chí Minh, Việt Nam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

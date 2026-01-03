@@ -1,0 +1,176 @@
+/**
+ * THACHVULAND DATA STORE
+ * Centralized data management for the website
+ */
+
+const projectData = [
+    {
+        id: 1,
+        title: "Green Skyline (TBS Land)",
+        image: "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
+        status: "Đang Booking",
+        location: "Mặt tiền Phạm Văn Đồng, Dĩ An, Bình Dương",
+        specs: "4 Tòa, 28-40 tầng, 1,296 căn",
+        price: "Liên hệ để biết giá",
+        link: "project-detail.html?id=1",
+        cta: "Liên Hệ Tư Vấn",
+        category: "can-ho",
+        description: "Green Skyline là biểu tượng kiến trúc mới tại cửa ngõ phía Đông Sài Gòn. Dự án sở hữu vị trí đắc địa ngay mặt tiền Phạm Văn Đồng, kết nối nhanh chóng đến sân bay Tân Sơn Nhất và trung tâm TP.HCM. Với thiết kế hiện đại, hệ thống tiện ích đẳng cấp 5 sao, Green Skyline mang đến không gian sống xanh, sang trọng và biệt lập.",
+        features: [
+            "Hồ bơi vô cực trên không",
+            "Công viên nội khu 2000m²",
+            "Phòng Gym & Yoga tiêu chuẩn quốc tế",
+            "Trung tâm thương mại podium",
+            "An ninh 4 lớp 24/7"
+        ],
+        gallery: [
+            "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
+            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
+        ]
+    },
+    {
+        id: 2,
+        title: "Setia Edenia (EcoXuân)",
+        image: "https://setia.com.vn/wp-content/uploads/2024/05/setia-gardens-residences-thuan-an-binh-duong-1-1.jpg",
+        status: "Sắp Mở Bán",
+        location: "Mặt tiền QL13, Lai Thiêu, Thuận An, Bình Dương",
+        specs: "3 Block, 21-28 tầng, ~740-865 căn",
+        price: "Liên hệ để biết giá",
+        link: "project-detail.html?id=2",
+        cta: "Đăng Ký Tư Vấn",
+        category: "can-ho",
+        description: "Setia Edenia nằm trong tổng thể khu đô thị xanh EcoXuân, nổi bật với mật độ cây xanh bao phủ lớn và không gian sống trong lành. Dự án được phát triển bởi tập đoàn S P Setia danh tiếng từ Malaysia, cam kết chất lượng xây dựng vượt trội và pháp lý minh bạch.",
+        features: [
+            "Hệ thống Sky Garden đa lớp",
+            "Khu vui chơi trẻ em Kid Zone",
+            "Sân Tennis & Đường chạy bộ",
+            "Hồ bơi nghỉ dưỡng",
+            "Khu BBQ ngoài trời"
+        ],
+        gallery: [
+            "https://setia.com.vn/wp-content/uploads/2024/05/setia-gardens-residences-thuan-an-binh-duong-1-1.jpg",
+            "https://images.unsplash.com/photo-1600596542815-e32870110274?w=800",
+            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+        ]
+    },
+    {
+        id: 3,
+        title: "Fiato Uptown",
+        image: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+        status: "Đang Mở Bán",
+        location: "Thủ Đức, TP.HCM",
+        price: "Đang cập nhật",
+        specs: "4 Blocks, 15 tầng",
+        link: "project-detail.html?id=3",
+        cta: "Xem Chi Tiết",
+        category: "can-ho",
+        description: "Fiato Uptown mang đến chất sống Mỹ phóng khoáng giữa lòng Thủ Đức. Với thiết kế ban công rộng thoáng, tối ưu hóa ánh sáng và gió trời, đây là nơi an cư lý tưởng cho các gia đình trẻ năng động.",
+        features: [
+            "Ban công trải dài Panorama",
+            "Hồ bơi vô cực tầng thượng",
+            "Smart Home 4.0",
+            "Khu làm việc Co-working Space"
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+            "https://images.unsplash.com/photo-1600566752355-35792bedcfe1?w=800"
+        ]
+    },
+    {
+        id: 4,
+        title: "The Rivana",
+        image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+        status: "Sắp Bàn Giao",
+        location: "Đại lộ Bình Dương",
+        specs: "3 Block, 1023 căn hộ",
+        price: "Từ 31 triệu/m²",
+        link: "project-detail.html?id=4",
+        cta: "Xem Chi Tiết",
+        category: "can-ho",
+        description: "The Rivana sở hữu view sông Sài Gòn đắt giá, thiết kế tinh tế và hiện đại. Dự án tập trung vào trải nghiệm sống nghỉ dưỡng tại gia với hệ thống tiện ích phong phú.",
+        features: [
+            "View trực diện sông Sài Gòn",
+            "Hồ bơi resort 1000m²",
+            "Công viên ven sông",
+            "Khu vui chơi nước trẻ em"
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800"
+        ]
+    },
+    {
+        id: 5,
+        title: "Astral City",
+        image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800",
+        status: "Đang Bàn Giao",
+        location: "Thuận An, Bình Dương",
+        specs: "8 Tòa tháp, 4966 căn hộ",
+        price: "Đang cập nhật",
+        link: "project-detail.html?id=5",
+        cta: "Liên Hệ Ngay",
+        category: "shophouse",
+        description: "Astral City là phức hợp thương mại và căn hộ cao cấp bậc nhất Bình Dương. Với 8 tòa tháp chọc trời, đây là biểu tượng của sự thịnh vượng và đẳng cấp.",
+        features: [
+            "Suối nhiệt đới dài 300m",
+            "Rạp chiếu phim CGV",
+            "4 tầng trung tâm thương mại",
+            "Sky Bar tầng 40"
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800"
+        ]
+    },
+    {
+        id: 6,
+        title: "Picity Sky Park",
+        image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        status: "Đang Booking",
+        location: "Dĩ An, Bình Dương",
+        specs: "2 Block, 1567 căn",
+        price: "39 triệu/m²",
+        link: "project-detail.html?id=6",
+        cta: "Đăng Ký Tham Quan",
+        category: "can-ho",
+        description: "Picity Sky Park ứng dụng công nghệ IoT vào quản lý vận hành, mang đến cuộc sống tiện nghi và an toàn tối đa. Thiết kế Indochine kết hợp hiện đại tạo nên dấu ấn riêng biệt.",
+        features: [
+            "Hồ bơi vô cực tầng 21",
+            "Cầu kính Sky Walk",
+            "Hệ thống Face ID an ninh",
+            "Khu BBQ tầng thượng"
+        ],
+        gallery: [
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800"
+        ]
+    }
+];
+
+const newsData = [
+    {
+        id: 1,
+        title: "Xu hướng thị trường BĐS 2026",
+        image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
+        category: "Thị Trường",
+        date: "03/01/2026",
+        excerpt: "Phân tích chi tiết về xu hướng phát triển của thị trường bất động sản trong năm 2026...",
+        author: "Thạch Vũ"
+    },
+    {
+        id: 2,
+        title: "Hướng dẫn thủ tục mua nhà",
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600",
+        category: "Pháp Lý",
+        date: "02/01/2026",
+        excerpt: "Tổng hợp đầy đủ các thủ tục pháp lý cần thiết khi mua bất động sản...",
+        author: "Thạch Vũ"
+    },
+    {
+        id: 3,
+        title: "Tối ưu hóa khoản vay mua nhà",
+        image: "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600",
+        category: "Tài Chính",
+        date: "01/01/2026",
+        excerpt: "Bí quyết để có được gói vay ưu đãi nhất khi mua bất động sản...",
+        author: "Thạch Vũ"
+    }
+];
