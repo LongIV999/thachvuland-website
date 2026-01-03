@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Initialize all components
     initPageTransition();
     renderProjects(); // Render content before Swiper
+    renderNews(); // Render news cards
+    initNewsDetail(); // Initialize news detail page if on that page
     initHeader();
     initMobileMenu();
     initHeroBackground();
@@ -224,6 +226,86 @@ function renderProjects() {
 }
 
 // ============================================
+// NEWS RENDERING
+// ============================================
+
+function renderNews() {
+    const newsGrid = document.getElementById('newsGrid');
+    const newsListContainer = document.getElementById('newsListContainer'); // For news.html
+
+    if (!newsGrid && !newsListContainer) return;
+    if (typeof newsData === 'undefined') return;
+
+    // On Homepage, show only latest 3. On News page, show all.
+    const isHomepage = !!newsGrid;
+    const displayData = isHomepage ? newsData.slice(0, 3) : newsData;
+    const targetContainer = newsGrid || newsListContainer;
+
+    targetContainer.innerHTML = displayData.map((news, index) => `
+        <article class="news-card glass-morphism" data-aos="fade-up" data-aos-delay="${(index + 1) * 100}">
+            <div class="news-card-image">
+                <img src="${news.image}" alt="${news.title}" loading="lazy">
+                <span class="news-card-category">${news.category}</span>
+                <span class="news-card-date">${news.date}</span>
+            </div>
+            <div class="news-card-content">
+                <h3 class="news-card-title">${news.title}</h3>
+                <p class="news-card-excerpt">${news.excerpt}</p>
+                <div class="news-card-footer">
+                    <div class="news-card-author">
+                        <i class="fas fa-user"></i>
+                        <span>${news.author}</span>
+                    </div>
+                    <a href="news-detail.html?id=${news.id}" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </article>
+    `).join('');
+}
+
+function initNewsDetail() {
+    const detailContainer = document.getElementById('newsDetailContainer');
+    if (!detailContainer || typeof newsData === 'undefined') return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = parseInt(urlParams.get('id'));
+    const news = newsData.find(n => n.id === id);
+
+    if (news) {
+        // Update Page Title
+        document.title = `${news.title} - Thạch Vũ Land`;
+
+        detailContainer.innerHTML = `
+            <div class="news-detail-header" data-aos="fade-up">
+                <span class="news-detail-category">${news.category}</span>
+                <h1 class="news-detail-title">${news.title}</h1>
+                <div class="news-detail-meta">
+                    <span><i class="fas fa-calendar-alt"></i> ${news.date}</span>
+                    <span><i class="fas fa-user"></i> ${news.author}</span>
+                </div>
+            </div>
+            <div class="news-detail-featured-image" data-aos="zoom-in">
+                <img src="${news.image}" alt="${news.title}">
+            </div>
+            <div class="news-detail-content glass-morphism" data-aos="fade-up">
+                ${news.content || '<p>Nội dung đang được cập nhật...</p>'}
+            </div>
+            <div class="news-detail-footer" data-aos="fade-up">
+                <a href="news.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại tin tức</a>
+            </div>
+        `;
+    } else {
+        detailContainer.innerHTML = `
+            <div class="error-container">
+                <h2>Không tìm thấy bài viết</h2>
+                <p>Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị gỡ bỏ.</p>
+                <a href="news.html" class="btn-primary">Quay lại tin tức</a>
+            </div>
+        `;
+    }
+}
+
+// ============================================
 // SWIPER SLIDER
 // ============================================
 
@@ -316,7 +398,7 @@ function initGSAP() {
     gsap.registerPlugin(ScrollTrigger);
 
     // Hero Animations
-    const heroTitle = document.querySelector('.hero-title');
+    const heroTitle = document.querySelector('.hero-headline');
     if (heroTitle) {
         const tl = gsap.timeline();
         tl.from(heroTitle, {

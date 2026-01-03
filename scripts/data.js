@@ -153,15 +153,17 @@ const newsData = [
         category: "Thị Trường",
         date: "03/01/2026",
         excerpt: "Phân tích chi tiết về xu hướng phát triển của thị trường bất động sản trong năm 2026...",
+        content: "<p>Thị trường bất động sản năm 2026 được dự báo sẽ có những bước chuyển mình mạnh mẽ, tập trung vào các dự án xanh và bền vững. Các chuyên gia nhận định rằng nhu cầu sở hữu căn hộ có không gian sống mở, gần gũi với thiên nhiên sẽ tiếp tục dẫn dắt thị trường.</p><p>Tại khu vực phía Đông TP.HCM và các thành phố vệ tinh như Dĩ An, Thuận An, sự phát triển của hạ tầng giao thông như Vành Đai 3, các tuyến cao tốc sẽ tạo động lực lớn cho giá trị bất động sản gia tăng.</p>",
         author: "Thạch Vũ"
     },
     {
         id: 2,
-        title: "Hướng dẫn thủ tục mua nhà",
+        title: "Hướng dẫn thủ tục mua nhà 2026",
         image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600",
         category: "Pháp Lý",
         date: "02/01/2026",
-        excerpt: "Tổng hợp đầy đủ các thủ tục pháp lý cần thiết khi mua bất động sản...",
+        excerpt: "Tổng hợp đầy đủ các thủ tục pháp lý cần thiết khi mua bất động sản mới nhất...",
+        content: "<p>Mua nhà là một trong những quyết định quan trọng nhất đời người. Để quá trình này diễn ra suôn sẻ và an toàn, quý khách hàng cần nắm rõ các bước pháp lý sau:</p><ul><li>Kiểm tra tính pháp lý của dự án (Giấy phép xây dựng, quy hoạch 1/500).</li><li>Xem xét hợp đồng mua bán kỹ lưỡng trước khi đặt bút ký.</li><li>Hiểu rõ về quy trình bàn giao và cấp sổ hồng.</li></ul>",
         author: "Thạch Vũ"
     },
     {
@@ -171,6 +173,17 @@ const newsData = [
         category: "Tài Chính",
         date: "01/01/2026",
         excerpt: "Bí quyết để có được gói vay ưu đãi nhất khi mua bất động sản...",
+        content: "<p>Trong bối cảnh lãi suất có nhiều biến động, việc lựa chọn phương án tài chính thông minh sẽ giúp bạn tiết kiệm hàng trăm triệu đồng.</p><p>1. So sánh lãi suất giữa các ngân hàng đối tác của chủ đầu tư.<br>2. Chú ý đến các điều khoản về phí trả nợ trước hạn.<br>3. Tận dụng các chương trình ân hạn nợ gốc và ưu đãi lãi suất 0%.</p>",
+        author: "Thạch Vũ"
+    },
+    {
+        id: 4,
+        title: "Lợi ích khi đầu tư căn hộ ven sông",
+        image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800",
+        category: "Dự Án",
+        date: "31/12/2025",
+        excerpt: "Tại sao bất động sản ven sông luôn giữ được giá trị và có tốc độ tăng trưởng cao?",
+        content: "<p>Bất động sản ven sông không chỉ mang lại không gian sống trong lành, phong thủy tốt mà còn là kênh đầu tư an toàn với tính thanh khoản cao. Tầm nhìn panorama hướng sông luôn là yếu tố đắt giá giúp nâng tầm đẳng cấp của chủ sở hữu.</p>",
         author: "Thạch Vũ"
     }
 ];

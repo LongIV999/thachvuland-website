@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+    <title>Tin Tức - Thạch Vũ Land</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .news-detail-page {
+            padding-top: 140px;
+            padding-bottom: 80px;
+            background: var(--neutral-900);
+            min-height: 100vh;
+        }
+
+        .news-detail-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .news-detail-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .news-detail-category {
+            display: inline-block;
+            background: var(--accent-gold);
+            color: var(--neutral-900);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        .news-detail-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #fff, var(--accent-gold));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .news-detail-meta {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .news-detail-meta i {
+            color: var(--accent-gold);
+            margin-right: 8px;
+        }
+
+        .news-detail-featured-image {
+            width: 100%;
+            height: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 60px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .news-detail-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-detail-content {
+            padding: 60px;
+            border-radius: 20px;
+            border: 1px solid rgba(197, 160, 89, 0.1);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            font-size: 1.15rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .news-detail-content p {
+            margin-bottom: 25px;
+        }
+
+        .news-detail-content ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .news-detail-content li {
+            margin-bottom: 15px;
+            list-style: disc;
+            color: var(--accent-gold);
+        }
+
+        .news-detail-content li span {
+            color: white;
+        }
+
+        .news-detail-footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .error-container {
+            text-align: center;
+            padding: 100px 0;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .news-detail-title {
+                font-size: 2rem;
+            }
+
+            .news-detail-featured-image {
+                height: 300px;
+            }
+
+            .news-detail-content {
+                padding: 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Transition -->
+    <div class="page-loader" id="pageTransition">
+        <div class="spinner"></div>
+        <p>Đang tải...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header scrolled" id="siteHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .tvl-text {
+                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                            font-weight: 800;
+                            letter-spacing: 0.05em;
+                            fill: currentColor;
+                            text-anchor: middle;
+                            dominant-baseline: middle;
+                        }
+                    </style>
+                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
+                </svg>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="projects.html">Dự Án</a></li>
+                    <li><a href="news.html">Tin Tức</a></li>
+                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
+                    <li><a href="index.html#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="news-detail-page">
+        <div class="container" id="newsDetailContainer">
+            <!-- News detail content will be rendered here -->
+            <div class="loader-container" style="text-align: center; padding: 100px;">
+                <div class="loader"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container" style="text-align: center; padding: 40px 0;">
+            <p>&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>

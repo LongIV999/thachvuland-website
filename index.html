@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;600&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Icons -->
@@ -43,18 +43,28 @@
 
 <body>
     <!-- Page Transition Loader -->
-    <div class="page-transition" id="pageTransition">
-        <div class="page-transition-logo">
-            <h1 class="logo-text">Thạch Vũ Land</h1>
-        </div>
+    <div class="page-loader" id="pageTransition">
+        <div class="spinner"></div>
+        <p>Đang tải...</p>
     </div>
 
     <!-- Header -->
     <header class="site-header" id="siteHeader">
         <div class="header-container">
-            <a href="/" class="logo">
-                <i class="fas fa-building"></i>
-                <span>Thạch Vũ Land</span>
+            <a href="index.html" class="logo">
+                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .tvl-text {
+                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                            font-weight: 800;
+                            letter-spacing: 0.05em;
+                            fill: currentColor;
+                            text-anchor: middle;
+                            dominant-baseline: middle;
+                        }
+                    </style>
+                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
+                </svg>
             </a>
 
             <nav class="main-nav">
@@ -103,19 +113,70 @@
         <div class="hero-background" id="heroBackground"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title text-gradient" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="hero-headline text-gradient">
                 Sở Hữu Vị Thế,<br>Khởi Tạo Di Sản
             </h1>
-            <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
-                Tư vấn bất động sản cao cấp - Pháp lý minh bạch - Giá trị bền vững
+            <p class="tagline">
+                Bất Động Sản Bình Dương | Pháp Lý Minh Bạch
             </p>
-            <div class="hero-cta" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-props">
+                <div class="prop-item">
+                    <span class="icon">✓</span>
+                    <span class="text">Pháp lý rõ ràng</span>
+                </div>
+                <div class="prop-item">
+                    <span class="icon">💰</span>
+                    <span class="text">Giá công khai</span>
+                </div>
+                <div class="prop-item">
+                    <span class="icon">🏆</span>
+                    <span class="text">Tư vấn tận tâm</span>
+                </div>
+            </div>
+            <div class="hero-cta">
                 <a href="#projects" class="btn-primary neon-glow">Khám Phá Dự Án</a>
                 <a href="#contact" class="btn-secondary glass-morphism">Tư Vấn Ngay</a>
             </div>
-            <div class="scroll-indicator" data-aos="fade-up" data-aos-delay="600">
-                <i class="fas fa-chevron-down"></i>
-                <span>Scroll to Explore</span>
+
+            <!-- Trust Bar Refined -->
+            <div class="trust-bar trust-bar-compact">
+                <div class="trust-item">
+                    <span class="trust-number number">500+</span>
+                    <span class="trust-label label">Khách tin tưởng</span>
+                </div>
+                <span class="divider"></span>
+                <div class="trust-item">
+                    <span class="trust-number number">100%</span>
+                    <span class="trust-label label">Pháp lý rõ</span>
+                </div>
+                <span class="divider"></span>
+                <div class="trust-item">
+                    <span class="trust-number number">24/7</span>
+                    <span class="trust-label label">Tư vấn</span>
+                </div>
+            </div>
+
+            <!-- Social Proof Section -->
+            <div class="social-proof">
+                <div class="avatars">
+                    <img src="images/avatars/avatar1.jpg" alt="Client 1">
+                    <img src="images/avatars/avatar2.jpg" alt="Client 2">
+                    <img src="images/avatars/avatar3.jpg" alt="Client 3">
+                    <span class="more">+497</span>
+                </div>
+                <p class="proof-text">
+                    <strong>Anh Tuấn</strong> và <strong>496 người</strong> khác đã tìm được nhà mơ ước
+                </p>
+            </div>
+
+            <div class="scroll-indicator">
+                <span class="text">Khám phá thêm</span>
+                <div class="arrow-down">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </div>
             </div>
         </div>
     </section>
@@ -343,72 +404,12 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title" data-aos="fade-up">Góc Chia Sẻ</h2>
-                <a href="#all-news" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
+                <a href="news.html" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
                         class="fas fa-arrow-right"></i></a>
             </div>
 
-            <div class="news-grid">
-                <article class="news-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="news-card-image">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Tin tức 1"
-                            loading="lazy">
-                        <span class="news-card-category">Thị Trường</span>
-                        <span class="news-card-date">03/01/2026</span>
-                    </div>
-                    <div class="news-card-content">
-                        <h3 class="news-card-title">Xu hướng thị trường BĐS 2026</h3>
-                        <p class="news-card-excerpt">Phân tích chi tiết về xu hướng phát triển của thị trường bất động
-                            sản trong năm 2026...</p>
-                        <div class="news-card-footer">
-                            <div class="news-card-author">
-                                <i class="fas fa-user"></i>
-                                <span>Thạch Vũ</span>
-                            </div>
-                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="news-card-image">
-                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=600" alt="Tin tức 2"
-                            loading="lazy">
-                        <span class="news-card-category">Pháp Lý</span>
-                        <span class="news-card-date">02/01/2026</span>
-                    </div>
-                    <div class="news-card-content">
-                        <h3 class="news-card-title">Hướng dẫn thủ tục mua nhà</h3>
-                        <p class="news-card-excerpt">Tổng hợp đầy đủ các thủ tục pháp lý cần thiết khi mua bất động
-                            sản...</p>
-                        <div class="news-card-footer">
-                            <div class="news-card-author">
-                                <i class="fas fa-user"></i>
-                                <span>Thạch Vũ</span>
-                            </div>
-                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
-
-                <article class="news-card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="news-card-image">
-                        <img src="https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?w=600" alt="Tin tức 3"
-                            loading="lazy">
-                        <span class="news-card-category">Tài Chính</span>
-                        <span class="news-card-date">01/01/2026</span>
-                    </div>
-                    <div class="news-card-content">
-                        <h3 class="news-card-title">Tối ưu hóa khoản vay mua nhà</h3>
-                        <p class="news-card-excerpt">Bí quyết để có được gói vay ưu đãi nhất khi mua bất động sản...</p>
-                        <div class="news-card-footer">
-                            <div class="news-card-author">
-                                <i class="fas fa-user"></i>
-                                <span>Thạch Vũ</span>
-                            </div>
-                            <a href="#article" class="btn-ghost">Đọc thêm <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </article>
+            <div class="news-grid" id="newsGrid" data-aos="fade-up">
+                <!-- Tin tức sẽ được render tự động từ data.js -->
             </div>
         </div>
     </section>
@@ -492,6 +493,12 @@
             </div>
         </div>
     </footer>
+
+    <!-- Sticky button bottom-right -->
+    <a href="tel:0903469888" class="floating-hotline">
+        <span class="icon">📞</span>
+        <span class="text">Gọi ngay</span>
+    </a>
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
