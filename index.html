@@ -68,19 +68,17 @@
             </a>
 
             <nav class="main-nav">
-                <ul>
-                    <li><a href="#home" class="active">Trang Chủ</a></li>
-                    <li><a href="#projects">Dự Án</a></li>
-                    <li><a href="#news">Tin Tức</a></li>
-                    <li><a href="#about">Về Chúng Tôi</a></li>
-                    <li><a href="#contact">Liên Hệ</a></li>
-                </ul>
+                <a href="#home" class="nav-link active">Trang chủ</a>
+                <a href="#projects" class="nav-link">Dự án</a>
+                <a href="#news" class="nav-link">Tin tức</a>
+                <a href="#about" class="nav-link">Về chúng tôi</a>
+                <a href="#contact" class="nav-link nav-cta">Liên hệ</a>
             </nav>
 
             <div class="header-cta">
-                <a href="tel:0903469888" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>0903.469.888</span>
+                <a href="tel:0903469888" class="hotline-btn">
+                    <span class="label">Tổng Đài CSKH</span>
+                    <span class="number">0903.469.888</span>
                 </a>
             </div>
 
@@ -95,7 +93,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul>
-            <li><a href="#home">Trang Chủ</a></li>
+            <li><a href="#home" class="active">Trang Chủ</a></li>
             <li><a href="#projects">Dự Án</a></li>
             <li><a href="#news">Tin Tức</a></li>
             <li><a href="#about">Về Chúng Tôi</a></li>
@@ -116,23 +114,16 @@
             <h1 class="hero-headline text-gradient">
                 Sở Hữu Vị Thế,<br>Khởi Tạo Di Sản
             </h1>
-            <p class="tagline">
-                Bất Động Sản Bình Dương | Pháp Lý Minh Bạch
-            </p>
-            <div class="value-props">
-                <div class="prop-item">
-                    <span class="icon">✓</span>
-                    <span class="text">Pháp lý rõ ràng</span>
+            <div class="balanced-tagline">
+                <span class="tag-part large">Bất Động Sản Bình Dương</span>
+                <div class="tag-middle-group">
+                    <span class="dot">•</span>
+                    <span class="tag-part small">TP.HCM</span>
+                    <span class="dot">•</span>
                 </div>
-                <div class="prop-item">
-                    <span class="icon">💰</span>
-                    <span class="text">Giá công khai</span>
-                </div>
-                <div class="prop-item">
-                    <span class="icon">🏆</span>
-                    <span class="text">Tư vấn tận tâm</span>
-                </div>
+                <span class="tag-part large">Pháp Lý Minh Bạch</span>
             </div>
+
             <div class="hero-cta">
                 <a href="#projects" class="btn-primary neon-glow">Khám Phá Dự Án</a>
                 <a href="#contact" class="btn-secondary glass-morphism">Tư Vấn Ngay</a>
@@ -158,25 +149,23 @@
 
             <!-- Social Proof Section -->
             <div class="social-proof">
-                <div class="avatars">
-                    <img src="images/avatars/avatar1.jpg" alt="Client 1">
-                    <img src="images/avatars/avatar2.jpg" alt="Client 2">
-                    <img src="images/avatars/avatar3.jpg" alt="Client 3">
-                    <span class="more">+497</span>
+                <div class="avatars-group">
+                    <img src="images/avatars/avatar1.jpg" alt="Khách hàng 1" class="avatar">
+                    <img src="images/avatars/avatar2.jpg" alt="Khách hàng 2" class="avatar">
+                    <img src="images/avatars/avatar3.jpg" alt="Khách hàng 3" class="avatar">
+                    <span class="avatar-count">+497</span>
                 </div>
                 <p class="proof-text">
-                    <strong>Anh Tuấn</strong> và <strong>496 người</strong> khác đã tìm được nhà mơ ước
+                    <strong>Anh Tuấn</strong> và <strong>496 người</strong> khác<br>
+                    đã tìm được nhà mơ ước cùng ThachVuLand
                 </p>
             </div>
 
             <div class="scroll-indicator">
                 <span class="text">Khám phá thêm</span>
-                <div class="arrow-down">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                </div>
+                <svg class="arrow" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 15l-5-5h10z" fill="currentColor" />
+                </svg>
             </div>
         </div>
     </section>

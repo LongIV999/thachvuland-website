@@ -1,11 +1,505 @@
-/* ============================================
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+
+    <!-- Primary Meta Tags -->
+    <title>Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp</title>
+    <meta name="title" content="Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp">
+    <meta name="description"
+        content="Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương. Pháp lý minh bạch, tư vấn chuyên sâu, hỗ trợ tài chính.">
+    <meta name="keywords" content="bất động sản, căn hộ cao cấp, Green Tower, Setia Edenia, Bình Dương, TP.HCM">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thachvuland.com/">
+    <meta property="og:title" content="Thạch Vũ Land - Tư Vấn Bất Động Sản Cao Cấp">
+    <meta property="og:description" content="Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương.">
+    <meta property="og:image" content="https://thachvuland.com/og-image.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <!-- Page Transition Loader -->
+    <div class="page-loader" id="pageTransition">
+        <div class="spinner"></div>
+        <p>Đang tải...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
+                    <style>
+                        .tvl-text {
+                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                            font-weight: 800;
+                            letter-spacing: 0.05em;
+                            fill: currentColor;
+                            text-anchor: middle;
+                            dominant-baseline: middle;
+                        }
+                    </style>
+                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
+                </svg>
+            </a>
+
+            <nav class="main-nav">
+                <a href="#home" class="nav-link active">Trang chủ</a>
+                <a href="#projects" class="nav-link">Dự án</a>
+                <a href="#news" class="nav-link">Tin tức</a>
+                <a href="#about" class="nav-link">Về chúng tôi</a>
+                <a href="#contact" class="nav-link nav-cta">Liên hệ</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="tel:0903469888" class="hotline-btn">
+                    <span class="label">Tổng Đài CSKH</span>
+                    <span class="number">0903.469.888</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#home" class="active">Trang Chủ</a></li>
+            <li><a href="#projects">Dự Án</a></li>
+            <li><a href="#news">Tin Tức</a></li>
+            <li><a href="#about">Về Chúng Tôi</a></li>
+            <li><a href="#contact">Liên Hệ</a></li>
+        </ul>
+        <div class="mobile-menu-contact">
+            <a href="tel:0903469888" class="btn-primary">
+                <i class="fas fa-phone"></i> Gọi Ngay
+            </a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="hero-background" id="heroBackground"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-headline text-gradient">
+                Sở Hữu Vị Thế,<br>Khởi Tạo Di Sản
+            </h1>
+            <p class="tagline">
+                Bất Động Sản Bình Dương <span class="separator">•</span> TP.HCM <span class="separator">•</span> Pháp Lý
+                Minh Bạch
+            </p>
+
+            <div class="hero-cta">
+                <a href="#projects" class="btn-primary neon-glow">Khám Phá Dự Án</a>
+                <a href="#contact" class="btn-secondary glass-morphism">Tư Vấn Ngay</a>
+            </div>
+
+            <!-- Trust Bar Refined -->
+            <div class="trust-bar">
+                <div class="trust-item">
+                    <span class="number">500+</span>
+                    <span class="label">Khách tin tưởng</span>
+                </div>
+                <div class="divider"></div>
+                <div class="trust-item">
+                    <span class="number">100%</span>
+                    <span class="label">Pháp lý rõ</span>
+                </div>
+                <div class="divider"></div>
+                <div class="trust-item">
+                    <span class="number">24/7</span>
+                    <span class="label">Tư vấn</span>
+                </div>
+            </div>
+
+            <!-- Social Proof Section -->
+            <div class="social-proof">
+                <div class="avatars-group">
+                    <img src="images/avatars/avatar1.jpg" alt="Khách hàng 1" class="avatar">
+                    <img src="images/avatars/avatar2.jpg" alt="Khách hàng 2" class="avatar">
+                    <img src="images/avatars/avatar3.jpg" alt="Khách hàng 3" class="avatar">
+                    <span class="avatar-count">+497</span>
+                </div>
+                <p class="proof-text">
+                    <strong>Anh Tuấn</strong> và <strong>496 người</strong> khác<br>
+                    đã tìm được nhà mơ ước cùng ThachVuLand
+                </p>
+            </div>
+
+            <div class="scroll-indicator">
+                <span class="text">Khám phá thêm</span>
+                <svg class="arrow" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M12 15l-5-5h10z" fill="currentColor" />
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-number text-gradient">10+</div>
+                    <div class="stat-label">Năm Kinh Nghiệm</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-number text-gradient">500+</div>
+                    <div class="stat-label">Khách Hàng Hài Lòng</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-number text-gradient">20+</div>
+                    <div class="stat-label">Dự Án Phân Phối</div>
+                </div>
+                <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="stat-number text-gradient">100%</div>
+                    <div class="stat-label">Pháp Lý Minh Bạch</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured-projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Dự Án Nổi Bật</h2>
+                <a href="projects.html" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="projects-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper" id="projectSliderWrapper">
+                    <!-- Projects will be rendered here by JS -->
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Slideshow -->
+    <section class="floor-plans-section" id="floor-plans">
+        <div class="container">
+            <div class="section-header text-center" style="display: block; margin-bottom: 60px;">
+                <h2 class="section-title text-gradient" data-aos="fade-up">Mặt Bằng Điển Hình</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Kiến trúc tinh tế, tối ưu không gian
+                    sống cho cư dân hiện đại</p>
+            </div>
+
+            <div class="floor-plans-slider swiper" data-aos="zoom-in" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_41PM.jpeg"
+                                    alt="Mặt bằng điển hình 1">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Căn Hộ 2 Phòng Ngủ</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 75m²</span>
+                                    <span><i class="fas fa-bed"></i> 2 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 2 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_42PM%20(1).jpeg"
+                                    alt="Mặt bằng điển hình 2">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Căn Hộ 3 Phòng Ngủ</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 95m²</span>
+                                    <span><i class="fas fa-bed"></i> 3 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 2 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_43PM.jpeg"
+                                    alt="Mặt bằng điển hình 3">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Penthouse Sang Trọng</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 150m²</span>
+                                    <span><i class="fas fa-bed"></i> 4 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 3 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="floor-plan-card glass-morphism">
+                            <div class="floor-plan-image">
+                                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_44PM.jpeg"
+                                    alt="Mặt bằng điển hình 4">
+                            </div>
+                            <div class="floor-plan-info">
+                                <h3 class="floor-plan-title">Studio Hiện Đại</h3>
+                                <div class="floor-plan-details">
+                                    <span><i class="fas fa-vector-square"></i> 45m²</span>
+                                    <span><i class="fas fa-bed"></i> 1 Phòng Ngủ</span>
+                                    <span><i class="fas fa-bath"></i> 1 WC</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="section-watermark">LEGACY & TRUST</div>
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="parallax" data-speed="0.3">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="Thạch Vũ"
+                            loading="lazy">
+                    </div>
+                </div>
+                <div class="about-content" data-aos="fade-left">
+                    <h2 class="section-title">Về Thạch Vũ</h2>
+                    <p class="about-text">
+                        Với kinh nghiệm thực chiến trong lĩnh vực bất động sản, tôi cam kết mang đến cho khách hàng
+                        những giải pháp đầu tư thông minh, pháp lý minh bạch và giá trị bền vững.
+                    </p>
+                    <ul class="about-values">
+                        <li><i class="fas fa-check-circle"></i> Trung thực trong mọi giao dịch</li>
+                        <li><i class="fas fa-check-circle"></i> Chuyên nghiệp trong tư vấn</li>
+                        <li><i class="fas fa-check-circle"></i> Hiệu quả trong hỗ trợ tài chính</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary">Tìm Hiểu Thêm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Tại Sao Chọn Thạch Vũ Land?</h2>
+            <div class="services-grid">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3 class="service-title">Pháp Lý Minh Bạch</h3>
+                    <p class="service-description">Đảm bảo 100% pháp lý rõ ràng, minh bạch cho mọi giao dịch</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="service-title">Tư Vấn Chuyên Sâu</h3>
+                    <p class="service-description">Đội ngũ chuyên gia giàu kinh nghiệm, tư vấn tận tâm</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="service-title">Hỗ Trợ Tài Chính</h3>
+                    <p class="service-description">Hỗ trợ vay vốn, tư vấn chính sách thanh toán tối ưu</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="service-title">Giá Trị Thực</h3>
+                    <p class="service-description">Cam kết giá trị thực, không phát sinh chi phí ẩn</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="service-title">Đối Tác Uy Tín</h3>
+                    <p class="service-description">Hợp tác với các chủ đầu tư uy tín hàng đầu</p>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="service-title">Hậu Mãi Tận Tâm</h3>
+                    <p class="service-description">Chăm sóc khách hàng chu đáo, hỗ trợ 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-aos="fade-up">Góc Chia Sẻ</h2>
+                <a href="news.html" class="btn-ghost" data-aos="fade-up">Xem Tất Cả <i
+                        class="fas fa-arrow-right"></i></a>
+            </div>
+
+            <div class="news-grid" id="newsGrid" data-aos="fade-up">
+                <!-- Tin tức sẽ được render tự động từ data.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-parallax-bg"></div>
+        <div class="container">
+            <div class="cta-glass-card" data-aos="zoom-in">
+                <h2 class="cta-title">Cần Tư Vấn Chuyên Sâu?</h2>
+                <p class="cta-subtitle">Hãy liên hệ trực tiếp để có giải pháp phù hợp nhất cho dự án của bạn</p>
+                <div class="cta-actions">
+                    <a href="tel:0903469888" class="btn-primary neon-glow">
+                        <i class="fas fa-phone"></i> 0903.469.888
+                    </a>
+                    <a href="#contact-details" class="btn-secondary glass-morphism">Thông tin chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col footer-about">
+                        <h4>Thạch Vũ Land</h4>
+                        <p>Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương. Pháp lý minh bạch, tư vấn
+                            chuyên sâu, hỗ trợ tài chính.</p>
+                        <div class="footer-social">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-zalo"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h4>Liên Kết</h4>
+                        <ul>
+                            <li><a href="#home">Trang Chủ</a></li>
+                            <li><a href="#projects">Dự Án</a></li>
+                            <li><a href="#news">Tin Tức</a></li>
+                            <li><a href="#about">Về Chúng Tôi</a></li>
+                            <li><a href="#contact">Liên Hệ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-links">
+                        <h4>Dự Án</h4>
+                        <ul>
+                            <li><a href="#projects">Green Skyline (TBS Land)</a></li>
+                            <li><a href="#projects">Setia Edenia (EcoXuân)</a></li>
+                            <li><a href="tel:0903469888">Liên Hệ Tư Vấn</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-col footer-contact">
+                        <h4>Liên Hệ</h4>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>0903.469.888</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@thachvuland.com</span>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>TP. Hồ Chí Minh, Việt Nam</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky button bottom-right -->
+    <a href="tel:0903469888" class="floating-hotline">
+        <span class="icon">📞</span>
+        <span class="text">Gọi ngay</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>/* ============================================
    THACHVULAND 2026 - MODERN CORPORATE LUXURY
    Design System & Styles
    ============================================ */
 
 /* Vietnamese-optimized Fonts */
-/* Vietnamese-optimized Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&family=Cinzel:wght@400;500;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;600;700&family=Cormorant+Garamond:wght@300;400;600;700&display=swap');
 
 /* ============================================
    CSS VARIABLES - DESIGN SYSTEM
@@ -50,8 +544,8 @@
     --gradient-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
 
     /* Typography */
-    --font-heading: 'Cinzel', serif;
-    --font-body: 'Josefin Sans', sans-serif;
+    --font-heading: 'Cormorant Garamond', 'Times New Roman', serif;
+    --font-body: 'Be Vietnam Pro', -apple-system, sans-serif;
     --font-display: var(--font-heading);
 
     /* Type Scale */
@@ -285,36 +779,6 @@ button {
     /* Ensure gradient works on inline elements */
 }
 
-/* Premium Layout Utilities */
-.bento-container {
-    display: grid;
-    gap: var(--spacing-md);
-    grid-template-columns: repeat(12, 1fr);
-}
-
-.bento-card {
-    background: white;
-    border-radius: 24px;
-    padding: var(--spacing-lg);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all var(--transition-base);
-    overflow: hidden;
-}
-
-.bento-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
-}
-
-/* Liquid Glass Effect */
-.liquid-glass {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px;
-}
-
 /* ============================================
    PAGE TRANSITION LOADER
    ============================================ */
@@ -377,16 +841,9 @@ button {
 }
 
 .site-header.scrolled {
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    width: calc(100% - 40px);
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
     padding: 12px 0;
 }
 
@@ -707,81 +1164,20 @@ button {
     color: white;
 }
 
-/* ============================================
-   ADVANCED BALANCED TAGLINE SYSTEM
-   ============================================ */
-:root {
-    --tag-font-large: 20px;
-    /* Secondary brand text */
-    --tag-font-small: 11px;
-    /* Mini location text (~50% of large) */
-    --tag-color: rgba(255, 255, 255, 0.9);
-    --tag-spacing: 24px;
-    /* Equal spacing between parts */
+.tagline {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    margin: 24px 24px 0;
+    letter-spacing: 1px;
+    text-transform: capitalize;
 }
 
-.balanced-tagline {
-    display: flex;
-    align-items: center;
-    /* Essential: Centers small text precisely on Y-axis */
-    justify-content: center;
-    gap: var(--tag-spacing);
-    margin: 32px auto 0;
-    font-family: var(--font-body);
-    color: var(--tag-color);
-    width: 100%;
-    line-height: 1;
-}
-
-/* Individual text components */
-.tag-part {
-    display: inline-block;
-    transition: all 0.4s ease;
-    white-space: nowrap;
-}
-
-/* Primary large statements */
-.tag-part.large {
-    font-size: var(--tag-font-large);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-}
-
-/* Central grouping (dots + small text) */
-.tag-middle-group {
-    display: flex;
-    align-items: center;
-    gap: 16px;
+.tagline .separator {
     color: var(--gold-primary);
-    transition: all 0.4s ease;
-}
-
-/* Micro location text */
-.tag-part.small {
-    font-size: var(--tag-font-small);
+    margin: 0 12px;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--gold-primary);
-    padding-bottom: 1px;
-    /* Optical adjustment for baseline descent */
-}
-
-/* The separator dot */
-.dot {
-    font-size: 18px;
-    font-weight: 900;
-}
-
-/* Symmetrical interactions */
-.balanced-tagline:hover .tag-part.large {
-    color: #fff;
-    transform: translateY(-1px);
-}
-
-.balanced-tagline:hover .tag-middle-group {
-    transform: scale(1.05);
-    filter: drop-shadow(0 0 10px rgba(197, 160, 89, 0.4));
 }
 
 .hero-subtitle {
@@ -1048,13 +1444,13 @@ button {
 .btn-primary {
     background: linear-gradient(135deg, #E5C888 0%, #D4AF37 100%);
     color: var(--neutral-900);
-    padding: 16px 40px;
-    font-size: 15px;
+    padding: 18px 48px;
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 12px;
-    border: 2px solid transparent;
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
@@ -1076,12 +1472,12 @@ button {
     background: transparent;
     color: white;
     border: 2px solid var(--gold-primary);
-    padding: 16px 40px;
-    border-radius: 12px;
-    font-size: 15px;
+    padding: 14px 32px;
+    /* 2px less to compensate border */
+    border-radius: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     transition: all 0.3s ease;
     display: inline-block;
 }
@@ -1190,64 +1586,44 @@ section {
     box-shadow: 0 8px 24px rgba(197, 160, 89, 0.5);
 }
 
+/* ============================================
+   STATS BAR
+   ============================================ */
 .stats-bar {
+    background: var(--primary-900);
     padding: 60px 0;
-    margin-top: -80px;
-    position: relative;
-    z-index: 10;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 30px;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    border-radius: 30px;
-    padding: 50px 40px;
-    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.2);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
 }
 
 .stat-item {
     text-align: center;
-    position: relative;
-}
-
-.stat-item:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: -15px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 50%;
-    background: rgba(197, 160, 89, 0.2);
+    color: white;
 }
 
 .stat-number {
     font-family: var(--font-heading);
-    font-size: 3.5rem;
+    font-size: var(--text-h1);
     font-weight: 700;
-    margin-bottom: 8px;
-    background: linear-gradient(135deg, var(--accent-gold) 0%, #8B7355 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--accent-gold);
+    margin-bottom: var(--spacing-sm);
 }
 
 .stat-label {
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--neutral-700);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
+    font-size: var(--text-base);
+    opacity: 0.9;
 }
 
+/* ============================================
+   FEATURED PROJECTS
+   ============================================ */
 .featured-projects {
     padding: var(--spacing-3xl) 0;
-    background: #ffffff;
+    background: var(--neutral-50);
 }
 
 .projects-slider {
@@ -1255,64 +1631,17 @@ section {
 }
 
 .project-card {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
+    background: white;
+    border-radius: 8px;
     overflow: hidden;
-    position: relative;
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     height: 100%;
-    z-index: 1;
-}
-
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(to right,
-            transparent,
-            rgba(255, 255, 255, 0.3),
-            transparent);
-    transform: skewX(-25deg);
-    transition: none;
-    z-index: 2;
-    pointer-events: none;
 }
 
 .project-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(197, 160, 89, 0.1);
-    border-color: rgba(197, 160, 89, 0.3);
-}
-
-.project-card:hover::before {
-    left: 150%;
-    transition: left 0.8s ease-in-out;
-}
-
-.project-aurora-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 200%;
-    height: 200%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: -1;
-    pointer-events: none;
-}
-
-.project-card:hover .project-aurora-glow {
-    opacity: 1;
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
 .project-card-image {
@@ -1334,21 +1663,16 @@ section {
 
 .project-card-badge {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(0, 61, 51, 0.85);
-    /* Deep green glass */
-    backdrop-filter: blur(4px);
-    color: var(--accent-gold);
-    padding: 8px 16px;
-    font-size: 11px;
+    top: 16px;
+    right: 16px;
+    background: var(--accent-gold);
+    color: var(--neutral-900);
+    padding: 6px 12px;
+    font-size: var(--text-xs);
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
-    border-radius: 100px;
-    border: 1px solid rgba(197, 160, 89, 0.3);
-    z-index: 3;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+    border-radius: 4px;
 }
 
 .project-card-content {
@@ -1923,26 +2247,11 @@ section {
     }
 
     /* Tagline Responsive */
-    .tagline,
-    .balanced-tagline {
-        flex-direction: column;
-        gap: 12px;
-        margin-top: 16px;
+    .tagline {
         font-size: 15px;
+        /* Matched base mobile refinement */
         padding: 0 20px;
-    }
-
-    .balanced-tagline .tag-part.large {
-        font-size: 16px;
-    }
-
-    .balanced-tagline .dot {
-        display: none;
-    }
-
-    .balanced-tagline .tag-middle-group {
-        order: -1;
-        gap: 0;
+        margin: 16px 24px 0;
     }
 
     .hero-subtitle {

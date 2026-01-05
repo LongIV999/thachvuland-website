@@ -191,6 +191,7 @@ function renderProjects() {
     wrapper.innerHTML = projectData.map(project => `
         <div class="swiper-slide">
             <div class="project-card glass-morphism">
+                <div class="project-aurora-glow"></div>
                 <div class="project-card-image">
                     <img src="${project.image}" alt="${project.title}" loading="lazy">
                     <span class="project-card-badge neon-glow">${project.status}</span>

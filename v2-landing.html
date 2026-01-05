@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
+
+    <title>Thạch Vũ Land | Sở Hữu Vị Thế - Khởi Tạo Di Sản</title>
+    <meta name="description"
+        content="Chuyên trang bất động sản cao cấp Thạch Vũ Land. Nơi hội tụ những dự án đẳng cấp tại TP.HCM và Bình Dương.">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Josefin+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons & Plugins -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <style>
+        /* Landing V2 Exclusive Styles */
+        :root {
+            --accent-gold-glow: rgba(197, 160, 89, 0.4);
+        }
+
+        .hero-v2 {
+            height: 100vh;
+            background: #002D24;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .hero-v2-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-v2-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 24px;
+        }
+
+        .hero-v2-title {
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: 1;
+            margin-bottom: 32px;
+        }
+
+        .hero-v2-description {
+            max-width: 600px;
+            font-size: 1.25rem;
+            opacity: 0.8;
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        /* Bento Grid Section */
+        .bento-section {
+            padding: 120px 0;
+            background: #ffffff;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, 350px);
+            gap: 24px;
+        }
+
+        .bento-item {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s ease;
+        }
+
+        .bento-item:hover {
+            transform: scale(0.98);
+        }
+
+        .bento-1 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .bento-2 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+
+        .bento-3 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .bento-4 {
+            grid-column: span 1;
+            grid-row: span 1;
+        }
+
+        .bento-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bento-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+        }
+
+        /* Value Props V2 */
+        .value-v2 {
+            padding: 100px 0;
+            background: var(--primary-900);
+            color: white;
+        }
+
+        .value-v2-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .vcard {
+            padding: 40px;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .vcard:hover {
+            background: rgba(197, 160, 89, 0.05);
+            border-color: var(--accent-gold);
+            transform: translateY(-10px);
+        }
+
+        .vicon {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Premium Loader -->
+    <div class="page-loader" id="pageTransition">
+        <div class="spinner"></div>
+        <p>Thạch Vũ Land</p>
+    </div>
+
+    <!-- Floating Navbar -->
+    <header class="site-header" id="siteHeader">
+        <div class="header-container">
+            <a href="index.html" class="logo">TVL</a>
+            <nav class="main-nav">
+                <a href="#home" class="nav-link">Trang chủ</a>
+                <a href="#projects" class="nav-link">Dự án</a>
+                <a href="#values" class="nav-link">Giá trị</a>
+                <a href="#contact" class="nav-link nav-cta">Liên hệ</a>
+            </nav>
+            <div class="header-cta">
+                <a href="tel:0903469888" class="hotline-btn">
+                    <span class="number">0903.469.888</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Luxury Hero v2 -->
+    <section class="hero-v2" id="home">
+        <div id="heroBackground" class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-v2-container">
+            <div data-aos="fade-up">
+                <span class="hero-v2-badge">Thương Hiệu Bất Động Sản Di Sản</span>
+                <h1 class="hero-v2-title cinzel">Sở Hữu Vị Thế<br><span class="text-gradient">Khởi Tạo Di Sản</span>
+                </h1>
+                <p class="hero-v2-description">Giải pháp tư vấn bất động sản chuyên sâu cho giới thượng lưu. Pháp lý
+                    vững vàng, đầu tư bền vững.</p>
+                <div class="hero-cta">
+                    <button class="btn-primary neon-glow btn-lg">Xem Bộ Sưu Tập</button>
+                    <button class="btn-secondary glass-morphism btn-lg">Nhận Brochure</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid" data-aos="zoom-in">
+                <div class="stat-item">
+                    <div class="stat-number text-gradient" data-target="1500">0</div>
+                    <div class="stat-label">Tài sản bàn giao</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-gradient" data-target="100">0</div>
+                    <div class="stat-label">Tỉ lệ pháp lý %</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-gradient" data-target="10">0</div>
+                    <div class="stat-label">Năm uy tín</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number text-gradient" data-target="500">0</div>
+                    <div class="stat-label">Đối tác chiến lược</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Collections -->
+    <section class="bento-section" id="projects">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Bộ Sưu Tập Tuyển Chọn</h2>
+                <p>Những tuyệt tác kiến trúc định nghĩa lại chuẩn mực sống thượng lưu</p>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-item bento-1" data-aos="fade-right">
+                    <img src="https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg" class="bento-img"
+                        alt="Green Skyline">
+                    <div class="bento-content">
+                        <span class="hero-v2-badge">DỰ ÁN TÂM ĐIỂM</span>
+                        <h3>Green Skyline</h3>
+                        <p>Biểu tượng mới tại mặt tiền Phạm Văn Đồng</p>
+                    </div>
+                </div>
+                <div class="bento-item bento-2" data-aos="fade-left">
+                    <img src="https://setia.com.vn/wp-content/uploads/2024/05/setia-gardens-residences-thuan-an-binh-duong-1-1.jpg"
+                        class="bento-img" alt="Setia Edenia">
+                    <div class="bento-content">
+                        <h3>Setia Edenia</h3>
+                        <p>Khu đô thị sinh thái EcoXuân</p>
+                    </div>
+                </div>
+                <div class="bento-item bento-3" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" class="bento-img"
+                        alt="The Rivana">
+                    <div class="bento-content">
+                        <h3>The Rivana</h3>
+                    </div>
+                </div>
+                <div class="bento-item bento-4" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800" class="bento-img"
+                        alt="Astral City">
+                    <div class="bento-content">
+                        <h3>Astral City</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Props v2 -->
+    <section class="value-v2" id="values">
+        <div class="container">
+            <div class="value-v2-grid">
+                <div class="vcard" data-aos="fade-up">
+                    <i class="fas fa-crown vicon"></i>
+                    <h3>Đẳng Cấp Thượng Lưu</h3>
+                    <p>Chúng tôi tập trung vào phân khúc bất động sản hạng sang với chuẩn mực dịch vụ quốc tế.</p>
+                </div>
+                <div class="vcard" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-shield-alt vicon"></i>
+                    <h3>An Toàn Tuyệt Đối</h3>
+                    <p>Mọi dự án đều được kiểm định pháp lý nghiêm ngặt trước khi giới thiệu đến quý nhà đầu tư.</p>
+                </div>
+                <div class="vcard" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-chart-line vicon"></i>
+                    <h3>Lợi Nhuận Bền Vững</h3>
+                    <p>Tư vấn lộ trình đầu tư với tỉ suất lợi nhuận cao và tính thanh khoản tốt nhất thị trường.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // Init AOS
+        AOS.init({ duration: 1000, once: true });
+
+        // Counter Animation for Stats
+        const counters = document.querySelectorAll('.stat-number');
+        const observerOptions = { threshold: 0.5 };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    const duration = 2000;
+                    let start = 0;
+                    const step = target / (duration / 16);
+
+                    const update = () => {
+                        start += step;
+                        if (start < target) {
+                            counter.innerText = Math.floor(start) + (counter.parentElement.innerText.includes('%') ? '%' : '+');
+                            requestAnimationFrame(update);
+                        } else {
+                            counter.innerText = target + (counter.parentElement.innerText.includes('%') ? '%' : '+');
+                        }
+                    };
+                    update();
+                    counterObserver.unobserve(counter);
+                }
+            });
+        }, observerOptions);
+
+        counters.forEach(c => counterObserver.observe(c));
+    </script>
+</body>
+
+</html>
