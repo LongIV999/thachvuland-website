@@ -4,209 +4,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
     <title>Tin Tức - Thạch Vũ Land</title>
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cinzel:wght@400;700;900&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icons & Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Styles -->
     <link rel="stylesheet" href="styles/main.css">
+
     <style>
         .news-detail-page {
-            padding-top: 140px;
+            padding-top: 100px;
             padding-bottom: 80px;
-            background: var(--neutral-900);
-            min-height: 100vh;
+            background: #ffffff;
+            /* Light theme for reading */
         }
 
-        .news-detail-container {
+        .article-header {
+            margin-bottom: 40px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .article-category {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-600);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .article-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--neutral-900);
+            line-height: 1.2;
+            margin-bottom: 20px;
             max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 14px;
+            color: var(--neutral-500);
+            margin-bottom: 30px;
+        }
+
+        .article-featured-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-content {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--neutral-700);
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .news-detail-header {
-            text-align: center;
-            margin-bottom: 50px;
+        .article-content p {
+            margin-bottom: 25px;
         }
 
-        .news-detail-category {
-            display: inline-block;
-            background: var(--accent-gold);
-            color: var(--neutral-900);
-            padding: 5px 15px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 3px;
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin-top: 40px;
             margin-bottom: 20px;
+            color: var(--primary-900);
         }
 
-        .news-detail-title {
-            font-family: 'Cinzel', serif;
-            font-size: 3rem;
-            color: white;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--accent-gold));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .related-section {
+            padding: 80px 0;
+            background: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 80px;
         }
 
-        .news-detail-meta {
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.9rem;
+        .author-box {
             display: flex;
-            justify-content: center;
-            gap: 25px;
+            align-items: center;
+            gap: 20px;
+            margin-top: 60px;
+            padding: 30px;
+            background: #f9f9f9;
+            border-radius: 12px;
+            border: 1px solid #eee;
         }
 
-        .news-detail-meta i {
-            color: var(--accent-gold);
-            margin-right: 8px;
-        }
-
-        .news-detail-featured-image {
-            width: 100%;
-            height: 500px;
-            border-radius: 15px;
-            overflow: hidden;
-            margin-bottom: 60px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .news-detail-featured-image img {
-            width: 100%;
-            height: 100%;
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             object-fit: cover;
         }
 
-        .news-detail-content {
-            padding: 60px;
-            border-radius: 20px;
-            border: 1px solid rgba(197, 160, 89, 0.1);
-            color: rgba(255, 255, 255, 0.9);
-            line-height: 1.8;
-            font-size: 1.15rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .news-detail-content p {
-            margin-bottom: 25px;
-        }
-
-        .news-detail-content ul {
-            margin-bottom: 25px;
-            padding-left: 20px;
-        }
-
-        .news-detail-content li {
-            margin-bottom: 15px;
-            list-style: disc;
-            color: var(--accent-gold);
-        }
-
-        .news-detail-content li span {
-            color: white;
-        }
-
-        .news-detail-footer {
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        .error-container {
-            text-align: center;
-            padding: 100px 0;
-            color: white;
-        }
-
+        /* Responsive override */
         @media (max-width: 768px) {
-            .news-detail-title {
-                font-size: 2rem;
-            }
-
-            .news-detail-featured-image {
+            .article-featured-image {
                 height: 300px;
-            }
-
-            .news-detail-content {
-                padding: 30px;
-                font-size: 1rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Page Transition -->
-    <div class="page-loader" id="pageTransition">
-        <div class="spinner"></div>
-        <p>Đang tải...</p>
-    </div>
-
     <!-- Header -->
-    <header class="site-header scrolled" id="siteHeader">
+    <header class="site-header scrolled">
         <div class="header-container">
             <a href="index.html" class="logo">
-                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        .tvl-text {
-                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                            font-weight: 800;
-                            letter-spacing: 0.05em;
-                            fill: currentColor;
-                            text-anchor: middle;
-                            dominant-baseline: middle;
-                        }
-                    </style>
-                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
-                </svg>
+                <span class="cinzel" style="color: var(--primary-900)">THẠCH VŨ</span>
+                <span class="logo-sub" style="color: var(--accent-gold)">LAND</span>
             </a>
             <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="projects.html">Dự Án</a></li>
-                    <li><a href="news.html">Tin Tức</a></li>
-                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
-                    <li><a href="index.html#contact">Liên Hệ</a></li>
-                </ul>
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="index.html#projects" class="nav-link">Dự án</a>
+                <a href="news.html" class="nav-link">Tin tức</a>
             </nav>
         </div>
     </header>
 
     <main class="news-detail-page">
         <div class="container" id="newsDetailContainer">
-            <!-- News detail content will be rendered here -->
-            <div class="loader-container" style="text-align: center; padding: 100px;">
-                <div class="loader"></div>
+            <!-- Rendered via JS -->
+            <div style="text-align: center; padding: 100px;">
+                <i class="fas fa-spinner fa-spin" style="font-size: 30px; color: var(--accent-gold);"></i>
             </div>
         </div>
     </main>
 
+    <!-- Related News -->
+    <section class="related-section">
+        <div class="container">
+            <h3 class="section-title text-center">Tin Liên Quan</h3>
+            <div class="news-grid-modern" id="relatedNewsGrid"
+                style="grid-template-columns: repeat(3, 1fr); margin-top: 40px;">
+                <!-- JS -->
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container" style="text-align: center; padding: 40px 0;">
-            <p>&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
+    <footer class="site-footer" style="background: var(--primary-900); color: white; padding: 40px 0;">
+        <div class="container">
+            <p class="text-center">&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
     <script src="scripts/data.js"></script>
-    <script src="scripts/main.js"></script>
+    <script>
+        // Check ID
+        const urlParams = new URLSearchParams(window.location.search);
+        const newsId = parseInt(urlParams.get('id')) || 1; // Default to ID 1 if null
+
+        const detailContainer = document.getElementById('newsDetailContainer');
+        const relatedGrid = document.getElementById('relatedNewsGrid');
+
+        // Find Articles
+        const article = newsData.find(item => item.id === newsId);
+
+        if (article) {
+            // Render Article
+            detailContainer.innerHTML = `
+                <article>
+                    <header class="article-header">
+                        <span class="article-category">${article.category}</span>
+                        <h1 class="article-title">${article.title}</h1>
+                        <div class="article-meta">
+                            <span><i class="fas fa-calendar"></i> ${article.date}</span>
+                            <span><i class="fas fa-user"></i> ${article.author}</span>
+                            <span><i class="fas fa-clock"></i> 5 phút đọc</span>
+                        </div>
+                    </header>
+
+                    <img src="${article.image}" alt="${article.title}" class="article-featured-image">
+
+                    <div class="article-content">
+                        <p style="font-size: 1.25rem; font-weight: 500; color: var(--primary-900); margin-bottom: 30px;">
+                            ${article.excerpt}
+                        </p>
+                        ${article.content}
+                        
+                        <div class="author-box">
+                             <img src="https://randomuser.me/api/portraits/men/32.jpg" class="author-avatar">
+                             <div>
+                                <h4 style="margin: 0; color: var(--primary-900)">${article.author}</h4>
+                                <p style="margin: 0; font-size: 13px; color: #666;">Chuyên gia phân tích bất động sản</p>
+                             </div>
+                        </div>
+                    </div>
+                </article>
+            `;
+
+            // Render Related (Simple logic: Same category or random)
+            const related = newsData.filter(item => item.id !== newsId).slice(0, 3);
+            related.forEach(item => {
+                relatedGrid.insertAdjacentHTML('beforeend', `
+                    <article class="article-card-modern">
+                        <div class="img-wrapper">
+                            <a href="news-detail.html?id=${item.id}">
+                                <img src="${item.image}" alt="${item.title}">
+                            </a>
+                        </div>
+                        <div class="content">
+                             <span style="font-size: 11px; font-weight: 600; color: var(--primary-600);">${item.category}</span>
+                             <h4 style="margin: 5px 0;"><a href="news-detail.html?id=${item.id}">${item.title}</a></h4>
+                        </div>
+                    </article>
+                 `);
+            });
+
+        } else {
+            detailContainer.innerHTML = '<h1>Không tìm thấy bài viết</h1>';
+        }
+    </script>
 </body>
 
 </html>

@@ -146,7 +146,7 @@ const projectData = [
 ];
 
 const newsData = [
-    {
+{
         id: 1,
         title: "Xu hướng thị trường BĐS 2026",
         image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
@@ -205,5 +205,25 @@ const newsData = [
         excerpt: "Phân tích dòng tiền và tỉ suất lợi nhuận của hai loại hình bất động sản phổ biến...",
         content: "<p>Năm 2026, căn hộ cho thuê đang trở thành xu hướng nhờ dòng tiền ổn định, trong khi nhà phố vẫn giữ ưu thế về tăng trưởng giá trị dài hạn. Tùy vào mục tiêu tài chính mà bạn nên chọn loại hình phù hợp...</p>",
         author: "Thạch Vũ"
+    },
+    {
+        id: 7,
+        title: "Tin vui cho hàng triệu phụ nữ trong độ tuổi sinh sản ngay từ 1/7/2026: Hàng loạt quyền lợi mới đáng chú ý",
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800",
+        category: "Pháp Lý",
+        date: "05/01/2026",
+        excerpt: "Hàng loạt quyền lợi mới đáng chú ý chính thức có hiệu lực từ 1/7/2026, mang lại tin vui cho hàng triệu phụ nữ...",
+        content: "<p>Tin vui cho hàng triệu phụ nữ trong độ tuổi sinh sản ngay từ 1/7/2026: Hàng loạt quyền lợi mới đáng chú ý.</p><p>Đây là những thay đổi quan trọng trong chính sách, nhằm đảm bảo quyền lợi và sức khỏe cho phụ nữ.</p>",
+        author: "Thạch Vũ"
+    },
+    {
+        id: 8,
+        title: "Bài báo test tự động",
+        image: "https://images.unsplash.com/photo-1582408921715-18e7806365c1?w=800",
+        category: "Kiến Thức",
+        date: "05/01/2026",
+        excerpt: "Mô tả ngắn cho bài báo test.",
+        content: "<p>Nội dung bài báo test tự động hóa.</p>",
+        author: "Thạch Vũ AI"
     }
 ];
