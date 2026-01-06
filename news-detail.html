@@ -138,8 +138,25 @@
                         </div>
                     </article>
                 `;
-                relatedContainer.insertAdjacentHTML('beforeend', card);
             });
+
+            // Inject JSON-LD
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "NewsArticle",
+                "headline": article.title,
+                "image": [article.image],
+                "datePublished": article.date, // Note: Should ideally be ISO 8601, but using raw for now
+                "author": [{
+                    "@type": "Person",
+                    "name": article.author,
+                    "url": "https://thachvuland.com"
+                }]
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
 
         } else {
             container.innerHTML = '<div style="text-align: center; padding: 100px;"><h1>Article not found</h1></div>';

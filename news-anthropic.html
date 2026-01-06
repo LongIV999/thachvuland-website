@@ -140,7 +140,7 @@
                 featuredContainer.innerHTML = `
                     <article class="featured-article">
                         <div class="featured-article__image-container">
-                            <img src="${featured.image}" alt="${featured.title}" class="featured-article__image">
+                            <img src="${featured.image}" alt="${featured.title}" class="featured-article__image" loading="lazy">
                         </div>
                         <div class="featured-article__content">
                             <span class="category-tag">${featured.category}</span>
@@ -162,7 +162,7 @@
                         <article class="article-card">
                             <div class="article-card__image-container">
                                 <a href="news-detail.html?id=${news.id}">
-                                    <img src="${news.image}" alt="${news.title}" class="article-card__image">
+                                    <img src="${news.image}" alt="${news.title}" class="article-card__image" loading="lazy">
                                 </a>
                             </div>
                             <div class="article-card__content">

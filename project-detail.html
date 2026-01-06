@@ -133,7 +133,7 @@
                         <section style="margin-top: 60px;">
                             <h2 class="article-body" style="font-weight: 600; font-size: 1.8rem; margin-bottom: 32px;">Thư viện hình ảnh</h2>
                             <div class="gallery-masonry">
-                                ${project.gallery ? project.gallery.map(img => `<img src="${img}" alt="${project.title} Gallery">`).join('') : ''}
+                                ${project.gallery ? project.gallery.map(img => `<img src="${img}" alt="${project.title} Gallery" loading="lazy">`).join('') : ''}
                             </div>
                         </section>
 
@@ -178,6 +178,29 @@
                     </aside>
                 </div>
             `;
+
+            // Inject JSON-LD
+            const jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "Product",
+                "name": project.title,
+                "image": [project.image],
+                "description": project.description,
+                "brand": {
+                    "@type": "Brand",
+                    "name": "Thạch Vũ Land"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": project.price,
+                    "priceCurrency": "VND",
+                    "availability": "https://schema.org/InStock"
+                }
+            };
+            const script = document.createElement('script');
+            script.type = 'application/ld+json';
+            script.text = JSON.stringify(jsonLd);
+            document.head.appendChild(script);
 
             // Animations
             gsap.from(".gallery-masonry img", {
