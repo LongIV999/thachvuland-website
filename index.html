@@ -68,274 +68,330 @@
 <body>
 
     <!-- Header -->
-    <header class="site-header">
-        <div class="header-container">
+    <header class="site-header" id="siteHeader">
+        <div class="header-container container">
             <a href="index.html" class="logo">THACH VU <span>LAND</span></a>
             <nav class="main-nav">
-                <a href="#home" class="nav-link active">Trang chủ</a>
-                <a href="#projects" class="nav-link">Dự án</a>
-                <a href="knowledge.html" class="nav-link">Kiến thức</a>
-                <a href="news-anthropic.html" class="nav-link">Tin tức</a>
-                <a href="#about" class="nav-link">Về chúng tôi</a>
-                <a href="#contact" class="nav-link nav-cta">Liên hệ</a>
+                <a href="index.html" class="nav-link active">Trang Chủ</a>
+                <a href="projects.html" class="nav-link">Dự Án</a>
+                <a href="knowledge.html" class="nav-link">Kiến Thức</a>
+                <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
+                <a href="#about" class="nav-link">Về Chúng Tôi</a>
+                <a href="#contact" class="nav-link nav-cta">Liên Hệ</a>
             </nav>
-            <div class="mobile-menu-btn">
+            <div class="mobile-menu-btn" id="mobileMenuToggle" aria-haspopup="true" aria-expanded="false"
+                aria-label="Toggle mobile menu">
                 <i class="fas fa-bars"></i>
             </div>
         </div>
     </header>
 
-    <span><i class="fas fa-vector-square"></i> 95m²</span>
-    <span><i class="fas fa-bed"></i> 3 Phòng Ngủ</span>
-    <span><i class="fas fa-bath"></i> 2 WC</span>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-menu-nav">
+            <a href="index.html" class="mobile-nav-link">Trang Chủ</a>
+            <a href="projects.html" class="mobile-nav-link">Dự Án</a>
+            <a href="knowledge.html" class="mobile-nav-link">Kiến Thức</a>
+            <a href="news-anthropic.html" class="mobile-nav-link">Tin Tức</a>
+            <a href="#about" class="mobile-nav-link">Về Chúng Tôi</a>
+            <a href="#contact" class="mobile-nav-link mobile-nav-cta">Liên Hệ</a>
+        </nav>
     </div>
-    </div>
-    </div>
-    </div>
-    <!-- Slide 3 -->
-    <div class="swiper-slide">
-        <div class="floor-plan-card glass-morphism">
-            <div class="floor-plan-image">
-                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_43PM.webp"
-                    alt="Mặt bằng điển hình 3" loading="lazy">
-            </div>
-            <div class="floor-plan-info">
-                <h3 class="floor-plan-title">Penthouse Sang Trọng</h3>
-                <div class="floor-plan-details">
-                    <span><i class="fas fa-vector-square"></i> 150m²</span>
-                    <span><i class="fas fa-bed"></i> 4 Phòng Ngủ</span>
-                    <span><i class="fas fa-bath"></i> 3 WC</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Slide 4 -->
-    <div class="swiper-slide">
-        <div class="floor-plan-card glass-morphism">
-            <div class="floor-plan-image">
-                <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_44PM.webp"
-                    alt="Mặt bằng điển hình 4" loading="lazy">
-            </div>
-            <div class="floor-plan-info">
-                <h3 class="floor-plan-title">Studio Hiện Đại</h3>
-                <div class="floor-plan-details">
-                    <span><i class="fas fa-vector-square"></i> 45m²</span>
-                    <span><i class="fas fa-bed"></i> 1 Phòng Ngủ</span>
-                    <span><i class="fas fa-bath"></i> 1 WC</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Slide 5: New Added Image -->
-    <div class="swiper-slide">
-        <div class="floor-plan-card glass-morphism">
-            <div class="floor-plan-image">
-                <img src="mat%20bang%20mau/z7390566239182_e66e1d4119c6e6a13e6a617960b10676.webp"
-                    alt="Mặt bằng Shophouse" loading="lazy">
-            </div>
-            <div class="floor-plan-info">
-                <h3 class="floor-plan-title">Shophouse Thương Mại</h3>
-                <div class="floor-plan-details">
-                    <span><i class="fas fa-vector-square"></i> 120m²</span>
-                    <span><i class="fas fa-bed"></i> 2 Phòng Ngủ</span>
-                    <span><i class="fas fa-bath"></i> 2 WC</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
 
-    <!-- Navigation -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    </div>
-    </div>
-    </section>
+    <main>
+        <!-- Modern Hero Section -->
+        <section class="hero-section" id="home">
+            <div id="heroBackground" class="hero-background"></div>
+            <div class="container hero-container">
+                <div class="hero-content" data-aos="fade-up">
+                    <span class="hero-tagline">Legacy & Trust in Real Estate</span>
+                    <h1 class="hero-headline">Kiến Tạo Giá Trị <br>Bền Vững Qua <span class="text-gradient">Thế
+                            Hệ</span></h1>
+                    <p class="hero-subtitle">
+                        Chuyên gia tư vấn bất động sản cao cấp, pháp lý minh bạch và giải pháp tài chính tối ưu cho nhà
+                        đầu tư chuyên nghiệp.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="projects.html" class="btn-primary">Khám Phá Dự Án</a>
+                        <a href="#contact" class="btn-secondary">Liên Hệ Tư Vấn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <span>Scroll to explore</span>
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <div class="section-watermark">LEGACY & TRUST</div>
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-image" data-aos="fade-right">
-                    <div class="parallax" data-speed="0.3">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800" alt="Thạch Vũ"
+        <!-- Floor Plans Highlight (Premium Slider) -->
+        <section class="floor-plans-section" style="padding: 100px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 60px;">
+                    <h2 class="section-title" data-aos="fade-up">Thiết Kế Không Gian Sống</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">Khám phá các mẫu thiết kế căn hộ tinh tế và tối ưu diện
+                        tích.</p>
+                </div>
+
+                <div class="swiper floor-plans-slider" data-aos="fade-up">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="swiper-slide">
+                            <div class="floor-plan-card glass-morphism"
+                                style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: var(--radius-lg);">
+                                <div class="floor-plan-image">
+                                    <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_42PM.webp"
+                                        alt="Mặt bằng điển hình 1" loading="lazy"
+                                        style="width: 100%; border-radius: var(--radius-md);">
+                                </div>
+                                <div class="floor-plan-info">
+                                    <h3 style="font-size: 2rem; margin-bottom: 20px;">Căn Hộ 2 Phòng Ngủ</h3>
+                                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Thiết kế thông minh
+                                        với ban công rộng, tối ưu ánh sáng tự nhiên và gió trời cho mọi phòng ngủ.</p>
+                                    <div class="floor-plan-details" style="display: flex; gap: 30px;">
+                                        <span><i class="fas fa-vector-square"
+                                                style="color: var(--anthropic-orange);"></i> 68m²</span>
+                                        <span><i class="fas fa-bed" style="color: var(--anthropic-orange);"></i> 2
+                                            Bed</span>
+                                        <span><i class="fas fa-bath" style="color: var(--anthropic-orange);"></i> 2
+                                            WC</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="swiper-slide">
+                            <div class="floor-plan-card glass-morphism"
+                                style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; background: white; padding: 40px; border-radius: var(--radius-lg);">
+                                <div class="floor-plan-image">
+                                    <img src="mat%20bang%20mau/Generated%20Image%20December%2024,%202025%20-%203_43PM.webp"
+                                        alt="Mặt bằng điển hình 3" loading="lazy"
+                                        style="width: 100%; border-radius: var(--radius-md);">
+                                </div>
+                                <div class="floor-plan-info">
+                                    <h3 style="font-size: 2rem; margin-bottom: 20px;">Căn Hộ 3 Phòng Ngủ</h3>
+                                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Không gian sống đẳng
+                                        cấp cho gia đình đa thế hệ, phòng khách rộng rãi nối liền khu vực bếp.</p>
+                                    <div class="floor-plan-details" style="display: flex; gap: 30px;">
+                                        <span><i class="fas fa-vector-square"
+                                                style="color: var(--anthropic-orange);"></i> 95m²</span>
+                                        <span><i class="fas fa-bed" style="color: var(--anthropic-orange);"></i> 3
+                                            Bed</span>
+                                        <span><i class="fas fa-bath" style="color: var(--anthropic-orange);"></i> 2
+                                            WC</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination" style="bottom: 0;"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Brand Experience (About & Services Bento) -->
+        <section class="experience-section" style="padding: 120px 0;">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 80px;">
+                    <span class="hero-tagline" style="margin-bottom: 12px;">The Thạch Vũ Advantage</span>
+                    <h2 class="section-title" data-aos="fade-up">Giải Pháp Bất Động Sản <span class="text-gradient">Toàn
+                            Diện</span></h2>
+                </div>
+
+                <div class="bento-experience-grid">
+                    <!-- About Thach Vu: Large Item -->
+                    <div class="bento-item large" data-aos="fade-up"
+                        style="display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <div class="bento-icon"><i class="fas fa-crown"></i></div>
+                            <h3>Về Thạch Vũ Land</h3>
+                            <p style="margin-top: 20px; font-size: 1.1rem; line-height: 1.8;">
+                                Hơn cả một dịch vụ môi giới, Thạch Vũ Land là người đồng hành đáng tin cậy trên hành
+                                trình chinh phục thịnh vượng thông qua bất động sản. Chúng tôi kiến tạo giá trị dựa trên
+                                sự minh bạch, thấu hiểu và cam kết đồng hành dài hạn.
+                            </p>
+                        </div>
+                        <div style="margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                            <div style="display: flex; gap: 40px;">
+                                <div>
+                                    <h4 style="font-size: 2rem; color: var(--anthropic-orange);">10+</h4>
+                                    <p style="font-size: 0.8rem; text-transform: uppercase;">Năm Kinh Nghiệm</p>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 2rem; color: var(--anthropic-orange);">500+</h4>
+                                    <p style="font-size: 0.8rem; text-transform: uppercase;">Giao Dịch Thành Công</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Legal Shield: Wide Item -->
+                    <div class="bento-item wide glass-morphism" data-aos="fade-up" data-aos-delay="100"
+                        style="background: var(--bg-secondary); border: none; box-shadow: var(--shadow-sm);">
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; height: 100%;">
+                            <div class="bento-info">
+                                <div class="bento-icon"><i class="fas fa-shield-halved"></i></div>
+                                <h3>Pháp Lý Minh Bạch</h3>
+                                <p>Sổ hồng riêng, quy hoạch 1/500 rõ ràng. Chúng tôi kiểm duyệt nghiêm ngặt mọi dự án
+                                    trước khi giới thiệu đến nhà đầu tư.</p>
+                                <ul style="list-style: none; margin-top: 20px; padding: 0;">
+                                    <li style="margin-bottom: 12px;"><i class="fas fa-check"
+                                            style="color: var(--anthropic-green); margin-right: 12px;"></i> Kiểm tra quy
+                                        hoạch chi tiết</li>
+                                    <li><i class="fas fa-check"
+                                            style="color: var(--anthropic-green); margin-right: 12px;"></i> Hỗ trợ thủ
+                                        tục công chứng, sang tên</li>
+                                </ul>
+                            </div>
+                            <div class="bento-visual">
+                                <img src="https://images.unsplash.com/photo-1582213713364-24c9d9a5bc39?w=600&fm=webp"
+                                    alt="Legal Shield"
+                                    style="width: 100%; border-radius: var(--radius-md); opacity: 0.9;" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Financial: Standard -->
+                    <div class="bento-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="bento-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Dòng Tiền Thông Minh</h3>
+                        <p>Tư vấn giải pháp tài chính tối ưu, đòn bẩy ngân hàng an toàn để tối đa hóa tỉ suất lợi nhuận
+                            (ROI).</p>
+                    </div>
+
+                    <!-- Market Insights: Standard -->
+                    <div class="bento-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="bento-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Am Hiểu Thị Trường</h3>
+                        <p>Cập nhật biến động quy hoạch và hạ tầng mới nhất tại TP.HCM & Bình Dương để đón đầu sóng đầu
+                            tư.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News & Knowledge -->
+        <section class="news-section" id="news">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <h2 class="section-title" data-aos="fade-up">Góc Chia Sẻ & Kiến Thức</h2>
+                        <p data-aos="fade-up" data-aos-delay="100">Cập nhật tin tức thị trường và kiến thức đầu tư bất
+                            động sản chuyên sâu.</p>
+                    </div>
+                    <a href="knowledge.html" class="btn-ghost" data-aos="fade-up">Kiến Thức Đầu Tư <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="news-grid" id="newsGrid" data-aos="fade-up">
+                    <!-- Tin tức sẽ được render tự động từ data.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Calculator Section -->
+        <section class="calculator-section" id="calculate">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title cinzel" data-aos="fade-up">Bảng Tính Lợi Nhuận Đầu Tư</h2>
+                    <p data-aos="fade-up" data-aos-delay="100">Ước tính dòng tiền và tỉ suất lợi nhuận ngay lập tức cho
+                        kế hoạch tài chính của bạn.</p>
+                </div>
+
+                <div class="calc-grid" data-aos="fade-up">
+                    <div class="calc-inputs">
+                        <div class="calc-input-group">
+                            <label>Giá trị bất động sản (Tỷ VND)</label>
+                            <input type="range" class="calc-range" id="hpPropVal" min="1" max="50" step="0.5" value="5">
+                            <div
+                                style="display: flex; justify-content: space-between; margin-top: 10px; font-weight: 700;">
+                                <span id="hpValDisplay">5.0</span> <span>Tỷ VND</span>
+                            </div>
+                        </div>
+
+                        <div class="calc-input-group">
+                            <label>Giá thuê dự kiến (Triệu/tháng)</label>
+                            <input type="number" class="calc-number-input" id="hpRentPrice" value="25">
+                        </div>
+
+                        <div class="calc-input-group">
+                            <label>Vốn vay ngân hàng (%)</label>
+                            <select class="calc-number-input" id="hpLoanPct">
+                                <option value="0">Không vay (100% vốn tự có)</option>
+                                <option value="30">Vay 30%</option>
+                                <option value="50">Vay 50%</option>
+                                <option value="70">Vay 70%</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calc-results">
+                        <div style="margin-bottom: 20px;">
+                            <span
+                                style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Tỉ
+                                suất lợi nhuận (Yield)</span>
+                            <div class="yield-display-value" id="hpYieldRes">6.0%</div>
+                        </div>
+
+                        <div
+                            style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                            <div>
+                                <span style="font-size: 13px; opacity: 0.8;">Thu nhập / năm</span>
+                                <div id="hpAnnualInc" style="font-size: 1.8rem; font-weight: 700;">300 Tr</div>
+                            </div>
+                            <div>
+                                <span style="font-size: 13px; opacity: 0.8;">Vốn ban đầu</span>
+                                <div id="hpInitCap" style="font-size: 1.8rem; font-weight: 700;">5.0 Tỷ</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 40px;">
+                            <a href="https://zalo.me/0903469888" class="btn-primary neon-glow"
+                                style="width: 100%; text-align: center; display: block; background: var(--accent-gold); color: var(--primary-900);">Nhận
+                                Tư Vấn Dòng Tiền Chi Tiết</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section" id="contact">
+            <div class="cta-parallax-bg"></div>
+            <div class="container">
+                <div class="cta-glass-card" data-aos="zoom-in">
+                    <h2 class="cta-title">Cần Tư Vấn Chuyên Sâu?</h2>
+                    <p class="cta-subtitle">Hãy liên hệ trực tiếp để có giải pháp phù hợp nhất cho dự án của bạn</p>
+                    <div class="cta-actions">
+                        <a href="tel:0903469888" class="btn-primary neon-glow">
+                            <i class="fas fa-phone"></i> 0903.469.888
+                        </a>
+                        <a href="#contact-details" class="btn-secondary glass-morphism">Thông tin chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Branding -->
+        <section class="partners-section">
+            <div class="container">
+                <div class="partners-grid" data-aos="fade-up">
+                    <div class="partner-logo"><img
+                            src="https://dongtayland.vn/wp-content/uploads/2021/04/logo-tbs-land.png" alt="TBS Land"
+                            loading="lazy">
+                    </div>
+                    <div class="partner-logo"><img src="https://setia.com.vn/wp-content/uploads/2023/05/logo-setia.png"
+                            alt="SP Setia" loading="lazy"></div>
+                    <div class="partner-logo"><img src="https://www.namlongvn.com/assets/images/logo.png"
+                            alt="Nam Long Group" loading="lazy"></div>
+                    <div class="partner-logo"><img
+                            src="https://vinhome.com.vn/wp-content/uploads/2020/09/Logo-Vinhomes.png" alt="Vinhomes"
                             loading="lazy">
                     </div>
                 </div>
-                <div class="about-content" data-aos="fade-left">
-                    <h2 class="section-title">Về Thạch Vũ</h2>
-                    <p class="about-text">
-                        Với kinh nghiệm thực chiến trong lĩnh vực bất động sản, tôi cam kết mang đến cho khách hàng
-                        những giải pháp đầu tư thông minh, pháp lý minh bạch và giá trị bền vững.
-                    </p>
-                    <ul class="about-values">
-                        <li><i class="fas fa-check-circle"></i> Trung thực trong mọi giao dịch</li>
-                        <li><i class="fas fa-check-circle"></i> Chuyên nghiệp trong tư vấn</li>
-                        <li><i class="fas fa-check-circle"></i> Hiệu quả trong hỗ trợ tài chính</li>
-                    </ul>
-                    <a href="#contact" class="btn-primary">Tìm Hiểu Thêm</a>
-                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Services Section (Bento Upgrade) -->
-    <section class="services-section">
-        <div class="container">
-            <h2 class="section-title text-center" data-aos="fade-up">Tại Sao Chọn Thạch Vũ Land?</h2>
-            <div class="bento-experience-grid">
-                <!-- Feature 1: Large (Trust & Legal) -->
-                <div class="bento-item large" data-aos="fade-up">
-                    <div class="bento-icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3>Pháp Lý & <br>Nền Tảng Vững Chắc</h3>
-                    <p>Chúng tôi tập trung 100% vào các dự án có pháp lý minh bạch, sổ hồng trao tay. Với hơn 10 năm
-                        kinh nghiệm, Thạch Vũ Land là điểm tựa tin cậy cho mọi giao dịch bất động sản tại TP.HCM &
-                        Bình Dương.</p>
-                </div>
-
-                <!-- Feature 2: Wide (Financial Support) -->
-                <div class="bento-item wide" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bento-icon"><i class="fas fa-hand-holding-usd"></i></div>
-                    <h3>Hỗ Trợ Tài Chính Tối Ưu</h3>
-                    <p>Cung cấp giải pháp vay vốn ngân hàng lãi suất ưu đãi, ân hạn nợ gốc và lộ trình thanh toán
-                        linh hoạt.</p>
-                </div>
-
-                <!-- Feature 3: Standard (Personal Consulting) -->
-                <div class="bento-item" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bento-icon"><i class="fas fa-user-tie"></i></div>
-                    <h3>Tư Vấn Tận Tâm</h3>
-                    <p>Đội ngũ chuyên gia am hiểu thị trường ngách, tư vấn dự án phù hợp với dòng tiền.</p>
-                </div>
-
-                <!-- Feature 4: Standard (Global Value) -->
-                <div class="bento-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bento-icon"><i class="fas fa-gem"></i></div>
-                    <h3>Giá Trị Thật</h3>
-                    <p>Cam kết thông tin chính xác, hình ảnh thực tế và giá gốc từ chủ đầu tư.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest News & Knowledge -->
-    <section class="news-section" id="news">
-        <div class="container">
-            <div class="section-header">
-                <div>
-                    <h2 class="section-title" data-aos="fade-up">Góc Chia Sẻ & Kiến Thức</h2>
-                    <p data-aos="fade-up" data-aos-delay="100">Cập nhật tin tức thị trường và kiến thức đầu tư bất
-                        động sản chuyên sâu.</p>
-                </div>
-                <a href="knowledge.html" class="btn-ghost" data-aos="fade-up">Kiến Thức Đầu Tư <i
-                        class="fas fa-arrow-right"></i></a>
-            </div>
-
-            <div class="news-grid" id="newsGrid" data-aos="fade-up">
-                <!-- Tin tức sẽ được render tự động từ data.js -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Investment Calculator Section -->
-    <section class="calculator-section" id="calculate">
-        <div class="container">
-            <div class="section-header text-center">
-                <h2 class="section-title cinzel" data-aos="fade-up">Bảng Tính Lợi Nhuận Đầu Tư</h2>
-                <p data-aos="fade-up" data-aos-delay="100">Ước tính dòng tiền và tỉ suất lợi nhuận ngay lập tức cho
-                    kế hoạch tài chính của bạn.</p>
-            </div>
-
-            <div class="calc-grid" data-aos="fade-up">
-                <div class="calc-inputs">
-                    <div class="calc-input-group">
-                        <label>Giá trị bất động sản (Tỷ VND)</label>
-                        <input type="range" class="calc-range" id="hpPropVal" min="1" max="50" step="0.5" value="5">
-                        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-weight: 700;">
-                            <span id="hpValDisplay">5.0</span> <span>Tỷ VND</span>
-                        </div>
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label>Giá thuê dự kiến (Triệu/tháng)</label>
-                        <input type="number" class="calc-number-input" id="hpRentPrice" value="25">
-                    </div>
-
-                    <div class="calc-input-group">
-                        <label>Vốn vay ngân hàng (%)</label>
-                        <select class="calc-number-input" id="hpLoanPct">
-                            <option value="0">Không vay (100% vốn tự có)</option>
-                            <option value="30">Vay 30%</option>
-                            <option value="50">Vay 50%</option>
-                            <option value="70">Vay 70%</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="calc-results">
-                    <div style="margin-bottom: 20px;">
-                        <span style="font-size: 14px; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8;">Tỉ
-                            suất lợi nhuận (Yield)</span>
-                        <div class="yield-display-value" id="hpYieldRes">6.0%</div>
-                    </div>
-
-                    <div
-                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
-                        <div>
-                            <span style="font-size: 13px; opacity: 0.8;">Thu nhập / năm</span>
-                            <div id="hpAnnualInc" style="font-size: 1.8rem; font-weight: 700;">300 Tr</div>
-                        </div>
-                        <div>
-                            <span style="font-size: 13px; opacity: 0.8;">Vốn ban đầu</span>
-                            <div id="hpInitCap" style="font-size: 1.8rem; font-weight: 700;">5.0 Tỷ</div>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 40px;">
-                        <a href="https://zalo.me/0903469888" class="btn-primary neon-glow"
-                            style="width: 100%; text-align: center; display: block; background: var(--accent-gold); color: var(--primary-900);">Nhận
-                            Tư Vấn Dòng Tiền Chi Tiết</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="cta-section" id="contact">
-        <div class="cta-parallax-bg"></div>
-        <div class="container">
-            <div class="cta-glass-card" data-aos="zoom-in">
-                <h2 class="cta-title">Cần Tư Vấn Chuyên Sâu?</h2>
-                <p class="cta-subtitle">Hãy liên hệ trực tiếp để có giải pháp phù hợp nhất cho dự án của bạn</p>
-                <div class="cta-actions">
-                    <a href="tel:0903469888" class="btn-primary neon-glow">
-                        <i class="fas fa-phone"></i> 0903.469.888
-                    </a>
-                    <a href="#contact-details" class="btn-secondary glass-morphism">Thông tin chi tiết</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Partners Branding -->
-    <section class="partners-section">
-        <div class="container">
-            <div class="partners-grid" data-aos="fade-up">
-                <div class="partner-logo"><img src="https://dongtayland.vn/wp-content/uploads/2021/04/logo-tbs-land.png"
-                        alt="TBS Land" loading="lazy">
-                </div>
-                <div class="partner-logo"><img src="https://setia.com.vn/wp-content/uploads/2023/05/logo-setia.png"
-                        alt="SP Setia" loading="lazy"></div>
-                <div class="partner-logo"><img src="https://www.namlongvn.com/assets/images/logo.png"
-                        alt="Nam Long Group" loading="lazy"></div>
-                <div class="partner-logo"><img src="https://vinhome.com.vn/wp-content/uploads/2020/09/Logo-Vinhomes.png"
-                        alt="Vinhomes" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     </main>
 

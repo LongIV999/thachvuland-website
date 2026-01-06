@@ -15,16 +15,20 @@
 
 <body>
     <!-- Header -->
-    <header class="site-header scrolled">
-        <div class="container header-container">
-            <a href="index.html" class="logo">TVL<span>.</span></a>
+    <header class="site-header scrolled" id="siteHeader">
+        <div class="header-container container">
+            <a href="index.html" class="logo">THACH VU <span>LAND</span></a>
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Trang Chủ</a>
                 <a href="projects.html" class="nav-link active">Dự Án</a>
+                <a href="knowledge.html" class="nav-link">Kiến Thức</a>
                 <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
                 <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
-                <a href="tel:0903469888" class="nav-link nav-cta">Liên Hệ</a>
+                <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>
             </nav>
+            <div class="mobile-menu-btn" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
@@ -40,11 +44,49 @@
 
     <!-- Filter Bar -->
     <section class="container filter-section">
-        <div class="filter-pills" id="projectFilter">
-            <button class="filter-pill active" data-category="all">Tất Cả</button>
-            <button class="filter-pill" data-category="can-ho">Căn Hộ</button>
-            <button class="filter-pill" data-category="shophouse">Shophouse</button>
-            <button class="filter-pill" data-category="dat-nen">Đất Nền</button>
+        <div class="smart-filter-bar">
+            <!-- Search -->
+            <div class="filter-group" style="flex: 2;">
+                <label class="filter-label">Tìm kiếm</label>
+                <div style="position: relative;">
+                    <i class="fas fa-search"
+                        style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                    <input type="text" id="searchInput" class="filter-input"
+                        placeholder="Nhập tên dự án hoặc khu vực..." style="padding-left: 40px;">
+                </div>
+            </div>
+
+            <!-- Type -->
+            <div class="filter-group">
+                <label class="filter-label">Loại Hình</label>
+                <select id="typeSelect" class="filter-select">
+                    <option value="all">Tất cả</option>
+                    <option value="can-ho">Căn Hộ</option>
+                    <option value="shophouse">Shophouse</option>
+                    <option value="dat-nen">Đất Nền</option>
+                </select>
+            </div>
+
+            <!-- Location -->
+            <div class="filter-group">
+                <label class="filter-label">Khu Vực</label>
+                <select id="locationSelect" class="filter-select">
+                    <option value="all">Tất cả</option>
+                    <option value="Bình Dương">Bình Dương</option>
+                    <option value="TP.HCM">TP.HCM</option>
+                </select>
+            </div>
+
+            <!-- Status -->
+            <div class="filter-group">
+                <label class="filter-label">Trạng Thái</label>
+                <select id="statusSelect" class="filter-select">
+                    <option value="all">Tất cả</option>
+                    <option value="Sắp Mở Bán">Sắp Mở Bán</option>
+                    <option value="Đang Booking">Đang Booking</option>
+                    <option value="Đang Bàn Giao">Đang Bàn Giao</option>
+                </select>
+            </div>
         </div>
     </section>
 
@@ -52,6 +94,11 @@
     <section class="container">
         <div class="projects-bento-grid" id="projectsBentoGrid">
             <!-- Rendered via JS -->
+        </div>
+        <div id="noResults" style="text-align: center; padding: 60px; display: none;">
+            <i class="fas fa-search" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+            <p class="article-body">Không tìm thấy dự án phù hợp.</p>
+            <button class="nav-cta" onclick="resetFilters()">Xóa bộ lọc</button>
         </div>
     </section>
 
@@ -74,18 +121,46 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const grid = document.getElementById('projectsBentoGrid');
-            const filterContainer = document.getElementById('projectFilter');
+            const noResults = document.getElementById('noResults');
 
-            function renderProjects(category = 'all') {
-                const filtered = category === 'all'
-                    ? projectData
-                    : projectData.filter(p => p.category === category);
+            // Inputs
+            const searchInput = document.getElementById('searchInput');
+            const typeSelect = document.getElementById('typeSelect');
+            const locationSelect = document.getElementById('locationSelect');
+            const statusSelect = document.getElementById('statusSelect');
 
-                grid.innerHTML = filtered.map((project, index) => {
-                    // Logic for Bento patterns (e.g., every 3rd or 4th is wide/tall)
+            function filterProjects() {
+                const kw = searchInput.value.toLowerCase();
+                const type = typeSelect.value;
+                const loc = locationSelect.value;
+                const status = statusSelect.value;
+
+                const filtered = projectData.filter(p => {
+                    const matchKw = !kw || p.title.toLowerCase().includes(kw) || p.location.toLowerCase().includes(kw);
+                    const matchType = type === 'all' || p.category === type;
+                    const matchLoc = loc === 'all' || p.location.includes(loc);
+                    const matchStatus = status === 'all' || p.status === status;
+
+                    return matchKw && matchType && matchLoc && matchStatus;
+                });
+
+                renderGrid(filtered);
+            }
+
+            function renderGrid(projects) {
+                if (projects.length === 0) {
+                    grid.style.display = 'none';
+                    noResults.style.display = 'block';
+                    return;
+                }
+
+                grid.style.display = 'grid';
+                noResults.style.display = 'none';
+
+                grid.innerHTML = projects.map((project, index) => {
                     let modifier = '';
+                    // Simple Bento logic: every 5th item large
                     if (index % 5 === 0) modifier = 'project-card--wide';
-                    else if (index % 5 === 3) modifier = 'project-card--tall';
 
                     return `
                         <div class="project-card ${modifier}">
@@ -94,7 +169,7 @@
                                 <div class="project-card__badge">${project.status}</div>
                             </div>
                             <div class="project-card__content">
-                                <div class="project-card__category">${project.category === 'can-ho' ? 'Căn Hộ' : 'Shophouse'}</div>
+                                <div class="project-card__category">${project.category === 'can-ho' ? 'Căn Hộ' : (project.category === 'shophouse' ? 'Shophouse' : 'Đất Nền')}</div>
                                 <h3 class="project-card__title">${project.title}</h3>
                                 <div class="project-card__meta">
                                     <div class="project-card__meta-item">
@@ -112,26 +187,33 @@
                     `;
                 }).join('');
 
-                // Animation
-                gsap.from(".project-card", {
-                    y: 40,
+                // Animation reset
+                gsap.from("#projectsBentoGrid .project-card", {
+                    y: 20,
                     opacity: 0,
-                    duration: 0.6,
-                    stagger: 0.1,
-                    ease: "power2.out"
+                    duration: 0.4,
+                    stagger: 0.05,
+                    clearProps: "all"
                 });
             }
 
-            // Filter logic
-            filterContainer.addEventListener('click', (e) => {
-                if (e.target.classList.contains('filter-pill')) {
-                    document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
-                    e.target.classList.add('active');
-                    renderProjects(e.target.dataset.category);
-                }
+            // Events
+            [typeSelect, locationSelect, statusSelect].forEach(el => {
+                el.addEventListener('change', filterProjects);
             });
+            searchInput.addEventListener('input', filterProjects);
 
-            renderProjects();
+            // Global reset
+            window.resetFilters = () => {
+                searchInput.value = '';
+                typeSelect.value = 'all';
+                locationSelect.value = 'all';
+                statusSelect.value = 'all';
+                filterProjects();
+            };
+
+            // Init
+            filterProjects();
         });
     </script>
 </body>

@@ -27,7 +27,8 @@ const projectData = [
             "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
             "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
             "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
-        ]
+        ],
+        "vrUrl": "https://my.matterport.com/show/?m=JGPnGQFhhcm&play=1"
     },
     {
         "id": 2,
