@@ -185,5 +185,25 @@ const newsData = [
         excerpt: "Tại sao bất động sản ven sông luôn giữ được giá trị và có tốc độ tăng trưởng cao?",
         content: "<p>Bất động sản ven sông không chỉ mang lại không gian sống trong lành, phong thủy tốt mà còn là kênh đầu tư an toàn với tính thanh khoản cao. Tầm nhìn panorama hướng sông luôn là yếu tố đắt giá giúp nâng tầm đẳng cấp của chủ sở hữu.</p>",
         author: "Thạch Vũ"
+    },
+    {
+        id: 5,
+        title: "Bí quyết soi pháp lý dự án cho nhà đầu tư mới",
+        image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600",
+        category: "Kiến Thức",
+        date: "04/01/2026",
+        excerpt: "Những bước cơ bản để kiểm tra độ tin cẩn của một dự án bất động sản...",
+        content: "<p>Đối với nhà đầu tư mới, việc 'soi' pháp lý dự án là bước quan trọng nhất để tránh rủi ro. Bạn cần yêu cầu chủ đầu tư cung cấp: 1/ Quyết định giao đất, 2/ Phê duyệt 1/500, 3/ Giấy phép xây dựng...</p>",
+        author: "Thạch Vũ"
+    },
+    {
+        id: 6,
+        title: "So sánh đầu tư Căn hộ và Nhà phố năm 2026",
+        image: "https://images.unsplash.com/photo-1460317442991-0ec239397118?w=600",
+        category: "Kiến Thức",
+        date: "05/01/2026",
+        excerpt: "Phân tích dòng tiền và tỉ suất lợi nhuận của hai loại hình bất động sản phổ biến...",
+        content: "<p>Năm 2026, căn hộ cho thuê đang trở thành xu hướng nhờ dòng tiền ổn định, trong khi nhà phố vẫn giữ ưu thế về tăng trưởng giá trị dài hạn. Tùy vào mục tiêu tài chính mà bạn nên chọn loại hình phù hợp...</p>",
+        author: "Thạch Vũ"
     }
 ];

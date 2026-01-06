@@ -4,41 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
-    <title>Tin Tức & Sự Kiện - Thạch Vũ Land</title>
+    <title>Tin Tức & Thị Trường | Thạch Vũ Land</title>
 
-    <!-- Fonts -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Cinzel:wght@400;700;900&display=swap"
         rel="stylesheet">
 
-    <!-- Icons -->
+    <!-- Icons & Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Styles -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="styles/main.css">
+
     <style>
-        .news-page-header {
-            padding-top: 160px;
-            padding-bottom: 80px;
-            background: var(--neutral-900);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        :root {
+            --featured-height: 500px;
         }
 
-        .news-page-header::after {
-            content: "";
+        .news-page-header {
+            padding: 160px 0 60px;
+            background: var(--primary-forest);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .news-page-header::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, var(--neutral-900));
+            background: linear-gradient(to bottom, rgba(0, 45, 36, 0.8), var(--primary-forest));
             z-index: 1;
         }
 
@@ -47,187 +48,321 @@
             z-index: 2;
         }
 
-        .news-grid-container {
-            padding: 80px 0;
+        /* Featured Section */
+        .featured-news-container {
+            margin-top: -100px;
+            position: relative;
+            z-index: 10;
+            padding-bottom: 60px;
         }
 
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            min-height: var(--featured-height);
+        }
+
+        .featured-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s ease;
+        }
+
+        .featured-card:hover .featured-image img {
+            transform: scale(1.05);
+        }
+
+        .featured-content {
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: var(--accent-gold);
+            color: var(--primary-forest);
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .featured-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--primary-forest);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .featured-excerpt {
+            font-size: 1.1rem;
+            color: var(--neutral-600);
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Filter Section */
         .news-filter-bar {
+            padding: 40px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            background: white;
+            position: sticky;
+            top: 80px;
+            z-index: 90;
+        }
+
+        .filter-tags {
             display: flex;
             justify-content: center;
             gap: 15px;
-            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
-        .news-filter-btn {
-            padding: 12px 28px;
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 5px;
-            color: white;
+        .filter-tag {
+            padding: 12px 30px;
+            background: #f0f2f5;
+            border: 1px solid transparent;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            font-family: 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            color: var(--primary-forest);
         }
 
-        .news-filter-btn.active,
-        .news-filter-btn:hover {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--neutral-900);
-            font-weight: 600;
-            box-shadow: 0 5px 15px rgba(197, 160, 89, 0.4);
+        .filter-tag.active,
+        .filter-tag:hover {
+            background: var(--primary-forest);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 45, 36, 0.1);
+        }
+
+        .news-list-section {
+            padding: 60px 0 100px;
+            background: #fdfdfd;
+        }
+
+        @media (max-width: 992px) {
+            .featured-card {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 30px;
+            }
+
+            .featured-title {
+                font-size: 1.8rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Page Transition Overlay -->
-    <div class="page-loader" id="pageTransition">
-        <div class="spinner"></div>
-        <p>Đang tải...</p>
-    </div>
-
     <!-- Header -->
-    <header class="site-header scrolled" id="siteHeader">
-        <div class="header-container">
+    <header class="site-header">
+        <div class="container header-container">
             <a href="index.html" class="logo">
-                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        .tvl-text {
-                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                            font-weight: 800;
-                            letter-spacing: 0.05em;
-                            fill: currentColor;
-                            text-anchor: middle;
-                            dominant-baseline: middle;
-                        }
-                    </style>
-                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
-                </svg>
+                <span class="cinzel">THẠCH VŨ</span>
+                <span class="logo-sub">LAND</span>
             </a>
-
             <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="projects.html">Dự Án</a></li>
-                    <li><a href="news.html" class="active">Tin Tức</a></li>
-                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
-                    <li><a href="index.html#contact">Liên Hệ</a></li>
-                </ul>
+                <a href="index.html" class="nav-link">Trang chủ</a>
+                <a href="index.html#projects" class="nav-link">Dự án</a>
+                <a href="knowledge.html" class="nav-link">Kiến thức</a>
+                <a href="news.html" class="nav-link active">Tin tức</a>
+                <a href="index.html#contact" class="nav-link nav-cta">Liên hệ</a>
             </nav>
-
-            <div class="header-cta">
-                <a href="tel:0903469888" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>0903.469.888</span>
-                </a>
+            <div class="header-actions">
+                <button class="menu-toggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="projects.html">Dự Án</a></li>
-            <li><a href="news.html" class="active">Tin Tức</a></li>
-            <li><a href="index.html#about">Về Chúng Tôi</a></li>
-            <li><a href="index.html#contact">Liên Hệ</a></li>
-        </ul>
-        <div class="mobile-menu-contact">
-            <a href="tel:0903469888" class="btn-primary">
-                <i class="fas fa-phone"></i> Gọi Ngay
-            </a>
+    <section class="news-page-header">
+        <div class="container" data-aos="fade-up">
+            <span class="accent-line"></span>
+            <h1 class="cinzel" style="font-size: 3.5rem; margin-bottom: 20px;">Xứng Tầm Tri Thức</h1>
+            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 700px; margin: 0 auto;">Cập nhật những chuyển động đắt
+                giá nhất của thị trường Bất động sản Việt Nam 2026.</p>
+        </div>
+    </section>
+
+    <!-- Featured News -->
+    <div class="featured-news-container">
+        <div class="container" id="featuredContainer">
+            <!-- Rendered by JS -->
         </div>
     </div>
 
-    <!-- Page Header -->
-    <section class="news-page-header">
+    <!-- Filter Bar -->
+    <div class="news-filter-bar">
         <div class="container">
-            <h1 class="text-gradient" style="font-size: 4rem; margin-bottom: 25px;" data-aos="fade-up">Góc Chia Sẻ</h1>
-            <p style="opacity: 0.8; max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.6;"
-                data-aos="fade-up" data-aos-delay="100">
-                Nơi cập nhật những kiến thức chuyên sâu về bất động sản, phân tích thị trường và những câu chuyện về
-                phong cách sống thượng lưu.
-            </p>
+            <div class="filter-tags" data-aos="fade-up">
+                <div class="filter-tag active" onclick="filterNews('All')">Toàn bộ</div>
+                <div class="filter-tag" onclick="filterNews('Thị Trường')">Thị Trường</div>
+                <div class="filter-tag" onclick="filterNews('Kiến Thức')">Kiến Thức</div>
+                <div class="filter-tag" onclick="filterNews('Pháp Lý')">Pháp Lý</div>
+                <div class="filter-tag" onclick="filterNews('Tài Chính')">Tài Chính</div>
+            </div>
         </div>
-        <div class="section-watermark">KNOWLEDGE</div>
-    </section>
+    </div>
 
-    <!-- News Grid Container -->
-    <section class="container news-grid-container">
-        <div class="news-filter-bar" data-aos="fade-up">
-            <button class="news-filter-btn active">Tất cả</button>
-            <button class="news-filter-btn">Thị Trường</button>
-            <button class="news-filter-btn">Pháp Lý</button>
-            <button class="news-filter-btn">Tài Chính</button>
-            <button class="news-filter-btn">Dự Án</button>
-        </div>
-
-        <div class="news-grid" id="newsListContainer">
-            <!-- News list will be rendered here via scripts/main.js -->
-        </div>
-    </section>
-
-    <!-- Project CTA (Reuse code from index) -->
-    <section class="cta-section">
-        <div class="cta-parallax-bg"></div>
+    <section class="news-list-section">
         <div class="container">
-            <div class="cta-glass-card" data-aos="zoom-in">
-                <h2 class="cta-title">Bạn Có Câu Hỏi Nào Không?</h2>
-                <p class="cta-subtitle">Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng hỗ trợ bạn 24/7</p>
-                <div class="cta-actions">
-                    <a href="tel:0903469888" class="btn-primary neon-glow">
-                        <i class="fas fa-phone"></i> Tư Vấn Ngay
-                    </a>
-                    <a href="index.html#contact" class="btn-secondary glass-morphism">Gửi yêu cầu</a>
-                </div>
+            <div class="news-grid" id="fullNewsGrid">
+                <!-- Nội dung được render từ main.js -->
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-col footer-about">
-                        <h4>Thạch Vũ Land</h4>
-                        <p>Chuyên trang tư vấn bất động sản cao cấp tại TP.HCM và Bình Dương.</p>
-                        <div class="footer-social">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-zalo"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                        </div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <a href="index.html" class="logo" style="margin-bottom: 20px;">
+                        <span class="cinzel">THẠCH VŨ</span>
+                        <span class="logo-sub">LAND</span>
+                    </a>
+                    <p>Chuyên gia tư vấn Bất động sản cao cấp, đồng hành cùng nhà đầu tư kiến tạo giá trị thịnh vượng
+                        bền vững.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="cinzel">Liên Kết</h4>
+                    <a href="index.html">Trang chủ</a>
+                    <a href="index.html#projects">Dự án</a>
+                    <a href="knowledge.html">Kiến thức</a>
+                    <a href="news.html">Tin tức</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="cinzel">Tư Vấn Trực Tiếp</h4>
+                    <p><i class="fas fa-phone"></i> 090x xxx xxx</p>
+                    <p><i class="fas fa-envelope"></i> contact@thachvuland.com</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2026 Thạch Vũ Land. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Thạch Vũ Land. All rights reserved. Designed for Premium Experience.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="scripts/data.js"></script>
-    <script src="scripts/main.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        const newsGrid = document.getElementById('fullNewsGrid');
+        const featuredContainer = document.getElementById('featuredContainer');
+
+        function renderAllNews(category = 'All') {
+            // Clearing
+            newsGrid.innerHTML = '';
+
+            // Get data
+            const filteredNews = category === 'All'
+                ? newsData
+                : newsData.filter(item => item.category === category);
+
+            // Featured Article Logic (Hide from grid if category is All)
+            if (category === 'All' && filteredNews.length > 0) {
+                const featured = filteredNews[0];
+                featuredContainer.innerHTML = `
+                    <div class="featured-card" data-aos="zoom-in">
+                        <div class="featured-image">
+                            <img src="${featured.image}" alt="${featured.title}">
+                        </div>
+                        <div class="featured-content">
+                            <span class="featured-badge">Tiêu Điểm</span>
+                            <h2 class="featured-title">${featured.title}</h2>
+                            <p class="featured-excerpt">${featured.excerpt}</p>
+                            <div class="news-card-footer" style="border: none; padding: 0;">
+                                <span class="news-card-author"><i class="fas fa-user-edit"></i> ${featured.author}</span>
+                                <a href="news-detail.html?id=${featured.id}" class="btn-cta" style="padding: 12px 30px;">Đọc bài viết</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Render others in grid
+                renderGridItems(filteredNews.slice(1));
+            } else {
+                featuredContainer.innerHTML = '';
+                renderGridItems(filteredNews);
+            }
+        }
+
+        function renderGridItems(items) {
+            items.forEach((news, index) => {
+                const card = `
+                    <article class="news-card" data-aos="fade-up" data-aos-delay="${index * 100}">
+                        <div class="news-card-image">
+                            <img src="${news.image}" alt="${news.title}">
+                            <span class="news-card-category">${news.category}</span>
+                            <span class="news-card-date">${news.date}</span>
+                        </div>
+                        <div class="news-card-content">
+                            <h3 class="news-card-title">${news.title}</h3>
+                            <p class="news-card-excerpt">${news.excerpt}</p>
+                            <div class="news-card-footer">
+                                <span class="news-card-author"><i class="fas fa-user-edit"></i> ${news.author}</span>
+                                <a href="news-detail.html?id=${news.id}" class="btn-text">Xem thêm <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                `;
+                newsGrid.insertAdjacentHTML('beforeend', card);
+            });
+        }
+
+        function filterNews(cat) {
+            document.querySelectorAll('.filter-tag').forEach(tag => {
+                tag.classList.remove('active');
+                if (tag.textContent === cat) tag.classList.add('active');
+                if (cat === 'All' && tag.textContent === 'Toàn bộ') tag.classList.add('active');
+            });
+            renderAllNews(cat);
+        }
+
+        // Handle Mobile Menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mainNav = document.querySelector('.main-nav');
+
+        menuToggle?.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mainNav.classList.toggle('active');
+        });
+
+        // Initial Render
+        renderAllNews();
+    </script>
 </body>
 
 </html>

@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initParallax();
     initSmoothScroll();
     initLazyLoading();
+    initInvestmentCalculator();
 });
 
 // ============================================
@@ -71,11 +72,23 @@ function initMobileMenu() {
     const mobileMenu = document.getElementById('mobileMenu');
     const menuLinks = mobileMenu.querySelectorAll('a');
 
-    // Toggle menu
-    menuToggle.addEventListener('click', function () {
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('active');
-        document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    // Toggle menu function
+    function toggleMenu() {
+        const isActive = mobileMenu.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
+    }
+
+    // Toggle menu on click
+    menuToggle.addEventListener('click', toggleMenu);
+
+    // Keyboard support for menu toggle
+    menuToggle.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            toggleMenu();
+        }
     });
 
     // Close menu when clicking on a link
@@ -83,6 +96,7 @@ function initMobileMenu() {
         link.addEventListener('click', function () {
             menuToggle.classList.remove('active');
             mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         });
     });
@@ -92,7 +106,19 @@ function initMobileMenu() {
         if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
             menuToggle.classList.remove('active');
             mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
+        }
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+            menuToggle.focus(); // Return focus to toggle button
         }
     });
 }
@@ -721,3 +747,43 @@ function validateForm(form) {
 console.log('%c🏢 ThachVuLand 2026', 'font-size: 20px; font-weight: bold; color: #C5A059;');
 console.log('%cWebsite thiết kế bởi Modern Corporate Luxury Design System', 'font-size: 12px; color: #004d40;');
 console.log('%c📞 Liên hệ: 0903.469.888', 'font-size: 12px; color: #737373;');
+// ============================================
+// INVESTMENT CALCULATOR
+// ============================================
+
+function initInvestmentCalculator() {
+    const propVal = document.getElementById('hpPropVal');
+    const valDisp = document.getElementById('hpValDisplay');
+    const rentPrice = document.getElementById('hpRentPrice');
+    const loanPct = document.getElementById('hpLoanPct');
+
+    if (!propVal) return; // Exit if not on page
+
+    const yieldRes = document.getElementById('hpYieldRes');
+    const annInc = document.getElementById('hpAnnualInc');
+    const initCap = document.getElementById('hpInitCap');
+
+    function calculate() {
+        const price = parseFloat(propVal.value) * 1000; // to Million
+        const monthlyRent = parseFloat(rentPrice.value) || 0;
+        const loan = parseFloat(loanPct.value) / 100;
+
+        const annualRent = monthlyRent * 12;
+        const yield = (price > 0) ? (annualRent / price) * 100 : 0;
+        const capital = (price * (1 - loan)) / 1000;
+
+        // Update UI
+        if (yieldRes) yieldRes.textContent = yield.toFixed(1) + '%';
+        if (annInc) annInc.textContent = annualRent.toFixed(0) + ' Tr';
+        if (initCap) initCap.textContent = capital.toFixed(1) + ' Tỷ';
+        if (valDisp) valDisp.textContent = parseFloat(propVal.value).toFixed(1);
+    }
+
+    // Listeners
+    propVal.addEventListener('input', calculate);
+    rentPrice.addEventListener('input', calculate);
+    loanPct.addEventListener('change', calculate);
+
+    // Initial calculation
+    calculate();
+}
