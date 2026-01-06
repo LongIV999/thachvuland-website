@@ -21,10 +21,10 @@
                 THACH VU
             </a>
             <nav class="main-nav">
-                <a href="#" class="nav-link">Overview</a>
-                <a href="#" class="nav-link">Projects</a>
-                <a href="#" class="nav-link active">Analysis</a>
-                <a href="#" class="nav-link nav-cta">Contact</a>
+                <a href="index.html" class="nav-link">Overview</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="news-anthropic.html" class="nav-link active">Analysis</a>
+                <a href="index.html#contact" class="nav-link nav-cta">Contact</a>
             </nav>
         </div>
     </header>
@@ -184,7 +184,7 @@
                 const html = `
                     <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--anthropic-light-gray);">
                         <span style="font-family: var(--font-heading); font-size: 24px; color: var(--anthropic-light-gray); margin-right: 12px;">0${index + 1}</span>
-                        <h5 style="display:inline; font-size: 16px;"><a href="#" style="color: var(--text-primary); text-decoration: none;">${item.title}</a></h5>
+                        <h5 style="display:inline; font-size: 16px;"><a href="news-detail.html?id=${item.id}" style="color: var(--text-primary); text-decoration: none;">${item.title}</a></h5>
                     </div>
                 `;
                 trendingList.insertAdjacentHTML('beforeend', html);

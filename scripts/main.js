@@ -318,7 +318,7 @@ function initNewsDetail() {
                 ${news.content || '<p>Nội dung đang được cập nhật...</p>'}
             </div>
             <div class="news-detail-footer" data-aos="fade-up">
-                <a href="news.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại tin tức</a>
+                <a href="news-anthropic.html" class="btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại tin tức</a>
             </div>
         `;
     } else {
@@ -326,7 +326,7 @@ function initNewsDetail() {
             <div class="error-container">
                 <h2>Không tìm thấy bài viết</h2>
                 <p>Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị gỡ bỏ.</p>
-                <a href="news.html" class="btn-primary">Quay lại tin tức</a>
+                <a href="news-anthropic.html" class="btn-primary">Quay lại tin tức</a>
             </div>
         `;
     }

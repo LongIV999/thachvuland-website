@@ -146,7 +146,7 @@ const projectData = [
 ];
 
 const newsData = [
-{
+    {
         id: 1,
         title: "Xu hướng thị trường BĐS 2026",
         image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
@@ -225,5 +225,15 @@ const newsData = [
         excerpt: "Mô tả ngắn cho bài báo test.",
         content: "<p>Nội dung bài báo test tự động hóa.</p>",
         author: "Thạch Vũ AI"
+    },
+    {
+        id: 9,
+        title: "Thị trường căn hộ Bình Dương 2025: Thiết lập mặt bằng giá mới, tiệm cận 70 triệu/m²",
+        image: "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800",
+        category: "Thị Trường",
+        date: "06/01/2026",
+        excerpt: "Phân tích đà tăng trưởng mạnh mẽ của chung cư Bình Dương trong năm 2025 dưới tác động của hạ tầng và nhu cầu nhà ở thực tăng cao.",
+        content: "<p>Thị trường bất động sản Bình Dương đang chứng kiến một cuộc bứt phá ngoạn mục về giá bán, đặc biệt là ở phân khúc căn hộ cao cấp. Theo dữ liệu nghiên cứu thị trường mới nhất cuối năm 2024, giá chung cư tại các khu vực trọng điểm như Thuận An, Dĩ An và Thủ Dầu Một đã ghi nhận mức tăng trung bình từ 7-10%, thiết lập mặt bằng giá phổ biến từ 45-60 triệu đồng/m².</p><h2>Dự báo tăng trưởng 10-20% trong năm 2025</h2><p>Các chuyên gia nhận định, đà tăng này sẽ chưa dừng lại. Dự kiến trong năm 2025, giá căn hộ tại Bình Dương có thể tăng thêm 10-20%. Cá biệt, một số dự án phức hợp cao cấp tại vị trí đắc địa giáp ranh TP.HCM đang chuẩn bị mở bán với mức giá kỳ vọng lên đến 67-70 triệu đồng/m² - một con số kỷ lục từ trước đến nay tại thị trường này.</p><ul><li><strong>TP. Thủ Dầu Một:</strong> Mức giá trung bình đạt 55 triệu đồng/m², cao nhất 67 triệu đồng/m².</li><li><strong>TP. Thuận An:</strong> Giá sơ cấp dao động từ 51-55 triệu đồng/m².</li><li><strong>TP. Dĩ An:</strong> Giữ mức ổn định hơn nhưng vẫn tăng trưởng tốt, trung bình 35-45 triệu đồng/m².</li></ul><h2>Động lực từ hạ tầng và dòng vốn FDI</h2><p>Sự phát triển đồng bộ của các công trình hạ tầng liên vùng như đường Vành Đai 3, dự án mở rộng Quốc lộ 13 và các tuyến cao tốc kết nối sân bay Long Thành là \"đòn bẩy\" chính thúc đẩy giá trị bất động sản. Bên cạnh đó, lợi suất cho thuê căn hộ tại Bình Dương hiện đạt khoảng 4.7%, mức hấp dẫn vượt trội so với cả Hà Nội và TP.HCM, thu hút mạnh mẽ các nhà đầu tư và chuyên gia làm việc tại các khu công nghiệp.</p><p>Mặc dù mặt bằng giá đang tăng cao, Bình Dương vẫn được xem là \"vùng trũng\" về giá so với TP.HCM, đồng thời cung cấp chất lượng sống tiệm cận tiêu chuẩn quốc tế với mức giá dễ tiếp cận hơn cho người mua ở thực.</p>",
+        author: "Thạch Vũ (Content Research Team)"
     }
 ];
