@@ -138,15 +138,19 @@
 
                 // Minimal Featured Card
                 featuredContainer.innerHTML = `
-                    <article class="article-featured-hero">
-                        <div class="img-wrapper">
-                            <img src="${featured.image}" alt="${featured.title}">
+                    <article class="featured-article">
+                        <div class="featured-article__image-container">
+                            <img src="${featured.image}" alt="${featured.title}" class="featured-article__image">
                         </div>
-                        <span class="category-tag">${featured.category}</span>
-                        <h2><a href="news-detail.html?id=${featured.id}" style="color: inherit; text-decoration: none;">${featured.title}</a></h2>
-                        <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px;">${featured.excerpt}</p>
-                        <div style="margin-top: 20px; font-size: 14px; color: var(--anthropic-mid-gray); font-weight: 500;">
-                            ${featured.date} &mdash; ${featured.author}
+                        <div class="featured-article__content">
+                            <span class="category-tag">${featured.category}</span>
+                            <h2 class="featured-article__title">
+                                <a href="news-detail.html?id=${featured.id}" style="color: inherit; text-decoration: none;">${featured.title}</a>
+                            </h2>
+                            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px;">${featured.excerpt}</p>
+                            <div style="margin-top: 20px; font-size: 14px; color: var(--anthropic-mid-gray); font-weight: 500;">
+                                ${featured.date} &mdash; ${featured.author}
+                            </div>
                         </div>
                     </article>
                 `;
@@ -155,15 +159,15 @@
                 const remainingNews = filteredNews.slice(1);
                 remainingNews.forEach((news) => {
                     const card = `
-                        <article class="article-card-modern">
-                            <div class="img-wrapper">
+                        <article class="article-card">
+                            <div class="article-card__image-container">
                                 <a href="news-detail.html?id=${news.id}">
-                                    <img src="${news.image}" alt="${news.title}">
+                                    <img src="${news.image}" alt="${news.title}" class="article-card__image">
                                 </a>
                             </div>
-                            <div class="content">
+                            <div class="article-card__content">
                                 <span class="category-tag" style="color: var(--anthropic-blue); font-size: 11px;">${news.category}</span>
-                                <h3>
+                                <h3 class="article-card__title">
                                     <a href="news-detail.html?id=${news.id}">${news.title}</a>
                                 </h3>
                                 <div style="font-size: 13px; color: var(--anthropic-mid-gray);">

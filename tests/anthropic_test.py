@@ -1,12 +1,16 @@
 import os
 import sys
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, expect
 
 # Add paths to test
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.join(BASE_DIR, "tests"))
+
+from pages.news_hub import NewsHubPage
+from pages.article_detail import ArticleDetailPage
+
 INDEX_URL = f"file://{os.path.join(BASE_DIR, 'index.html')}"
-NEWS_URL = f"file://{os.path.join(BASE_DIR, 'news-anthropic.html')}"
-DETAIL_URL = f"file://{os.path.join(BASE_DIR, 'news-detail.html')}?id=1"
+BASE_URL = f"file://{BASE_DIR}"
 
 def test_thachvu_land():
     with sync_playwright() as p:
@@ -14,79 +18,58 @@ def test_thachvu_land():
         context = browser.new_context(viewport={'width': 1280, 'height': 800})
         page = context.new_page()
 
-        print("--- Starting Automated Testing for ThachVuLand ---")
+        print("--- Starting Automated Testing for ThachVuLand (POM + BEM) ---")
 
         # 1. Test Homepage Navigation
         print(f"Testing Homepage: {INDEX_URL}")
         page.goto(INDEX_URL)
         page.wait_for_load_state('networkidle')
         
-        # Check "Tin tức" link
         news_link = page.locator('nav.main-nav a:text("Tin tức")')
-        if news_link.count() > 0:
-            href = news_link.get_attribute('href')
-            print(f"✅ Found 'Tin tức' link: {href}")
-            if href == "news-anthropic.html":
-                print("✅ Navigation link points to news-anthropic.html")
-            else:
-                print(f"❌ Navigation link points to {href} instead of news-anthropic.html")
-        else:
-            print("❌ 'Tin tức' link not found in navigation")
+        expect(news_link).to_be_visible()
+        href = news_link.get_attribute('href')
+        print(f"✅ Found 'Tin tức' link pointing to: {href}")
+        assert href == "news-anthropic.html"
 
         page.screenshot(path=os.path.join(BASE_DIR, 'tests/homepage_nav_check.png'))
 
-        # 2. Test News Portal (Anthropic Style)
-        print(f"\nTesting News Portal: {NEWS_URL}")
-        page.goto(NEWS_URL)
+        # 2. Test News Portal (POM)
+        news_hub = NewsHubPage(page)
+        print(f"\nTesting News Portal Hub")
+        news_hub.navigate(BASE_URL)
         page.wait_for_load_state('networkidle')
 
-        # Check Logo
-        logo = page.locator('.logo')
-        if logo.count() > 0:
-            print(f"✅ Logo found: {logo.inner_text().strip()}")
-            if "index.html" in logo.get_attribute('href'):
-                print("✅ Logo links back to index.html")
+        # Verify BEM Article Cards
+        print("Waiting for BEM article cards to render...")
+        expect(news_hub.featured_article).to_be_visible(timeout=5000)
+        expect(news_hub.article_cards.first).to_be_visible(timeout=5000)
         
-        # Check Navigation Links
-        nav_links = page.locator('.main-nav .nav-link')
-        print(f"✅ Found {nav_links.count()} navigation links in News Portal")
-        for i in range(nav_links.count()):
-            link = nav_links.nth(i)
-            print(f"   - {link.inner_text().strip()} -> {link.get_attribute('href')}")
-
-        # Check Category Pills
-        pills = page.locator('.category-pill')
-        print(f"✅ Found {pills.count()} category pills")
-
-        # Check for Article Cards
-        # We need to wait for JS to render articles from data.js
-        page.wait_for_selector('.article-card-modern', timeout=5000)
-        articles = page.locator('.article-card-modern')
-        print(f"✅ Found {articles.count()} article cards rendered")
+        card_count = news_hub.article_cards.count()
+        print(f"✅ Found {card_count} standard article cards (BEM: .article-card)")
+        
+        featured_title = news_hub.featured_title.inner_text()
+        print(f"✅ Featured Article Title: {featured_title}")
 
         page.screenshot(path=os.path.join(BASE_DIR, 'tests/news_portal_check.png'))
 
-        # 3. Test News Detail
-        print(f"\nTesting News Detail: {DETAIL_URL}")
-        page.goto(DETAIL_URL)
-        page.wait_for_load_state('networkidle')
-
-        # Check Content
-        page.wait_for_selector('.article-title-large', timeout=5000)
-        title = page.locator('.article-title-large').inner_text()
-        print(f"✅ Article Detail Title: {title}")
-
-        # Check Back Button
-        back_btn = page.locator('a:text("Quay lại tin tức")')
-        if back_btn.count() > 0:
-            print(f"✅ Back button found: {back_btn.get_attribute('href')}")
-            if back_btn.get_attribute('href') == "news-anthropic.html":
-                print("✅ Back button points to news-anthropic.html")
+        # 3. Test News Detail (POM)
+        print(f"\nTesting News Detail via transition")
+        news_hub.featured_title.locator("a").click()
+        
+        detail_page = ArticleDetailPage(page)
+        detail_page.wait_for_load()
+        
+        print(f"✅ Article Detail Title: {detail_page.title.inner_text()}")
+        expect(detail_page.back_button).to_have_attribute("href", "news-anthropic.html")
+        print("✅ Back button points correctly to news-anthropic.html")
         
         page.screenshot(path=os.path.join(BASE_DIR, 'tests/news_detail_check.png'))
 
-        print("\n--- Testing Completed Successfully ---")
+        print("\n--- Testing Completed Successfully (POM + BEM) ---")
         browser.close()
+
+if __name__ == "__main__":
+    test_thachvu_land()
 
 if __name__ == "__main__":
     test_thachvu_land()

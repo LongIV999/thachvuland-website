@@ -85,6 +85,11 @@
             container.innerHTML = `
                 <article class="article-detail-container">
                     <header class="article-header">
+                        <div style="margin-bottom: 24px;">
+                            <a href="news-anthropic.html" class="nav-link" style="text-decoration: none; font-size: 14px; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; gap: 8px;">
+                                <i class="fas fa-arrow-left"></i> Quay lại tin tức
+                            </a>
+                        </div>
                         <span class="article-category-label">${article.category}</span>
                         <h1 class="article-title-large">${article.title}</h1>
                         <div class="article-meta-modern">
@@ -118,17 +123,16 @@
             // Render Related
             const related = newsData.filter(item => item.id !== newsId).slice(0, 3);
             related.forEach(item => {
-                // Using the same card style from news-anthropic but adapted for grid
                 const card = `
-                     <article class="article-card-modern" style="flex-direction: column; gap: 16px; margin: 0;">
-                        <div class="img-wrapper" style="width: 100%;">
+                     <article class="article-card" style="flex-direction: column; gap: 16px; margin: 0;">
+                        <div class="article-card__image-container" style="width: 100%;">
                             <a href="news-detail.html?id=${item.id}">
-                                <img src="${item.image}" alt="${item.title}" style="aspect-ratio: 16/9;">
+                                <img src="${item.image}" alt="${item.title}" class="article-card__image" style="aspect-ratio: 16/9;">
                             </a>
                         </div>
-                        <div class="content">
+                        <div class="article-card__content">
                             <span class="category-tag" style="color: var(--anthropic-blue); font-size: 11px;">${item.category}</span>
-                            <h3 style="font-size: 1.2rem; margin-top: 8px;">
+                            <h3 class="article-card__title" style="font-size: 1.2rem; margin-top: 8px;">
                                 <a href="news-detail.html?id=${item.id}">${item.title}</a>
                             </h3>
                         </div>

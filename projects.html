@@ -6,150 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon"
         href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏢</text></svg>">
-    <title>Danh Sách Dự Án - Thạch Vũ Land</title>
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Be+Vietnam+Pro:wght@300;400;600;700&display=swap"
-        rel="stylesheet">
-
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Dự Án Showroom - Thạch Vũ Land</title>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles/main.css">
-    <style>
-        .projects-page-header {
-            padding-top: 120px;
-            padding-bottom: 60px;
-            background: var(--neutral-900);
-            color: white;
-            text-align: center;
-        }
-
-        .projects-grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 60px 0;
-        }
-
-        .filter-bar {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 10px 24px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: transparent;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: var(--accent-gold);
-            border-color: var(--accent-gold);
-            color: var(--neutral-900);
-            font-weight: 600;
-        }
-    </style>
+    <link rel="stylesheet" href="styles/anthropic.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
-    <!-- Header (Same as index) -->
-    <header class="site-header scrolled" id="siteHeader">
-        <div class="header-container">
-            <a href="index.html" class="logo">
-                <svg width="120" height="48" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-                    <style>
-                        .tvl-text {
-                            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-                            font-weight: 800;
-                            letter-spacing: 0.05em;
-                            fill: currentColor;
-                            text-anchor: middle;
-                            dominant-baseline: middle;
-                        }
-                    </style>
-                    <text x="50%" y="50%" font-size="48" class="tvl-text">TVL</text>
-                </svg>
-            </a>
-
+    <!-- Header -->
+    <header class="site-header scrolled">
+        <div class="container header-container">
+            <a href="index.html" class="logo">TVL<span>.</span></a>
             <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Trang Chủ</a></li>
-                    <li><a href="projects.html" class="active">Dự Án</a></li>
-                    <li><a href="index.html#news">Tin Tức</a></li>
-                    <li><a href="index.html#about">Về Chúng Tôi</a></li>
-                    <li><a href="index.html#contact">Liên Hệ</a></li>
-                </ul>
+                <a href="index.html" class="nav-link">Trang Chủ</a>
+                <a href="projects.html" class="nav-link active">Dự Án</a>
+                <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
+                <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
+                <a href="tel:0903469888" class="nav-link nav-cta">Liên Hệ</a>
             </nav>
-
-            <div class="header-cta">
-                <a href="tel:0903469888" class="header-phone">
-                    <i class="fas fa-phone"></i>
-                    <span>0903.469.888</span>
-                </a>
-            </div>
-
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="index.html">Trang Chủ</a></li>
-            <li><a href="projects.html">Dự Án</a></li>
-            <li><a href="index.html#news">Tin Tức</a></li>
-            <li><a href="index.html#about">Về Chúng Tôi</a></li>
-            <li><a href="index.html#contact">Liên Hệ</a></li>
-        </ul>
-        <div class="mobile-menu-contact">
-            <a href="tel:0903469888" class="btn-primary">
-                <i class="fas fa-phone"></i> Gọi Ngay
-            </a>
-        </div>
-    </div>
-
-    <!-- Page Header -->
-    <section class="projects-page-header">
-        <div class="container">
-            <h1 class="text-gradient" style="font-size: 3.5rem; margin-bottom: 20px;">Dự Án Nổi Bật</h1>
-            <p style="opacity: 0.8; max-width: 600px; margin: 0 auto;">Tổng hợp các dự án bất động sản cao cấp, tiềm
-                năng sinh lời cao và pháp lý minh bạch tại TP.HCM và Bình Dương.</p>
+    <!-- Hero Section -->
+    <section class="news-hero-modern">
+        <div class="container" style="text-align: center;">
+            <span class="category-tag">Premium Collection</span>
+            <h1 class="article-title-large">Dự Án Bất Động Sản</h1>
+            <p class="article-body" style="max-width: 700px; margin: 0 auto;">Khám phá bộ sưu tập các dự án cao cấp, vị
+                trí đắc địa và tiềm năng sinh lời bền vững được tuyển chọn bởi Thạch Vũ Land.</p>
         </div>
     </section>
 
-    <!-- Projects Grid -->
+    <!-- Filter Bar -->
+    <section class="container filter-section">
+        <div class="filter-pills" id="projectFilter">
+            <button class="filter-pill active" data-category="all">Tất Cả</button>
+            <button class="filter-pill" data-category="can-ho">Căn Hộ</button>
+            <button class="filter-pill" data-category="shophouse">Shophouse</button>
+            <button class="filter-pill" data-category="dat-nen">Đất Nền</button>
+        </div>
+    </section>
+
+    <!-- Bento Grid -->
     <section class="container">
-
-        <div class="filter-bar">
-            <button class="filter-btn active">Tất cả</button>
-            <button class="filter-btn">Căn hộ</button>
-            <button class="filter-btn">Nhà phố</button>
-            <button class="filter-btn">Đất nền</button>
-        </div>
-
-        <div class="projects-grid-container" id="projectsGrid">
-            <!-- Projects render here -->
+        <div class="projects-bento-grid" id="projectsBentoGrid">
+            <!-- Rendered via JS -->
         </div>
     </section>
 
-    <!-- Footer (Same as index) -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-bottom">
@@ -162,55 +68,71 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+    <!-- Data & Scripts -->
     <script src="scripts/data.js"></script>
     <script src="scripts/main.js"></script>
     <script>
-        // Render Projects Grid
-        function renderProjectsGrid() {
-            const grid = document.getElementById('projectsGrid');
-            if (!grid) return;
+        document.addEventListener('DOMContentLoaded', () => {
+            const grid = document.getElementById('projectsBentoGrid');
+            const filterContainer = document.getElementById('projectFilter');
 
-            grid.innerHTML = projectData.map(project => `
-                <div class="project-card glass-morphism project-item">
-                    <div class="project-card-image">
-                        <img src="${project.image}" alt="${project.title}" loading="lazy">
-                        <span class="project-card-badge neon-glow">${project.status}</span>
-                    </div>
-                    <div class="project-card-content">
-                        <h3 class="project-card-title text-gradient">${project.title}</h3>
-                        <div class="project-card-meta">
-                            <div class="project-card-meta-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>${project.location}</span>
+            function renderProjects(category = 'all') {
+                const filtered = category === 'all'
+                    ? projectData
+                    : projectData.filter(p => p.category === category);
+
+                grid.innerHTML = filtered.map((project, index) => {
+                    // Logic for Bento patterns (e.g., every 3rd or 4th is wide/tall)
+                    let modifier = '';
+                    if (index % 5 === 0) modifier = 'project-card--wide';
+                    else if (index % 5 === 3) modifier = 'project-card--tall';
+
+                    return `
+                        <div class="project-card ${modifier}">
+                            <div class="project-card__image-wrapper">
+                                <img src="${project.image}" alt="${project.title}" class="project-card__image" loading="lazy">
+                                <div class="project-card__badge">${project.status}</div>
                             </div>
-                            <div class="project-card-meta-item">
-                                <i class="fas fa-dollar-sign"></i>
-                                <span>${project.price}</span>
+                            <div class="project-card__content">
+                                <div class="project-card__category">${project.category === 'can-ho' ? 'Căn Hộ' : 'Shophouse'}</div>
+                                <h3 class="project-card__title">${project.title}</h3>
+                                <div class="project-card__meta">
+                                    <div class="project-card__meta-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>${project.location}</span>
+                                    </div>
+                                    <div class="project-card__meta-item">
+                                        <i class="fas fa-tag"></i>
+                                        <span class="price-text">${project.price}</span>
+                                    </div>
+                                </div>
+                                <a href="${project.link}" class="nav-cta" style="display: inline-block; margin-top: 24px; text-decoration: none;">Chi tiết</a>
                             </div>
                         </div>
-                        <a href="${project.link}" class="btn-ghost" style="margin-top: 15px;">${project.cta} <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            `).join('');
+                    `;
+                }).join('');
 
-            // GSAP Animation for Grid
-            gsap.registerPlugin(ScrollTrigger);
+                // Animation
+                gsap.from(".project-card", {
+                    y: 40,
+                    opacity: 0,
+                    duration: 0.6,
+                    stagger: 0.1,
+                    ease: "power2.out"
+                });
+            }
 
-            gsap.from(".project-item", {
-                y: 50,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.1,
-                scrollTrigger: {
-                    trigger: "#projectsGrid",
-                    start: "top 80%",
+            // Filter logic
+            filterContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('filter-pill')) {
+                    document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.remove('active'));
+                    e.target.classList.add('active');
+                    renderProjects(e.target.dataset.category);
                 }
             });
-        }
 
-        renderProjectsGrid();
-
-        // Mobile Menu toggle handled in main.js
+            renderProjects();
+        });
     </script>
 </body>
 
