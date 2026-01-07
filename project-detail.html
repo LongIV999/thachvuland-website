@@ -11,52 +11,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="styles/anthropic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        /* Local overrides for detail page specific spatial logic if needed */
-        .project-hero-canvas {
-            height: 60vh;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: flex-end;
-            background: var(--anthropic-dark);
-        }
-
-        .project-hero-canvas__bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.6;
-        }
-
-        .project-hero-canvas__content {
-            position: relative;
-            z-index: 5;
-            padding-bottom: 60px;
-            color: var(--anthropic-light);
-        }
-
-        .detail-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-            margin-top: 60px;
-        }
-
-        .sidebar-sticky {
-            position: sticky;
-            top: 120px;
-        }
-
-        @media (max-width: 992px) {
-            .detail-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -67,7 +21,6 @@
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Trang Chủ</a>
                 <a href="projects.html" class="nav-link">Dự Án</a>
-                <a href="knowledge.html" class="nav-link">Kiến Thức</a>
                 <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
                 <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
                 <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>

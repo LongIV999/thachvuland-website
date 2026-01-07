@@ -21,7 +21,6 @@
             <nav class="main-nav">
                 <a href="index.html" class="nav-link">Trang Chủ</a>
                 <a href="projects.html" class="nav-link active">Dự Án</a>
-                <a href="knowledge.html" class="nav-link">Kiến Thức</a>
                 <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
                 <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
                 <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>
@@ -50,7 +49,7 @@
                 <label class="filter-label">Tìm kiếm</label>
                 <div style="position: relative;">
                     <i class="fas fa-search"
-                        style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: #aaa;"></i>
+                        style="position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--anthropic-mid-gray);"></i>
                     <input type="text" id="searchInput" class="filter-input"
                         placeholder="Nhập tên dự án hoặc khu vực..." style="padding-left: 40px;">
                 </div>
@@ -96,7 +95,7 @@
             <!-- Rendered via JS -->
         </div>
         <div id="noResults" style="text-align: center; padding: 60px; display: none;">
-            <i class="fas fa-search" style="font-size: 3rem; color: #ddd; margin-bottom: 20px;"></i>
+            <i class="fas fa-search" style="font-size: 3rem; color: var(--anthropic-light-gray); margin-bottom: 20px;"></i>
             <p class="article-body">Không tìm thấy dự án phù hợp.</p>
             <button class="nav-cta" onclick="resetFilters()">Xóa bộ lọc</button>
         </div>

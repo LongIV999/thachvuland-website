@@ -1,0 +1,12 @@
+# Python dependencies for ThachVuLand testing and automation
+
+# Testing Framework
+playwright==1.40.0
+pytest==7.4.3
+pytest-playwright==0.4.3
+
+# For data processing (used in generate_data.py)
+# No external dependencies needed - uses built-in json module
+
+# Optional: For better test reporting
+pytest-html==4.1.1
