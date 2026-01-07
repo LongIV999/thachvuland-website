@@ -27,8 +27,7 @@ const projectData = [
             "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
             "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
             "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
-        ],
-        "vrUrl": "https://my.matterport.com/show/?m=JGPnGQFhhcm&play=1"
+        ]
     },
     {
         "id": 2,
@@ -147,6 +146,16 @@ const projectData = [
 ];
 
 const newsData = [
+    {
+        "id": 10,
+        "title": "Test Automation Article",
+        "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
+        "category": "Testing",
+        "date": "07/01/2026",
+        "excerpt": "This is a test article to verify the script",
+        "content": "<p>Test content from automation script.</p>",
+        "author": "Thạch Vũ AI"
+    },
     {
         "id": 1,
         "title": "Xu hướng thị trường BĐS 2026",

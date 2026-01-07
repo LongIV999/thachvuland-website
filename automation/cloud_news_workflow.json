@@ -1,0 +1,290 @@
+{
+    "name": "Cloud News Automation",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "hours",
+                            "hoursInterval": 6
+                        }
+                    ]
+                }
+            },
+            "name": "Schedule",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "url": "https://batdongsan.com.vn/tin-tuc-bat-dong-san",
+                "options": {}
+            },
+            "name": "Fetch Batdongsan",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [
+                450,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "dataPropertyName": "data",
+                "extractionValues": {
+                    "values": [
+                        {
+                            "key": "title",
+                            "cssSelector": ".js__card-title",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "link",
+                            "cssSelector": ".js__card-title",
+                            "returnAttribute": "href",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "excerpt",
+                            "cssSelector": ".re__card-description",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "image",
+                            "cssSelector": ".re__card-image img",
+                            "returnAttribute": "data-src",
+                            "returnArray": true
+                        }
+                    ]
+                }
+            },
+            "name": "Extract List",
+            "type": "n8n-nodes-base.htmlExtract",
+            "typeVersion": 1,
+            "position": [
+                650,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "functionCode": "const results = [];\nconst titles = items[0].json.title || [];\nconst links = items[0].json.link || [];\nconst images = items[0].json.image || [];\n// Simple logic to pick the first item\nif (titles.length > 0) {\n  results.push({\n    json: {\n      title: titles[0],\n      link: 'https://batdongsan.com.vn' + links[0],\n      image: images[0]\n    }\n  });\n}\nreturn results;"
+            },
+            "name": "Process Item",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [
+                850,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "url": "={{$json.link}}",
+                "options": {}
+            },
+            "name": "Fetch Content",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [
+                1050,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "dataPropertyName": "data",
+                "extractionValues": {
+                    "values": [
+                        {
+                            "key": "content",
+                            "cssSelector": ".re__detail-content",
+                            "returnValue": "html"
+                        }
+                    ]
+                }
+            },
+            "name": "Extract Body",
+            "type": "n8n-nodes-base.htmlExtract",
+            "typeVersion": 1,
+            "position": [
+                1250,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o-mini",
+                "messages": {
+                    "values": [
+                        {
+                            "role": "system",
+                            "content": "Rewrite for Thach Vu Land. Professional Real Estate tone. Vietnamese."
+                        },
+                        {
+                            "role": "user",
+                            "content": "={{$json.content}}"
+                        }
+                    ]
+                }
+            },
+            "name": "AI Rewrite",
+            "type": "@n8n/n8n-nodes-langchain.openAi",
+            "typeVersion": 1,
+            "position": [
+                1450,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "operation": "getFile",
+                "owner": "LongIV999",
+                "repository": "thachvuland-website",
+                "filePath": "data/articles.json"
+            },
+            "name": "Get Current Data",
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                1650,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "functionCode": "const currentFile = JSON.parse(Buffer.from(items[0].json.content, 'base64').toString('utf-8'));\nconst newsList = currentFile.newsData || [];\nconst newItem = {\n  id: newsList.length > 0 ? newsList[0].id + 1 : 1,\n  title: $('Process Item').first().json.title,\n  image: $('Process Item').first().json.image,\n  date: new Date().toLocaleDateString('vi-VN'),\n  content: $('AI Rewrite').first().json.content,\n  author: 'Thạch Vũ AI'\n};\ncurrentFile.newsData = [newItem, ...newsList];\nreturn {\n  json: {\n    content: Buffer.from(JSON.stringify(currentFile, null, 4)).toString('base64'),\n    message: 'Auto-add news'\n  }\n};"
+            },
+            "name": "Merge Data",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [
+                1850,
+                300
+            ]
+        },
+        {
+            "parameters": {
+                "operation": "updateFile",
+                "owner": "LongIV999",
+                "repository": "thachvuland-website",
+                "filePath": "data/articles.json",
+                "fileContent": "={{$json.content}}",
+                "commitMessage": "={{$json.message}}"
+            },
+            "name": "Update GitHub",
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [
+                2050,
+                300
+            ]
+        }
+    ],
+    "connections": {
+        "Schedule": {
+            "main": [
+                [
+                    {
+                        "node": "Fetch Batdongsan",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Fetch Batdongsan": {
+            "main": [
+                [
+                    {
+                        "node": "Extract List",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract List": {
+            "main": [
+                [
+                    {
+                        "node": "Process Item",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Process Item": {
+            "main": [
+                [
+                    {
+                        "node": "Fetch Content",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Fetch Content": {
+            "main": [
+                [
+                    {
+                        "node": "Extract Body",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract Body": {
+            "main": [
+                [
+                    {
+                        "node": "AI Rewrite",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Rewrite": {
+            "main": [
+                [
+                    {
+                        "node": "Get Current Data",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Get Current Data": {
+            "main": [
+                [
+                    {
+                        "node": "Merge Data",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Merge Data": {
+            "main": [
+                [
+                    {
+                        "node": "Update GitHub",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

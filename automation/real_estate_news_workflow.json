@@ -1,0 +1,250 @@
+{
+    "name": "ThachVu Land News Automation",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "hours",
+                            "hoursInterval": 6
+                        }
+                    ]
+                }
+            },
+            "name": "Schedule Trigger",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1,
+            "position": [
+                250,
+                300
+            ],
+            "id": "schedule-trigger"
+        },
+        {
+            "parameters": {
+                "url": "https://batdongsan.com.vn/tin-tuc-bat-dong-san",
+                "options": {}
+            },
+            "name": "Fetch Batdongsan",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [
+                450,
+                300
+            ],
+            "id": "fetch-batdongsan"
+        },
+        {
+            "parameters": {
+                "dataPropertyName": "data",
+                "extractionValues": {
+                    "values": [
+                        {
+                            "key": "title",
+                            "cssSelector": ".js__card-title",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "link",
+                            "cssSelector": ".js__card-title",
+                            "returnAttribute": "href",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "image",
+                            "cssSelector": ".re__card-image img",
+                            "returnAttribute": "data-src",
+                            "returnArray": true
+                        },
+                        {
+                            "key": "excerpt",
+                            "cssSelector": ".re__card-description",
+                            "returnArray": true
+                        }
+                    ]
+                }
+            },
+            "name": "Extract List",
+            "type": "n8n-nodes-base.htmlExtract",
+            "typeVersion": 1,
+            "position": [
+                650,
+                300
+            ],
+            "id": "extract-list"
+        },
+        {
+            "parameters": {
+                "functionCode": "// Flatten arrays and pick top 1\nconst results = [];\nconst titles = items[0].json.title || [];\nconst links = items[0].json.link || [];\nconst images = items[0].json.image || [];\nconst excerpts = items[0].json.excerpt || [];\n\n// Just take the first valid one for now\nif (titles.length > 0) {\n  results.push({\n    json: {\n      title: titles[0],\n      link: 'https://batdongsan.com.vn' + links[0],\n      image: images[0],\n      excerpt: excerpts[0]\n    }\n  });\n}\n\nreturn results;"
+            },
+            "name": "Process & Limit",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [
+                850,
+                300
+            ],
+            "id": "process-limit"
+        },
+        {
+            "parameters": {
+                "url": "={{$json.link}}",
+                "options": {}
+            },
+            "name": "Fetch Article Content",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [
+                1050,
+                300
+            ],
+            "id": "fetch-content"
+        },
+        {
+            "parameters": {
+                "dataPropertyName": "data",
+                "extractionValues": {
+                    "values": [
+                        {
+                            "key": "content",
+                            "cssSelector": ".re__detail-content",
+                            "returnValue": "html"
+                        }
+                    ]
+                }
+            },
+            "name": "Extract Content Body",
+            "type": "n8n-nodes-base.htmlExtract",
+            "typeVersion": 1,
+            "position": [
+                1250,
+                300
+            ],
+            "id": "extract-body"
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o-mini",
+                "messages": {
+                    "values": [
+                        {
+                            "role": "system",
+                            "content": "You are an expert real estate editor for 'Thach Vu Land'. Rewrite the following news article in Vietnamese. \nTone: Professional, Insightful, Market-oriented.\nRequirements:\n1. Keep the main facts.\n2. Summarize nicely.\n3. Add a 'Thach Vu Analysis' section at the end if possible.\n4. Return ONLY the rewritten HTML content (paragraphs, headings). Do not wrap in markdown code blocks."
+                        },
+                        {
+                            "role": "user",
+                            "content": "={{$json.content}}"
+                        }
+                    ]
+                }
+            },
+            "name": "AI Rewrite",
+            "type": "@n8n/n8n-nodes-langchain.openAi",
+            "typeVersion": 1,
+            "position": [
+                1450,
+                300
+            ],
+            "id": "ai-rewrite",
+            "credentials": {
+                "openAiApi": {
+                    "id": "CREDENTIAL_ID_HERE",
+                    "name": "OpenAI account"
+                }
+            }
+        },
+        {
+            "parameters": {
+                "command": "=node scripts/add-news.js '{\"title\": \"{{$node[\"Process & Limit\"].json[\"title\"]}}\", \"excerpt\": \"{{$node[\"Process & Limit\"].json[\"excerpt\"].slice(0, 150)}}...\", \"content\": \"{{$json.content.replace(/\"/g, '\\\\\"')}}\", \"image\": \"{{$node[\"Process & Limit\"].json[\"image\"]}}\", \"category\": \"Market Trends\"}'"
+            },
+            "name": "Add to Website",
+            "type": "n8n-nodes-base.executeCommand",
+            "typeVersion": 1,
+            "position": [
+                1650,
+                300
+            ],
+            "id": "save-file"
+        }
+    ],
+    "connections": {
+        "Schedule Trigger": {
+            "main": [
+                [
+                    {
+                        "node": "Fetch Batdongsan",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Fetch Batdongsan": {
+            "main": [
+                [
+                    {
+                        "node": "Extract List",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract List": {
+            "main": [
+                [
+                    {
+                        "node": "Process & Limit",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Process & Limit": {
+            "main": [
+                [
+                    {
+                        "node": "Fetch Article Content",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Fetch Article Content": {
+            "main": [
+                [
+                    {
+                        "node": "Extract Content Body",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "Extract Content Body": {
+            "main": [
+                [
+                    {
+                        "node": "AI Rewrite",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "AI Rewrite": {
+            "main": [
+                [
+                    {
+                        "node": "Add to Website",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    }
+}

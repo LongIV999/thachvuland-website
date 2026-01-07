@@ -142,6 +142,16 @@
     ],
     "newsData": [
         {
+            "id": 10,
+            "title": "Test Automation Article",
+            "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",
+            "category": "Testing",
+            "date": "07/01/2026",
+            "excerpt": "This is a test article to verify the script",
+            "content": "<p>Test content from automation script.</p>",
+            "author": "Thạch Vũ AI"
+        },
+        {
             "id": 1,
             "title": "Xu hướng thị trường BĐS 2026",
             "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600",

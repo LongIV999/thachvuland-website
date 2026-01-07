@@ -1,47 +1,51 @@
-# 🤖 Quy trình Tự động hóa Đăng tin - Thạch Vũ Land
+# 🤖 Quy trình Tự động hóa Đăng tin - Thạch Vũ Land (Cloud Version)
 
-Quy trình này cho phép bạn chỉ cần dán link bài báo, AI sẽ tự động:
-1. Đọc nội dung bài báo gốc.
-2. Viết lại bài báo theo phong cách chuyên nghiệp của Thạch Vũ Land.
-3. Tự động thêm vào website mà không cần mở code.
-
-## 🛠 Công cụ cần thiết
-1. **n8n**: Công cụ tự động hóa (Có thể chạy trên máy tính hoặc server).
-2. **Jina Reader**: Công cụ giúp AI đọc nội dung website miễn phí.
-3. **OpenAI API Key**: Để AI thực hiện việc viết bài.
+## 🚀 Tổng quan
+Hệ thống này được thiết kế để hoạt động hoàn toàn trên Cloud (n8n Cloud, VPS), không phụ thuộc vào máy tính cá nhân.
+- **Nguồn tin**: Batdongsan.com.vn
+- **Xử lý**: OpenAI (GPT-4o) viết lại bài.
+- **Lưu trữ**: Tự động Commit thẳng vào GitHub Repo.
+- **Deploy**: GitHub Actions tự động build lại web khi có data mới.
 
 ---
 
-## 📋 Các bước cài đặt
+## 🛠 Cài đặt Hệ thống trên n8n Cloud
 
-### Bước 1: Chuẩn bị Script cầu nối
-Tôi đã tạo file `scripts/add-news.js` trong thư mục dự án của bạn. File này đóng vai trò "cầu nối" để nhận dữ liệu từ AI và ghi vào file `data.js`.
+### Bước 1: Import Workflow
+1. Tải file `automation/cloud_news_workflow.json` (tôi vừa tạo).
+2. Vào n8n > **Workflows** > **Import from File**.
 
-### Bước 2: Cài đặt và Chạy n8n
-Nếu bạn chưa có n8n, hãy cài đặt nhanh bằng lệnh (trong Terminal):
-```bash
-npx n8n
-```
-Sau đó truy cập địa chỉ `http://localhost:5678`.
+### Bước 2: Cấu hình Credentials
+Để workflow hoạt động, bạn cần cấu hình 2 tài khoản trong n8n:
 
-### Bước 3: Import Workflow
-1. Tải file `automation/news_automation_workflow.json` (tôi đã tạo sẵn cho bạn).
-2. Trong n8n, chọn **Workflows** -> **Import from File**.
+#### 1. OpenAI (Cho AI viết bài)
+- Node: **AI Rewrite**
+- Credential Type: **OpenAI API**
+- API Key: Lấy từ platform.openai.com
+
+#### 2. GitHub (Để lưu data)
+- Node: **Get Current Data** và **Update GitHub**
+- Credential Type: **GitHub API**
+- Access Token: Tạo Personal Access Token (Classic) tại GitHub > Settings > Developer settings.
+  - Scope: `repo` (Full control of private repositories).
+
+### Bước 3: Cấu hình Node GitHub
+Trong 2 node GitHub ("Get Current Data" và "Update GitHub"), hãy đảm bảo các thông số chính xác:
+- **Owner**: `LongIV999`
+- **Repository**: `thachvuland-website`
+- **File Path**: `data/articles.json`
 
 ---
 
-## 🚀 Cách sử dụng bài viết mới
-Khi workflow đã chạy, bạn chỉ cần gửi link bài báo vào **Form** của n8n.
-- AI sẽ mất khoảng 10-20 giây để xử lý.
-- Sau khi thông báo "Thành công", bạn chỉ cần tải lại trang `news.html` trên website để thấy bài viết mới.
+## ⚙️ Quy trình hoạt động
+1. **6h/lần**: Workflow tự động chạy.
+2. **Lấy tin**: Quét tin mới nhất từ Batdongsan.
+3. **AI Xử lý**: Viết lại nội dung chuyên nghiệp.
+4. **GitHub Commit**: Workflow tự động chỉnh sửa file `data/articles.json` trên GitHub.
+5. **Auto Deploy**: GitHub Actions (được cấu hình trong `.github/workflows/deploy.yml`) sẽ phát hiện thay đổi, tự chạy script `generate_data.py` và deploy website mới.
 
----
-
-## 💡 Cấu trúc Workflow trong n8n
-1. **Trigger (n8n Form)**: Nơi bạn nhập URL bài báo.
-2. **HTTP Request**: Gọi `https://r.jina.ai/<URL>` để lấy nội dung text sạch.
-3. **AI Agent**: 
-   - Sử dụng prompt: "Viết lại bài báo này cho website BĐS Thạch Vũ Land. Trả về JSON."
-4. **Execute Command**: Chạy lệnh `node scripts/add-news.js` để cập nhật website.
-
-Bạn có muốn tôi tạo file workflow `.json` để bạn Import vào n8n ngay không?
+## 🧪 Cách test
+1. Mở Workflow.
+2. Bấm **Execute Workflow**.
+3. Kiểm tra tab "Executions" xem chạy thành công không.
+4. Kiểm tra trên GitHub xem file `data/articles.json` có update mới chưa.
