@@ -164,3 +164,33 @@ Website đã được optimize:
 ## Liên Hệ
 
 Nếu cần hỗ trợ, tạo issue trong repository.
+
+## Deploy lên Vercel (Recommended)
+
+Vercel là nền tảng tối ưu cho cả static site và dynamic app.
+
+### Cách 1: Deploy từ GitHub (Dễ nhất)
+
+1.  Đẩy code lên GitHub (đã làm ở Bước 1).
+2.  Truy cập [Vercel Dashboard](https://vercel.com/dashboard).
+3.  Bấm **Add New...** > **Project**.
+4.  Chọn repository `github-slideshow` (hoặc tên repo của bạn) và bấm **Import**.
+5.  Trong phần **Configure Project**:
+    -   **Framework Preset**: Chọn `Other`.
+    -   **Root Directory**: Để trống (hoặc `./`).
+    -   **Build Command**: Để trống (vì đây là static site).
+    -   **Output Directory**: Để trống (hoặc `.` nếu bắt buộc).
+6.  Bấm **Deploy**.
+
+Vercel sẽ tự động detect và build. Sau khi xong, bạn sẽ có link dạng `https://your-project.vercel.app`.
+
+### Cách 2: Deploy bằng Vercel CLI (Nâng cao)
+
+Nếu bạn đã cài Vercel CLI (`npm i -g vercel`):
+
+1.  Tại thư mục gốc dự án, chạy lệnh:
+    ```bash
+    vercel
+    ```
+2.  Làm theo hướng dẫn trên màn hình (Enter để chọn mặc định cho hầu hết các câu hỏi).
+
