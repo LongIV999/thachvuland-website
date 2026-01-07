@@ -51,23 +51,46 @@ Mỗi khi bạn push code lên branch `main` hoặc `master`, website sẽ tự 
 
 ## Bước 4: Custom Domain (Tùy Chọn)
 
-Nếu bạn có domain riêng (ví dụ: thachvuland.com):
+Nếu bạn có domain riêng (ví dụ: `thachvuland.com`):
 
-1. Trong **Settings** > **Pages**
-2. Thêm domain vào **Custom domain**
-3. Cấu hình DNS records tại nhà cung cấp domain:
-   ```
-   Type: A
-   Name: @
-   Value: 185.199.108.153
-   Value: 185.199.109.153
-   Value: 185.199.110.153
-   Value: 185.199.111.153
+### 1. Cấu Hình DNS (Tại nhà cung cấp tên miền)
+Bạn cần trỏ tên miền về GitHub Pages bằng cách thêm các bản ghi sau:
 
-   Type: CNAME
-   Name: www
-   Value: YOUR_USERNAME.github.io
+**A. Đối với Apex Domain (thachvuland.com):**
+Tạo 4 bản ghi A trỏ về IP của GitHub:
+```
+Type: A
+Name: @ (hoặc để trống)
+Value: 185.199.108.153
+Value: 185.199.109.153
+Value: 185.199.110.153
+Value: 185.199.111.153
+```
+
+**B. Đối với Subdomain (www.thachvuland.com):**
+Tạo 1 bản ghi CNAME:
+```
+Type: CNAME
+Name: www
+Value: YOUR_USERNAME.github.io
+```
+
+### 2. Cấu Hình trên GitHub
+1. Vào repository > **Settings** > **Pages**
+2. Tại mục **Custom domain**, nhập domain của bạn (ví dụ: `thachvuland.com` hoặc `www.thachvuland.com`)
+3. Click **Save**
+4. Đợi GitHub kiểm tra DNS (có thể mất vài phút đến 24h)
+5. Sau khi check thành công, tick chọn **Enforce HTTPS** để bảo mật website
+
+### 3. Lưu ý Quan Trọng (CNAME File)
+Khi bạn nhập domain trong Settings, GitHub sẽ tự động tạo file `CNAME` trong branch `gh-pages`. Tuy nhiên, để tránh bị mất cấu hình khi deploy lại từ code gốc, bạn  NÊN:
+
+1. Tạo file tên là `CNAME` (không có đuôi file) tại thư mục gốc của code.
+2. Nội dung file chỉ chứa tên miền:
    ```
+   thachvuland.com
+   ```
+3. Commit và push file này lên repository.
 
 ## Cập Nhật Nội Dung
 

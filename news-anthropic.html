@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Portal - Anthropic Style</title>
+    <meta name="description" content="Tin tức bất động sản - Phân tích thị trường, tài chính, dự án BĐS mới nhất">
+    <title>Tin Tức Bất Động Sản - Thạch Vũ Land</title>
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -31,72 +32,140 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="news-hero-modern">
+    <!-- News Hero Section -->
+    <section class="news-hero">
         <div class="container">
-            <!-- Minimal Typography Header -->
-            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-                <h1 style="font-size: 3.5rem; letter-spacing: -0.03em; margin-bottom: 16px;">Market Intelligence</h1>
-                <p style="font-size: 1.25rem; color: var(--text-secondary); margin-bottom: 40px;">
-                    Curated insights on real estate, finance, and urban development.
+            <!-- Page Title -->
+            <div class="news-hero__header">
+                <h1 class="news-hero__title">Tin Tức Bất Động Sản</h1>
+                <p class="news-hero__subtitle">
+                    Phân tích thị trường, xu hướng đầu tư và cập nhật pháp lý BĐS mới nhất
                 </p>
             </div>
 
-            <!-- Search -->
-            <div class="modern-search-bar">
-                <input type="text" id="searchInput" placeholder="Search analysis...">
-                <button>Search</button>
+            <!-- Search Bar with Autocomplete -->
+            <div class="news-search-container">
+                <i class="fas fa-search news-search-icon"></i>
+                <input
+                    type="text"
+                    id="newsSearchInput"
+                    class="news-search-input"
+                    placeholder="Tìm kiếm tin tức BĐS..."
+                    autocomplete="off"
+                >
+                <div class="news-search-dropdown" id="searchAutocomplete">
+                    <!-- JS generated autocomplete results -->
+                </div>
             </div>
 
-            <!-- Minimal Pills -->
-            <div class="category-pills">
-                <div class="category-pill active" onclick="filterNews('All')">Latest</div>
-                <div class="category-pill" onclick="filterNews('Thị Trường')">Market</div>
-                <div class="category-pill" onclick="filterNews('Tài Chính')">Finance</div>
-                <div class="category-pill" onclick="filterNews('Dự Án')">Projects</div>
+            <!-- Category Filter Pills -->
+            <div class="category-pills-container">
+                <button class="category-pill active" data-category="All">
+                    <i class="fas fa-newspaper"></i> Tất Cả
+                </button>
+                <button class="category-pill" data-category="Thị Trường">
+                    <i class="fas fa-chart-line"></i> Thị Trường
+                </button>
+                <button class="category-pill" data-category="Tài Chính">
+                    <i class="fas fa-coins"></i> Tài Chính
+                </button>
+                <button class="category-pill" data-category="Dự Án">
+                    <i class="fas fa-building"></i> Dự Án
+                </button>
+                <button class="category-pill" data-category="Pháp Lý">
+                    <i class="fas fa-gavel"></i> Pháp Lý
+                </button>
+                <button class="category-pill" data-category="Kiến Thức">
+                    <i class="fas fa-lightbulb"></i> Kiến Thức
+                </button>
+            </div>
+
+            <!-- Active Filters Display -->
+            <div class="active-filters-container" id="activeFiltersContainer">
+                <!-- JS generated active filter badges -->
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Main News Content -->
     <section class="news-portal-section">
         <div class="container">
             <div class="news-portal-grid">
 
-                <!-- Main Content Area -->
-                <div class="main-content-area">
+                <!-- Main Content Area (70%) -->
+                <div class="news-main-content">
                     <!-- Featured Article -->
-                    <div id="featuredContainer">
-                        <!-- Loaded via JS -->
+                    <div id="featuredArticleContainer">
+                        <!-- JS generated featured article -->
                     </div>
 
-                    <div style="height: 1px; background: var(--border-color); margin: 60px 0;"></div>
+                    <!-- Compact News Grid -->
+                    <div class="news-compact-grid" id="newsCompactGrid">
+                        <!-- JS generated compact cards -->
+                    </div>
 
-                    <!-- News List -->
-                    <div class="news-grid-modern" id="fullNewsGrid">
-                        <!-- Loaded via JS -->
+                    <!-- Infinite Scroll Trigger -->
+                    <div class="infinite-scroll-trigger" id="infiniteScrollTrigger">
+                        <div class="loading-spinner" id="loadingSpinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <span>Đang tải thêm tin tức...</span>
+                        </div>
+                    </div>
+
+                    <!-- No More Results Message -->
+                    <div class="no-more-results" id="noMoreResults" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Đã hiển thị tất cả tin tức</span>
                     </div>
                 </div>
 
-                <!-- Sidebar -->
+                <!-- Sidebar (30%) -->
                 <aside class="news-sidebar">
+                    <!-- Trending/Most Read -->
                     <div class="sidebar-widget">
-                        <h4 class="sidebar-heading">Trending Research</h4>
+                        <h3 class="sidebar-heading">
+                            <i class="fas fa-fire"></i> Đọc Nhiều Nhất
+                        </h3>
                         <div class="trending-list" id="trendingList">
-                            <!-- JS Generated -->
+                            <!-- JS generated trending items -->
                         </div>
                     </div>
 
+                    <!-- Related Articles -->
                     <div class="sidebar-widget">
-                        <h4 class="sidebar-heading">Topics</h4>
-                        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
-                            <span class="category-pill">#UrbanPlanning</span>
-                            <span class="category-pill">#Finance</span>
-                            <span class="category-pill">#Legal</span>
-                            <span class="category-pill">#Development</span>
+                        <h3 class="sidebar-heading">
+                            <i class="fas fa-link"></i> Tin Liên Quan
+                        </h3>
+                        <div class="related-articles" id="relatedArticles">
+                            <!-- JS generated related articles -->
                         </div>
                     </div>
+
+                    <!-- Newsletter Form -->
+                    <div class="sidebar-widget sidebar-widget--sticky">
+                        <h3 class="sidebar-heading">
+                            <i class="fas fa-envelope"></i> Nhận Tin Mới
+                        </h3>
+                        <p class="sidebar-description">
+                            Đăng ký để nhận phân tích BĐS mới nhất qua email mỗi tuần
+                        </p>
+                        <form class="newsletter-form" id="newsletterForm">
+                            <input
+                                type="email"
+                                class="newsletter-input"
+                                placeholder="Email của bạn..."
+                                required
+                            >
+                            <button type="submit" class="newsletter-btn">
+                                <i class="fas fa-paper-plane"></i> Đăng Ký
+                            </button>
+                        </form>
+                        <p class="newsletter-note">
+                            <i class="fas fa-shield-alt"></i> Chúng tôi tôn trọng quyền riêng tư của bạn
+                        </p>
+                    </div>
                 </aside>
+
             </div>
         </div>
     </section>
@@ -104,107 +173,467 @@
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                <div>
-                    <h4 style="font-size: 1.25rem; color: white;">Thach Vu Land</h4>
-                    <p style="max-width: 400px; color: var(--anthropic-mid-gray);">
-                        Providing data-driven real estate analysis and investment consulting.
-                    </p>
-                </div>
-                <!-- Links... -->
-            </div>
             <div class="footer-bottom">
-                &copy; 2026 Thach Vu Land. Styled with Anthropic Guidelines.
+                &copy; 2026 Thạch Vũ Land. All rights reserved.
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
     <script>
-        const newsGrid = document.getElementById('fullNewsGrid');
-        const featuredContainer = document.getElementById('featuredContainer');
+        // ==========================================
+        // NEWS PORTAL JAVASCRIPT
+        // Cafef.vn Style Implementation
+        // ==========================================
+
+        // Global State
+        const newsState = {
+            currentPage: 1,
+            itemsPerPage: 12, // 1 featured + 11 compact per load
+            currentCategory: 'All',
+            searchQuery: '',
+            allNews: [],
+            filteredNews: [],
+            hasMore: true
+        };
+
+        // DOM Elements
+        const searchInput = document.getElementById('newsSearchInput');
+        const searchDropdown = document.getElementById('searchAutocomplete');
+        const categoryPills = document.querySelectorAll('.category-pill');
+        const activeFiltersContainer = document.getElementById('activeFiltersContainer');
+        const featuredContainer = document.getElementById('featuredArticleContainer');
+        const compactGrid = document.getElementById('newsCompactGrid');
         const trendingList = document.getElementById('trendingList');
+        const relatedArticles = document.getElementById('relatedArticles');
+        const infiniteScrollTrigger = document.getElementById('infiniteScrollTrigger');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const noMoreResults = document.getElementById('noMoreResults');
+        const newsletterForm = document.getElementById('newsletterForm');
 
-        function renderAllNews(category = 'All') {
-            newsGrid.innerHTML = '';
+        // ==========================================
+        // UTILITY FUNCTIONS
+        // ==========================================
 
-            // Filter Data
-            let filteredNews = newsData; // Assuming newsData exists from scripts/data.js
-            if (category !== 'All') {
-                filteredNews = newsData.filter(item => item.category === category);
-            }
-
-            if (filteredNews.length > 0) {
-                const featured = filteredNews[0];
-
-                // Minimal Featured Card
-                featuredContainer.innerHTML = `
-                    <article class="featured-article">
-                        <div class="featured-article__image-container">
-                            <img src="${featured.image}" alt="${featured.title}" class="featured-article__image" loading="lazy">
-                        </div>
-                        <div class="featured-article__content">
-                            <span class="category-tag">${featured.category}</span>
-                            <h2 class="featured-article__title">
-                                <a href="news-detail.html?id=${featured.id}" style="color: inherit; text-decoration: none;">${featured.title}</a>
-                            </h2>
-                            <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px;">${featured.excerpt}</p>
-                            <div style="margin-top: 20px; font-size: 14px; color: var(--anthropic-mid-gray); font-weight: 500;">
-                                ${featured.date} &mdash; ${featured.author}
-                            </div>
-                        </div>
-                    </article>
-                `;
-
-                // Grid
-                const remainingNews = filteredNews.slice(1);
-                remainingNews.forEach((news) => {
-                    const card = `
-                        <article class="article-card">
-                            <div class="article-card__image-container">
-                                <a href="news-detail.html?id=${news.id}">
-                                    <img src="${news.image}" alt="${news.title}" class="article-card__image" loading="lazy">
-                                </a>
-                            </div>
-                            <div class="article-card__content">
-                                <span class="category-tag" style="color: var(--anthropic-blue); font-size: 11px;">${news.category}</span>
-                                <h3 class="article-card__title">
-                                    <a href="news-detail.html?id=${news.id}">${news.title}</a>
-                                </h3>
-                                <div style="font-size: 13px; color: var(--anthropic-mid-gray);">
-                                    ${news.date}
-                                </div>
-                            </div>
-                        </article>
-                    `;
-                    newsGrid.insertAdjacentHTML('beforeend', card);
-                });
-            }
+        // Debounce function for search
+        function debounce(func, delay) {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(this, args), delay);
+            };
         }
 
-        function renderTrending() {
-            const trendingItems = newsData.slice(0, 5);
-            trendingList.innerHTML = '';
-            trendingItems.forEach((item, index) => {
-                const html = `
-                    <div style="margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--anthropic-light-gray);">
-                        <span style="font-family: var(--font-heading); font-size: 24px; color: var(--anthropic-light-gray); margin-right: 12px;">0${index + 1}</span>
-                        <h5 style="display:inline; font-size: 16px;"><a href="news-detail.html?id=${item.id}" style="color: var(--text-primary); text-decoration: none;">${item.title}</a></h5>
-                    </div>
-                `;
-                trendingList.insertAdjacentHTML('beforeend', html);
+        // Parse date DD/MM/YYYY to Date object
+        function parseDate(dateString) {
+            const [day, month, year] = dateString.split('/');
+            return new Date(year, month - 1, day);
+        }
+
+        // Sort news by date (newest first)
+        function sortByNewest(newsArray) {
+            return newsArray.sort((a, b) => {
+                return parseDate(b.date) - parseDate(a.date);
             });
         }
 
-        function filterNews(cat) {
-            document.querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
-            event.target.classList.add('active');
-            renderAllNews(cat);
+        // Highlight search matches
+        function highlightMatch(text, query) {
+            if (!query) return text;
+            const regex = new RegExp(`(${query})`, 'gi');
+            return text.replace(regex, '<mark>$1</mark>');
         }
 
-        renderAllNews();
-        renderTrending();
+        // ==========================================
+        // FILTER & SEARCH FUNCTIONS
+        // ==========================================
+
+        // Filter news by category and search query
+        function applyFilters() {
+            let filtered = [...newsState.allNews];
+
+            // Category filter
+            if (newsState.currentCategory !== 'All') {
+                filtered = filtered.filter(news => news.category === newsState.currentCategory);
+            }
+
+            // Search filter
+            if (newsState.searchQuery) {
+                const query = newsState.searchQuery.toLowerCase();
+                filtered = filtered.filter(news => {
+                    return (
+                        news.title.toLowerCase().includes(query) ||
+                        news.excerpt.toLowerCase().includes(query) ||
+                        news.category.toLowerCase().includes(query)
+                    );
+                });
+            }
+
+            newsState.filteredNews = filtered;
+            newsState.currentPage = 1;
+            newsState.hasMore = filtered.length > newsState.itemsPerPage;
+
+            renderNews();
+            updateActiveFilters();
+        }
+
+        // Search input handler
+        const handleSearch = debounce(function(e) {
+            const query = e.target.value.trim();
+            newsState.searchQuery = query;
+
+            // Show autocomplete
+            if (query.length >= 2) {
+                showAutocomplete(query);
+            } else {
+                hideAutocomplete();
+            }
+
+            applyFilters();
+        }, 300);
+
+        // Show autocomplete dropdown
+        function showAutocomplete(query) {
+            const results = newsState.allNews.filter(news => {
+                return news.title.toLowerCase().includes(query.toLowerCase());
+            }).slice(0, 5);
+
+            if (results.length === 0) {
+                searchDropdown.innerHTML = '<div class="search-no-results">Không tìm thấy kết quả</div>';
+                searchDropdown.classList.add('active');
+                return;
+            }
+
+            searchDropdown.innerHTML = results.map(news => `
+                <a href="news-detail.html?id=${news.id}" class="search-result-item">
+                    <img src="${news.image}" alt="${news.title}" class="search-result-thumb" loading="lazy">
+                    <div class="search-result-content">
+                        <div class="search-result-title">${highlightMatch(news.title, query)}</div>
+                        <div class="search-result-meta">
+                            <span class="search-result-category">${news.category}</span>
+                            <span class="search-result-date">${news.date}</span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+
+            searchDropdown.classList.add('active');
+        }
+
+        // Hide autocomplete
+        function hideAutocomplete() {
+            searchDropdown.classList.remove('active');
+        }
+
+        // Category filter handler
+        function handleCategoryClick(e) {
+            const pill = e.target.closest('.category-pill');
+            if (!pill) return;
+
+            const category = pill.dataset.category;
+
+            // Update active state
+            categoryPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            // Update state and filter
+            newsState.currentCategory = category;
+            applyFilters();
+
+            // Update related articles
+            renderRelatedArticles();
+
+            // Scroll to top
+            window.scrollTo({ top: 300, behavior: 'smooth' });
+        }
+
+        // Update active filters display
+        function updateActiveFilters() {
+            const badges = [];
+
+            if (newsState.currentCategory !== 'All') {
+                badges.push(`
+                    <div class="active-filter-badge">
+                        <span>${newsState.currentCategory}</span>
+                        <button onclick="removeFilter('category')" class="remove-filter-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `);
+            }
+
+            if (newsState.searchQuery) {
+                badges.push(`
+                    <div class="active-filter-badge">
+                        <span>Tìm kiếm: "${newsState.searchQuery}"</span>
+                        <button onclick="removeFilter('search')" class="remove-filter-btn">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `);
+            }
+
+            if (badges.length > 0) {
+                activeFiltersContainer.innerHTML = `
+                    <div class="active-filters-wrapper">
+                        <span class="active-filters-label">Đang lọc:</span>
+                        ${badges.join('')}
+                        <button onclick="resetAllFilters()" class="reset-filters-btn">
+                            <i class="fas fa-redo"></i> Đặt lại
+                        </button>
+                    </div>
+                `;
+                activeFiltersContainer.style.display = 'block';
+            } else {
+                activeFiltersContainer.style.display = 'none';
+            }
+        }
+
+        // Remove specific filter
+        function removeFilter(filterType) {
+            if (filterType === 'category') {
+                newsState.currentCategory = 'All';
+                document.querySelector('[data-category="All"]').classList.add('active');
+                categoryPills.forEach(p => {
+                    if (p.dataset.category !== 'All') p.classList.remove('active');
+                });
+            } else if (filterType === 'search') {
+                newsState.searchQuery = '';
+                searchInput.value = '';
+            }
+
+            applyFilters();
+        }
+
+        // Reset all filters
+        function resetAllFilters() {
+            newsState.currentCategory = 'All';
+            newsState.searchQuery = '';
+            searchInput.value = '';
+
+            document.querySelector('[data-category="All"]').classList.add('active');
+            categoryPills.forEach(p => {
+                if (p.dataset.category !== 'All') p.classList.remove('active');
+            });
+
+            applyFilters();
+        }
+
+        // ==========================================
+        // RENDER FUNCTIONS
+        // ==========================================
+
+        // Render news (featured + compact grid)
+        function renderNews(append = false) {
+            const startIndex = append ? (newsState.currentPage - 1) * newsState.itemsPerPage : 0;
+            const endIndex = newsState.currentPage * newsState.itemsPerPage;
+            const newsToRender = newsState.filteredNews.slice(startIndex, endIndex);
+
+            if (!append) {
+                // Render featured article (first item)
+                if (newsState.filteredNews.length > 0) {
+                    renderFeaturedArticle(newsState.filteredNews[0]);
+                    // Render compact grid (rest of items in this page)
+                    compactGrid.innerHTML = '';
+                    newsToRender.slice(1).forEach(news => {
+                        appendCompactCard(news);
+                    });
+                } else {
+                    featuredContainer.innerHTML = '<div class="no-results">Không tìm thấy tin tức phù hợp</div>';
+                    compactGrid.innerHTML = '';
+                }
+            } else {
+                // Infinite scroll: append compact cards
+                newsToRender.forEach(news => {
+                    appendCompactCard(news);
+                });
+            }
+
+            // Update hasMore state
+            newsState.hasMore = endIndex < newsState.filteredNews.length;
+
+            // Show/hide loading spinner
+            if (newsState.hasMore) {
+                loadingSpinner.style.display = 'flex';
+                noMoreResults.style.display = 'none';
+            } else {
+                loadingSpinner.style.display = 'none';
+                noMoreResults.style.display = newsState.filteredNews.length > newsState.itemsPerPage ? 'flex' : 'none';
+            }
+        }
+
+        // Render featured article
+        function renderFeaturedArticle(news) {
+            featuredContainer.innerHTML = `
+                <article class="news-card news-card--featured">
+                    <a href="news-detail.html?id=${news.id}" class="news-card__link">
+                        <div class="news-card__image-wrapper">
+                            <img src="${news.image}" alt="${news.title}" class="news-card__image" loading="lazy">
+                            <span class="news-card__category">${news.category}</span>
+                        </div>
+                        <div class="news-card__content">
+                            <h2 class="news-card__title news-card__title--large">
+                                ${news.title}
+                            </h2>
+                            <p class="news-card__excerpt">${news.excerpt}</p>
+                            <div class="news-card__meta">
+                                <time class="news-card__date">
+                                    <i class="far fa-calendar"></i> ${news.date}
+                                </time>
+                                <span class="news-card__author">
+                                    <i class="far fa-user"></i> ${news.author}
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            `;
+        }
+
+        // Append compact card to grid
+        function appendCompactCard(news) {
+            const card = document.createElement('article');
+            card.className = 'news-card news-card--compact';
+            card.innerHTML = `
+                <a href="news-detail.html?id=${news.id}" class="news-card__link">
+                    <div class="news-card__image-wrapper news-card__image-wrapper--compact">
+                        <img src="${news.image}" alt="${news.title}" class="news-card__image" loading="lazy">
+                        <span class="news-card__category news-card__category--small">${news.category}</span>
+                    </div>
+                    <div class="news-card__content news-card__content--compact">
+                        <h3 class="news-card__title news-card__title--small">
+                            ${news.title}
+                        </h3>
+                        <time class="news-card__date news-card__date--small">
+                            <i class="far fa-clock"></i> ${news.date}
+                        </time>
+                    </div>
+                </a>
+            `;
+            compactGrid.appendChild(card);
+        }
+
+        // Render trending sidebar (top 5 newest)
+        function renderTrending() {
+            const trending = sortByNewest([...newsState.allNews]).slice(0, 5);
+
+            trendingList.innerHTML = trending.map((news, index) => `
+                <a href="news-detail.html?id=${news.id}" class="trending-item">
+                    <span class="trending-number">0${index + 1}</span>
+                    <div class="trending-content">
+                        <h4 class="trending-title">${news.title}</h4>
+                        <time class="trending-date">${news.date}</time>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Render related articles by category
+        function renderRelatedArticles() {
+            const category = newsState.currentCategory === 'All' ? newsState.allNews[0]?.category : newsState.currentCategory;
+
+            const related = newsState.allNews
+                .filter(news => news.category === category)
+                .slice(0, 4);
+
+            if (related.length === 0) {
+                relatedArticles.innerHTML = '<div class="no-related">Chưa có tin liên quan</div>';
+                return;
+            }
+
+            relatedArticles.innerHTML = related.map(news => `
+                <a href="news-detail.html?id=${news.id}" class="related-article-item">
+                    <img src="${news.image}" alt="${news.title}" class="related-article-thumb" loading="lazy">
+                    <div class="related-article-content">
+                        <h4 class="related-article-title">${news.title}</h4>
+                        <time class="related-article-date">
+                            <i class="far fa-calendar"></i> ${news.date}
+                        </time>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // ==========================================
+        // INFINITE SCROLL
+        // ==========================================
+
+        function initInfiniteScroll() {
+            const observer = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting && newsState.hasMore) {
+                    loadMoreNews();
+                }
+            }, {
+                rootMargin: '200px',
+                threshold: 0.1
+            });
+
+            observer.observe(infiniteScrollTrigger);
+        }
+
+        function loadMoreNews() {
+            if (!newsState.hasMore) return;
+
+            newsState.currentPage++;
+            renderNews(true); // append mode
+        }
+
+        // ==========================================
+        // EVENT LISTENERS
+        // ==========================================
+
+        // Search input
+        searchInput.addEventListener('input', handleSearch);
+
+        // Click outside to hide autocomplete
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.news-search-container')) {
+                hideAutocomplete();
+            }
+        });
+
+        // Category pills
+        categoryPills.forEach(pill => {
+            pill.addEventListener('click', handleCategoryClick);
+        });
+
+        // Newsletter form
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+            alert(`Cảm ơn bạn đã đăng ký!\n\nEmail: ${email}\n\nBạn sẽ nhận được tin tức BĐS mới nhất mỗi tuần.`);
+            e.target.reset();
+        });
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+
+        function init() {
+            // Load news data
+            newsState.allNews = sortByNewest([...newsData]);
+            newsState.filteredNews = [...newsState.allNews];
+
+            // Initial render
+            renderNews();
+            renderTrending();
+            renderRelatedArticles();
+
+            // Init infinite scroll
+            initInfiniteScroll();
+
+            console.log('✅ News Portal Initialized');
+            console.log(`📰 Total articles: ${newsState.allNews.length}`);
+        }
+
+        // Start when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
     </script>
 </body>
 
