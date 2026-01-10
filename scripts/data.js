@@ -7,7 +7,7 @@ const projectData = [
     {
         "id": 1,
         "title": "Green Skyline (TBS Land)",
-        "image": "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
+        "image": "assets/images/projects/tbs/flycam/hero-aerial-1.jpg",
         "status": "Đang Booking",
         "location": "Mặt tiền Phạm Văn Đồng, Dĩ An, Bình Dương",
         "specs": "4 Tòa, 28-40 tầng, 1,296 căn",
@@ -23,58 +23,76 @@ const projectData = [
             "Trung tâm thương mại podium",
             "An ninh 4 lớp 24/7"
         ],
+        "floorplans": [
+            { "name": "Căn hộ 2B+1", "image": "assets/images/projects/tbs/floorplans/layout-2b-plus-1.jpg" },
+            { "name": "Căn hộ 1B+1 (3D)", "image": "assets/images/projects/tbs/floorplans/layout-1b-plus-1-3d.jpg" },
+            { "name": "Căn hộ 3BR (3D)", "image": "assets/images/projects/tbs/floorplans/layout-3b-3d.jpg" }
+        ],
+        "masterplan": "assets/images/projects/tbs/masterplan.jpg",
+        "vrUrl": "https://my.matterport.com/show/?m=JGPnGQFjj7n&play=1",
         "gallery": [
-            "https://dongtayland.vn/wp-content/uploads/2025/11/Cover-27.jpg",
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
+            "assets/images/projects/tbs/flycam/hero-aerial-1.jpg",
+            "assets/images/projects/tbs/flycam/hero-aerial-2.jpg",
+            "assets/images/projects/tbs/flycam/road-view-1.jpg",
+            "assets/images/projects/tbs/flycam/road-view-2.jpg",
+            "assets/images/projects/tbs/flycam/road-view-3.jpg",
+            "assets/images/projects/tbs/interior-real.jpg"
         ]
     },
     {
         "id": 2,
-        "title": "Setia Edenia (EcoXuân)",
-        "image": "https://setia.com.vn/wp-content/uploads/2024/05/setia-gardens-residences-thuan-an-binh-duong-1-1.jpg",
+        "title": "Setia Edenia - Camellia (EcoXuân)",
+        "image": "assets/images/projects/setia-edenia/camellia-marketing.jpg",
         "status": "Sắp Mở Bán",
         "location": "Mặt tiền QL13, Lai Thiêu, Thuận An, Bình Dương",
-        "specs": "3 Block, 21-28 tầng, ~740-865 căn",
+        "specs": "3 Block, 21-28 tầng, ~740-865 căn (Chỉ 240 căn Camellia)",
         "price": "Liên hệ để biết giá",
         "link": "project-detail.html?id=2",
         "cta": "Đăng Ký Tư Vấn",
         "category": "can-ho",
-        "description": "Setia Edenia nằm trong tổng thể khu đô thị xanh EcoXuân, nổi bật với mật độ cây xanh bao phủ lớn và không gian sống trong lành. Dự án được phát triển bởi tập đoàn S P Setia danh tiếng từ Malaysia, cam kết chất lượng xây dựng vượt trội và pháp lý minh bạch.",
+        "description": "Setia Edenia nằm trong tổng thể khu đô thị xanh EcoXuân, nổi bật với mật độ cây xanh bao phủ lớn và không gian sống trong lành. Dự án được phát triển bởi tập đoàn S P Setia danh tiếng từ Malaysia, cam kết chất lượng xây dựng vượt trội và pháp lý minh bạch. Tháp Camellia - TOP 1 tại Setia Edenia với chỉ 9 căn/tầng, mật độ thấp nhất, view thoáng nhất.",
         "features": [
             "Hệ thống Sky Garden đa lớp",
             "Khu vui chơi trẻ em Kid Zone",
             "Sân Tennis & Đường chạy bộ",
             "Hồ bơi nghỉ dưỡng",
-            "Khu BBQ ngoài trời"
+            "Khu BBQ ngoài trời",
+            "1 phút đi bộ tới Lifestyle Center"
+        ],
+        "floorplans": [
+            { "name": "Studio & 1BR Options", "image": "assets/images/projects/setia-edenia/layout-studio-options.jpg" }
         ],
         "gallery": [
-            "https://setia.com.vn/wp-content/uploads/2024/05/setia-gardens-residences-thuan-an-binh-duong-1-1.jpg",
-            "https://images.unsplash.com/photo-1600596542815-e32870110274?w=800",
-            "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800"
+            "assets/images/projects/setia-edenia/camellia-marketing.jpg",
+            "assets/images/projects/setia-edenia/layout-studio-options.jpg",
+            "assets/images/projects/setia-edenia/event-invitation.jpg"
         ]
     },
     {
         "id": 3,
-        "title": "Fiato Uptown",
-        "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
+        "title": "Fiato Uptown - The Signature Penthouse & Duplex",
+        "image": "assets/images/projects/fiato-uptown/penthouse-pool-hero.jpg",
         "status": "Đang Mở Bán",
         "location": "Thủ Đức, TP.HCM",
-        "price": "Đang cập nhật",
-        "specs": "4 Blocks, 15 tầng",
+        "price": "Liên hệ để biết giá",
+        "specs": "4 Blocks, 15 tầng, Penthouse & Duplex",
         "link": "project-detail.html?id=3",
         "cta": "Xem Chi Tiết",
         "category": "can-ho",
-        "description": "Fiato Uptown mang đến chất sống Mỹ phóng khoáng giữa lòng Thủ Đức. Với thiết kế ban công rộng thoáng, tối ưu hóa ánh sáng và gió trời, đây là nơi an cư lý tưởng cho các gia đình trẻ năng động.",
+        "description": "Fiato Uptown - The Signature Penthouse & Duplex mang đến 'Khoảng Không Gian Thỏa Ý Riêng' giữa lòng Thủ Đức. Với thiết kế Penthouse & Duplex đẳng cấp, hồ bơi riêng, hồ cá cảnh và hồ cảnh quan, đây là biểu tượng của phong cách sống thượng lưu dành cho những chủ nhân tinh hoa.",
         "features": [
+            "Hồ bơi riêng - Nuôi dưỡng sức khỏe",
+            "Hồ cảnh quan - Điểm tô sức sống",
+            "Hồ cá cảnh Koi - Cân bằng không gian",
             "Ban công trải dài Panorama",
-            "Hồ bơi vô cực tầng thượng",
             "Smart Home 4.0",
             "Khu làm việc Co-working Space"
         ],
         "gallery": [
-            "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800",
-            "https://images.unsplash.com/photo-1600566752355-35792bedcfe1?w=800"
+            "assets/images/projects/fiato-uptown/penthouse-pool-hero.jpg",
+            "assets/images/projects/fiato-uptown/private-pool.jpg",
+            "assets/images/projects/fiato-uptown/garden-landscape.jpg",
+            "assets/images/projects/fiato-uptown/koi-pond.jpg"
         ]
     },
     {

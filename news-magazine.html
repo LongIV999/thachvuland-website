@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tin tức bất động sản - Phân tích thị trường, xu hướng đầu tư và cập nhật pháp lý BĐS mới nhất từ Thạch Vũ Land">
+    <title>Tin Tức Bất Động Sản - Thạch Vũ Land</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/anthropic.css">
+    <link rel="stylesheet" href="styles/magazine-premium.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="site-header scrolled" id="siteHeader">
+        <div class="header-container container">
+            <a href="index.html" class="logo">THACH VU <span>LAND</span></a>
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link">Trang Chủ</a>
+                <a href="projects.html" class="nav-link">Dự Án</a>
+                <a href="news-magazine.html" class="nav-link active">Tin Tức</a>
+                <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
+                <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>
+            </nav>
+            <div class="mobile-menu-btn" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- News Hero Section -->
+    <section class="mag-news-hero">
+        <div class="mag-container">
+            <!-- Page Header -->
+            <div class="mag-news-hero__header">
+                <span class="mag-news-hero__tagline">Real Estate Insights</span>
+                <h1 class="mag-news-hero__title">Tin Tức Bất Động Sản</h1>
+                <p class="mag-news-hero__subtitle">
+                    Phân tích thị trường chuyên sâu, xu hướng đầu tư và cập nhật pháp lý từ đội ngũ chuyên gia Thạch Vũ Land
+                </p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mag-search-container">
+                <i class="fas fa-search mag-search-icon"></i>
+                <input
+                    type="text"
+                    id="newsSearchInput"
+                    class="mag-search-input"
+                    placeholder="Tìm kiếm tin tức, dự án, phân tích..."
+                    autocomplete="off"
+                >
+                <div class="mag-search-dropdown" id="searchAutocomplete"></div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="mag-category-pills">
+                <button class="mag-category-pill active" data-category="All">
+                    <i class="fas fa-newspaper"></i> Tất Cả
+                </button>
+                <button class="mag-category-pill" data-category="Thị Trường">
+                    <i class="fas fa-chart-line"></i> Thị Trường
+                </button>
+                <button class="mag-category-pill" data-category="Tài Chính">
+                    <i class="fas fa-coins"></i> Tài Chính
+                </button>
+                <button class="mag-category-pill" data-category="Dự Án">
+                    <i class="fas fa-building"></i> Dự Án
+                </button>
+                <button class="mag-category-pill" data-category="Pháp Lý">
+                    <i class="fas fa-gavel"></i> Pháp Lý
+                </button>
+                <button class="mag-category-pill" data-category="Kiến Thức">
+                    <i class="fas fa-lightbulb"></i> Kiến Thức
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main News Content -->
+    <section class="mag-news-section">
+        <div class="mag-container">
+            <div class="mag-news-grid">
+
+                <!-- Main Content Area -->
+                <main class="mag-news-main">
+
+                    <!-- Featured Article -->
+                    <div id="featuredArticleContainer">
+                        <!-- JS generated featured article -->
+                    </div>
+
+                    <!-- Standard Cards Grid -->
+                    <div class="mag-cards-grid" id="newsCardsGrid">
+                        <!-- JS generated standard cards -->
+                    </div>
+
+                    <!-- Lead Gen Box (after articles) -->
+                    <div class="mag-lead-box" id="inlineLeadBox">
+                        <div class="mag-lead-box__icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3 class="mag-lead-box__title">Nhận Báo Cáo Thị Trường BĐS</h3>
+                        <p class="mag-lead-box__subtitle">
+                            Phân tích chuyên sâu về xu hướng giá, vùng trũng đầu tư và dự báo 2026 - Hoàn toàn miễn phí
+                        </p>
+                        <form class="mag-lead-box__form" id="reportForm">
+                            <input type="text" class="mag-lead-box__input" placeholder="Họ và tên" required>
+                            <input type="tel" class="mag-lead-box__input" placeholder="Số điện thoại" required>
+                            <button type="submit" class="mag-lead-box__submit">
+                                <i class="fas fa-download"></i> Tải Báo Cáo
+                            </button>
+                        </form>
+                        <div class="mag-lead-box__trust">
+                            <span class="mag-lead-box__trust-item">
+                                <i class="fas fa-check-circle"></i> Miễn phí 100%
+                            </span>
+                            <span class="mag-lead-box__trust-item">
+                                <i class="fas fa-shield-alt"></i> Bảo mật thông tin
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="mag-load-more" id="loadMoreContainer">
+                        <button class="mag-load-more__btn" id="loadMoreBtn">
+                            <i class="fas fa-plus"></i> Xem thêm tin tức
+                        </button>
+                    </div>
+
+                </main>
+
+                <!-- Sidebar -->
+                <aside class="mag-sidebar">
+
+                    <!-- Market Insights Widget -->
+                    <div class="mag-sidebar-widget mag-insights-widget">
+                        <h3 class="mag-sidebar__heading">
+                            <i class="fas fa-chart-bar"></i> Thị Trường Insight
+                        </h3>
+                        <div class="mag-insight-item">
+                            <span class="mag-insight-label">Giá căn hộ Bình Dương</span>
+                            <span class="mag-insight-value positive">+12% YoY</span>
+                        </div>
+                        <div class="mag-insight-item">
+                            <span class="mag-insight-label">Giao dịch Q4/2025</span>
+                            <span class="mag-insight-value">2,400 căn</span>
+                        </div>
+                        <div class="mag-insight-item">
+                            <span class="mag-insight-label">Lợi suất thuê</span>
+                            <span class="mag-insight-value">4.7%/năm</span>
+                        </div>
+                        <div class="mag-insight-item">
+                            <span class="mag-insight-label">Mặt bằng giá mới</span>
+                            <span class="mag-insight-value">45-60tr/m²</span>
+                        </div>
+                    </div>
+
+                    <!-- Trending List -->
+                    <div class="mag-sidebar-widget">
+                        <h3 class="mag-sidebar__heading">
+                            <i class="fas fa-fire"></i> Đọc Nhiều Nhất
+                        </h3>
+                        <div class="mag-trending-list" id="trendingList">
+                            <!-- JS generated trending items -->
+                        </div>
+                    </div>
+
+                    <!-- Newsletter Widget -->
+                    <div class="mag-sidebar-widget mag-lead-widget mag-sidebar-widget--sticky">
+                        <h3 class="mag-sidebar__heading">
+                            <i class="fas fa-envelope"></i> Nhận Tin Mới
+                        </h3>
+                        <p class="mag-lead-widget__description">
+                            Đăng ký để nhận phân tích BĐS mới nhất và cơ hội đầu tư độc quyền qua email
+                        </p>
+                        <form class="mag-lead-widget__form" id="newsletterForm">
+                            <input type="email" class="mag-lead-widget__input" placeholder="Email của bạn..." required>
+                            <button type="submit" class="mag-lead-widget__submit">
+                                <i class="fas fa-paper-plane"></i> Đăng Ký Ngay
+                            </button>
+                        </form>
+                        <p class="mag-lead-widget__note">
+                            <i class="fas fa-lock"></i> Chúng tôi tôn trọng quyền riêng tư của bạn
+                        </p>
+                    </div>
+
+                </aside>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom">
+                &copy; 2026 Thạch Vũ Land. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact -->
+    <div class="floating-contact-group">
+        <a href="https://zalo.me/0903469888" target="_blank" class="floating-btn btn-zalo">
+            <i class="fas fa-comment"></i>
+            <span class="text">Chat Zalo</span>
+        </a>
+        <a href="tel:0903469888" class="floating-btn btn-phone">
+            <i class="fas fa-phone"></i>
+            <span class="text">0903.469.888</span>
+        </a>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/data.js"></script>
+    <script src="scripts/main.js"></script>
+    <script>
+        // ==========================================
+        // MAGAZINE PREMIUM NEWS PORTAL
+        // ==========================================
+
+        const newsState = {
+            currentPage: 1,
+            itemsPerPage: 6,
+            currentCategory: 'All',
+            searchQuery: '',
+            allNews: [],
+            filteredNews: [],
+            allProjects: []
+        };
+
+        // DOM Elements
+        const searchInput = document.getElementById('newsSearchInput');
+        const searchDropdown = document.getElementById('searchAutocomplete');
+        const categoryPills = document.querySelectorAll('.mag-category-pill');
+        const featuredContainer = document.getElementById('featuredArticleContainer');
+        const cardsGrid = document.getElementById('newsCardsGrid');
+        const trendingList = document.getElementById('trendingList');
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const loadMoreContainer = document.getElementById('loadMoreContainer');
+
+        // ==========================================
+        // UTILITY FUNCTIONS
+        // ==========================================
+
+        function debounce(func, delay) {
+            let timeoutId;
+            return function (...args) {
+                clearTimeout(timeoutId);
+                timeoutId = setTimeout(() => func.apply(this, args), delay);
+            };
+        }
+
+        function parseDate(dateString) {
+            const [day, month, year] = dateString.split('/');
+            return new Date(year, month - 1, day);
+        }
+
+        function sortByNewest(newsArray) {
+            return newsArray.sort((a, b) => parseDate(b.date) - parseDate(a.date));
+        }
+
+        function calculateReadingTime(content) {
+            const words = content.replace(/<[^>]*>/g, '').split(/\s+/).length;
+            return Math.max(1, Math.ceil(words / 200));
+        }
+
+        function getRelatedProjects(projectIds) {
+            return newsState.allProjects.filter(p => projectIds.includes(p.id));
+        }
+
+        // ==========================================
+        // RENDER FUNCTIONS
+        // ==========================================
+
+        function renderFeaturedArticle(news) {
+            const readingTime = calculateReadingTime(news.content || news.excerpt);
+            const relatedProjects = getRelatedProjects(news.relatedProjects || []);
+
+            let projectTagsHTML = '';
+            if (relatedProjects.length > 0) {
+                projectTagsHTML = `
+                    <div class="mag-card-featured__projects">
+                        <span style="font-size: 0.8rem; opacity: 0.7; margin-right: 8px;">
+                            <i class="fas fa-link"></i> Liên quan:
+                        </span>
+                        ${relatedProjects.map(p => `
+                            <a href="${p.link}" class="mag-project-tag">
+                                <i class="fas fa-building"></i> ${p.title}
+                            </a>
+                        `).join('')}
+                    </div>
+                `;
+            }
+
+            featuredContainer.innerHTML = `
+                <article class="mag-card-featured">
+                    <a href="news-detail.html?id=${news.id}" class="mag-card-featured__link">
+                        <div class="mag-card-featured__image-wrapper">
+                            <img src="${news.image}" alt="${news.title}" class="mag-card-featured__image" loading="lazy">
+                            <div class="mag-card-featured__overlay">
+                                <span class="mag-card-featured__category">${news.category}</span>
+                                <h2 class="mag-card-featured__title">${news.title}</h2>
+                                <p class="mag-card-featured__excerpt">${news.excerpt}</p>
+                                <div class="mag-card-featured__meta">
+                                    <time class="mag-card-featured__date">
+                                        <i class="far fa-calendar"></i> ${news.date}
+                                    </time>
+                                    <span class="mag-card-featured__reading">
+                                        <i class="far fa-clock"></i> ${readingTime} phút đọc
+                                    </span>
+                                    <span class="mag-card-featured__author">
+                                        <i class="far fa-user"></i> ${news.author}
+                                    </span>
+                                </div>
+                                ${projectTagsHTML}
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            `;
+        }
+
+        function renderStandardCard(news) {
+            const readingTime = calculateReadingTime(news.content || news.excerpt);
+
+            return `
+                <article class="mag-card-standard">
+                    <a href="news-detail.html?id=${news.id}">
+                        <div class="mag-card-standard__image-wrapper">
+                            <img src="${news.image}" alt="${news.title}" class="mag-card-standard__image" loading="lazy">
+                            <span class="mag-card-standard__category">${news.category}</span>
+                        </div>
+                        <div class="mag-card-standard__content">
+                            <h3 class="mag-card-standard__title">${news.title}</h3>
+                            <p class="mag-card-standard__excerpt">${news.excerpt}</p>
+                            <div class="mag-card-standard__meta">
+                                <time class="mag-card-standard__date">
+                                    <i class="far fa-calendar"></i> ${news.date}
+                                </time>
+                                <span class="mag-card-standard__reading-time">
+                                    <i class="far fa-clock"></i> ${readingTime} phút
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            `;
+        }
+
+        function renderNews(append = false) {
+            const startIndex = append ? (newsState.currentPage - 1) * newsState.itemsPerPage : 0;
+            const endIndex = newsState.currentPage * newsState.itemsPerPage;
+
+            if (!append) {
+                // Render featured (first item)
+                if (newsState.filteredNews.length > 0) {
+                    renderFeaturedArticle(newsState.filteredNews[0]);
+
+                    // Render grid cards (items 2-7)
+                    const gridNews = newsState.filteredNews.slice(1, endIndex);
+                    cardsGrid.innerHTML = gridNews.map(renderStandardCard).join('');
+                } else {
+                    featuredContainer.innerHTML = '<div class="no-results">Không tìm thấy tin tức phù hợp</div>';
+                    cardsGrid.innerHTML = '';
+                }
+            } else {
+                // Append more cards
+                const moreNews = newsState.filteredNews.slice(startIndex, endIndex);
+                cardsGrid.innerHTML += moreNews.map(renderStandardCard).join('');
+            }
+
+            // Update load more button visibility
+            const hasMore = endIndex < newsState.filteredNews.length;
+            loadMoreContainer.style.display = hasMore ? 'block' : 'none';
+        }
+
+        function renderTrending() {
+            const trending = sortByNewest([...newsState.allNews]).slice(0, 5);
+
+            trendingList.innerHTML = trending.map((news, index) => `
+                <a href="news-detail.html?id=${news.id}" class="mag-trending-item">
+                    <span class="mag-trending-number">0${index + 1}</span>
+                    <div class="mag-trending-content">
+                        <h4 class="mag-trending-title">${news.title}</h4>
+                        <time class="mag-trending-date">${news.date}</time>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // ==========================================
+        // FILTER & SEARCH
+        // ==========================================
+
+        function applyFilters() {
+            let filtered = [...newsState.allNews];
+
+            // Category filter
+            if (newsState.currentCategory !== 'All') {
+                filtered = filtered.filter(news => news.category === newsState.currentCategory);
+            }
+
+            // Search filter
+            if (newsState.searchQuery) {
+                const query = newsState.searchQuery.toLowerCase();
+                filtered = filtered.filter(news =>
+                    news.title.toLowerCase().includes(query) ||
+                    news.excerpt.toLowerCase().includes(query) ||
+                    news.category.toLowerCase().includes(query)
+                );
+            }
+
+            newsState.filteredNews = filtered;
+            newsState.currentPage = 1;
+            renderNews();
+        }
+
+        const handleSearch = debounce(function(e) {
+            newsState.searchQuery = e.target.value.trim();
+            applyFilters();
+        }, 300);
+
+        function handleCategoryClick(e) {
+            const pill = e.target.closest('.mag-category-pill');
+            if (!pill) return;
+
+            categoryPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            newsState.currentCategory = pill.dataset.category;
+            applyFilters();
+        }
+
+        function handleLoadMore() {
+            newsState.currentPage++;
+            renderNews(true);
+        }
+
+        // ==========================================
+        // FORM HANDLERS
+        // ==========================================
+
+        function handleReportForm(e) {
+            e.preventDefault();
+            const name = e.target.querySelector('input[type="text"]').value;
+            const phone = e.target.querySelector('input[type="tel"]').value;
+
+            alert(`Cảm ơn ${name}!\n\nChúng tôi sẽ gửi báo cáo thị trường BĐS qua số ${phone} trong vòng 24h.\n\nHotline: 0903.469.888`);
+            e.target.reset();
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const email = e.target.querySelector('input').value;
+
+            alert(`Đăng ký thành công!\n\nEmail: ${email}\n\nBạn sẽ nhận được tin tức BĐS mới nhất mỗi tuần.`);
+            e.target.reset();
+        }
+
+        // ==========================================
+        // EVENT LISTENERS
+        // ==========================================
+
+        searchInput.addEventListener('input', handleSearch);
+        categoryPills.forEach(pill => pill.addEventListener('click', handleCategoryClick));
+        loadMoreBtn.addEventListener('click', handleLoadMore);
+        document.getElementById('reportForm').addEventListener('submit', handleReportForm);
+        document.getElementById('newsletterForm').addEventListener('submit', handleNewsletter);
+
+        // ==========================================
+        // INITIALIZATION
+        // ==========================================
+
+        function init() {
+            // Load data
+            newsState.allNews = sortByNewest([...newsData]);
+            newsState.filteredNews = [...newsState.allNews];
+            newsState.allProjects = [...projectData];
+
+            // Initial render
+            renderNews();
+            renderTrending();
+
+            console.log('✅ Magazine Premium News Portal Initialized');
+            console.log(`📰 Total articles: ${newsState.allNews.length}`);
+            console.log(`🏢 Total projects: ${newsState.allProjects.length}`);
+        }
+
+        // Start
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+
+    <style>
+        /* Additional inline styles for load more button */
+        .mag-load-more {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .mag-load-more__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--mag-gold, #C9A227);
+            background: transparent;
+            border: 2px solid var(--mag-gold, #C9A227);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .mag-load-more__btn:hover {
+            color: #1A1D29;
+            background: var(--mag-gold, #C9A227);
+            transform: translateY(-2px);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.125rem;
+            color: #6B6E7A;
+        }
+
+        /* Override for featured card link */
+        .mag-card-featured__link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+</body>
+
+</html>

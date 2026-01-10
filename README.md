@@ -135,6 +135,12 @@ thachvuland-2026/
 - ✅ Lazy loading images
 - ✅ Counter animations for stats
 - ✅ Hover effects on cards and buttons
+- ✅ **Smart Filter Bar**: Lọc dự án theo giá, khu vực, trạng thái (Real-time).
+- ✅ **Bento Grid Layout**: Hiển thị dự án theo lưới thông minh, tối ưu không gian.
+- ✅ **VR/3D Experience**: Tích hợp Matterport Tour với trải nghiệm mượt mà.
+- ✅ **Lightbox Gallery**: Xem ảnh chi tiết chế độ toàn màn hình.
+- ✅ **Timeline & Legacy**: Trang "Về Chúng Tôi" với lịch sử phát triển và chứng nhận uy tín.
+- ✅ **Interactive Heatmap**: Bản đồ phân phối dự án trực quan trên trang "Liên Hệ".
 
 ### Performance Features
 - ✅ Optimized CSS with CSS variables

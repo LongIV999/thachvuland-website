@@ -23,8 +23,8 @@
                 <a href="index.html" class="nav-link">Trang Chủ</a>
                 <a href="projects.html" class="nav-link">Dự Án</a>
                 <a href="news-anthropic.html" class="nav-link active">Tin Tức</a>
-                <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
-                <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>
+                <a href="about.html" class="nav-link">Về Chúng Tôi</a>
+                <a href="contact.html" class="nav-link nav-cta">Liên Hệ</a>
             </nav>
             <div class="mobile-menu-btn" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -46,13 +46,8 @@
             <!-- Search Bar with Autocomplete -->
             <div class="news-search-container">
                 <i class="fas fa-search news-search-icon"></i>
-                <input
-                    type="text"
-                    id="newsSearchInput"
-                    class="news-search-input"
-                    placeholder="Tìm kiếm tin tức BĐS..."
-                    autocomplete="off"
-                >
+                <input type="text" id="newsSearchInput" class="news-search-input" placeholder="Tìm kiếm tin tức BĐS..."
+                    autocomplete="off">
                 <div class="news-search-dropdown" id="searchAutocomplete">
                     <!-- JS generated autocomplete results -->
                 </div>
@@ -150,12 +145,7 @@
                             Đăng ký để nhận phân tích BĐS mới nhất qua email mỗi tuần
                         </p>
                         <form class="newsletter-form" id="newsletterForm">
-                            <input
-                                type="email"
-                                class="newsletter-input"
-                                placeholder="Email của bạn..."
-                                required
-                            >
+                            <input type="email" class="newsletter-input" placeholder="Email của bạn..." required>
                             <button type="submit" class="newsletter-btn">
                                 <i class="fas fa-paper-plane"></i> Đăng Ký
                             </button>
@@ -280,7 +270,7 @@
         }
 
         // Search input handler
-        const handleSearch = debounce(function(e) {
+        const handleSearch = debounce(function (e) {
             const query = e.target.value.trim();
             newsState.searchQuery = query;
 

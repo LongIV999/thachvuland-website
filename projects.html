@@ -22,8 +22,8 @@
                 <a href="index.html" class="nav-link">Trang Chủ</a>
                 <a href="projects.html" class="nav-link active">Dự Án</a>
                 <a href="news-anthropic.html" class="nav-link">Tin Tức</a>
-                <a href="index.html#about" class="nav-link">Về Chúng Tôi</a>
-                <a href="index.html#contact" class="nav-link nav-cta">Liên Hệ</a>
+                <a href="about.html" class="nav-link">Về Chúng Tôi</a>
+                <a href="contact.html" class="nav-link nav-cta">Liên Hệ</a>
             </nav>
             <div class="mobile-menu-btn" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -76,16 +76,34 @@
                 </select>
             </div>
 
-            <!-- Status -->
-            <div class="filter-group">
-                <label class="filter-label">Trạng Thái</label>
-                <select id="statusSelect" class="filter-select">
-                    <option value="all">Tất cả</option>
-                    <option value="Sắp Mở Bán">Sắp Mở Bán</option>
-                    <option value="Đang Booking">Đang Booking</option>
-                    <option value="Đang Bàn Giao">Đang Bàn Giao</option>
-                </select>
+            </select>
+        </div>
+
+        <!-- Price Range -->
+        <div class="filter-group" style="flex: 1.5;">
+            <label class="filter-label">Mức Giá</label>
+            <div class="price-range-inputs">
+                <input type="number" id="minPrice" class="filter-input-small" placeholder="Từ (Tỷ)">
+                <span style="color: var(--anthropic-mid-gray);">-</span>
+                <input type="number" id="maxPrice" class="filter-input-small" placeholder="Đến (Tỷ)">
             </div>
+        </div>
+
+        <!-- Status -->
+        <div class="filter-group">
+            <label class="filter-label">Trạng Thái</label>
+            <select id="statusSelect" class="filter-select">
+                <option value="all">Tất cả</option>
+                <option value="Sắp Mở Bán">Sắp Mở Bán</option>
+                <option value="Đang Booking">Đang Booking</option>
+                <option value="Đang Bàn Giao">Đang Bàn Giao</option>
+            </select>
+        </div>
+
+        <!-- Clear Action -->
+        <button class="filter-clear-btn" id="clearFiltersBtn" title="Xóa bộ lọc">
+            <i class="fas fa-sync-alt"></i>
+        </button>
         </div>
     </section>
 
@@ -95,7 +113,8 @@
             <!-- Rendered via JS -->
         </div>
         <div id="noResults" style="text-align: center; padding: 60px; display: none;">
-            <i class="fas fa-search" style="font-size: 3rem; color: var(--anthropic-light-gray); margin-bottom: 20px;"></i>
+            <i class="fas fa-search"
+                style="font-size: 3rem; color: var(--anthropic-light-gray); margin-bottom: 20px;"></i>
             <p class="article-body">Không tìm thấy dự án phù hợp.</p>
             <button class="nav-cta" onclick="resetFilters()">Xóa bộ lọc</button>
         </div>
@@ -127,12 +146,26 @@
             const typeSelect = document.getElementById('typeSelect');
             const locationSelect = document.getElementById('locationSelect');
             const statusSelect = document.getElementById('statusSelect');
+            const minPriceInput = document.getElementById('minPrice');
+            const maxPriceInput = document.getElementById('maxPrice');
+            const clearBtn = document.getElementById('clearFiltersBtn');
+
+            function parsePrice(priceStr) {
+                if (!priceStr) return 0;
+                // "5.5 Tỷ" -> 5.5
+                // "35 Triệu/m2" -> (Handling per m2 might be tricky, for now assume Tỷ is main filter or just ignore unit)
+                // Let's extract first number
+                const match = priceStr.match(/[\d\.]+/);
+                return match ? parseFloat(match[0]) : 0;
+            }
 
             function filterProjects() {
                 const kw = searchInput.value.toLowerCase();
                 const type = typeSelect.value;
                 const loc = locationSelect.value;
                 const status = statusSelect.value;
+                const minPrice = parseFloat(minPriceInput.value) || 0;
+                const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
 
                 const filtered = projectData.filter(p => {
                     const matchKw = !kw || p.title.toLowerCase().includes(kw) || p.location.toLowerCase().includes(kw);
@@ -140,7 +173,18 @@
                     const matchLoc = loc === 'all' || p.location.includes(loc);
                     const matchStatus = status === 'all' || p.status === status;
 
-                    return matchKw && matchType && matchLoc && matchStatus;
+                    // Simple Price Logic: matches if "Tỷ" is in string, or just check numeric value
+                    // If unit is "Triệu/m2", this user might be filtering for Total Price in Billions. 
+                    // For MVP: We only filter items that clearly look like "X Tỷ" if user enters range.
+                    let matchPrice = true;
+                    if (minPrice > 0 || maxPrice < Infinity) {
+                        const pVal = parsePrice(p.price);
+                        // Heuristic: If price < 100, assume Tỷ. If > 100 (like 500 Triệu), handle optionally. 
+                        // For now, assuming user types Tỷ. 
+                        matchPrice = pVal >= minPrice && pVal <= maxPrice;
+                    }
+
+                    return matchKw && matchType && matchLoc && matchStatus && matchPrice;
                 });
 
                 renderGrid(filtered);
@@ -158,8 +202,15 @@
 
                 grid.innerHTML = projects.map((project, index) => {
                     let modifier = '';
-                    // Simple Bento logic: every 5th item large
-                    if (index % 5 === 0) modifier = 'project-card--wide';
+                    // Bento Logic: 
+                    // 1st item: Tall (row-span-2)
+                    // 4th item: Wide (col-span-2)
+                    // 6th item: Big (col-span-2 row-span-2)
+                    // This is a simple pattern loop every 8 items
+                    const patternIndex = index % 8;
+                    if (patternIndex === 0) modifier = 'project-card--tall';
+                    else if (patternIndex === 3) modifier = 'project-card--wide';
+                    else if (patternIndex === 6) modifier = 'project-card--wide';
 
                     return `
                         <div class="project-card ${modifier}">
@@ -180,25 +231,24 @@
                                         <span class="price-text">${project.price}</span>
                                     </div>
                                 </div>
-                                <a href="${project.link}" class="nav-cta" style="display: inline-block; margin-top: 24px; text-decoration: none;">Chi tiết</a>
+                                <a href="project-detail.html?id=${project.id}" class="nav-cta" style="display: inline-block; margin-top: 24px; text-decoration: none;">Chi tiết</a>
                             </div>
                         </div>
                     `;
                 }).join('');
 
-                // Animation reset
-                gsap.from("#projectsBentoGrid .project-card", {
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.4,
-                    stagger: 0.05,
-                    clearProps: "all"
-                });
+                // Animation reset (Debounced or targeted to avoid heavy re-runs)
+                // Just animate opacity for smoother feel
+                gsap.fromTo("#projectsBentoGrid .project-card",
+                    { opacity: 0, y: 10 },
+                    { opacity: 1, y: 0, duration: 0.3, stagger: 0.05, clearProps: "all" }
+                );
             }
 
             // Events
-            [typeSelect, locationSelect, statusSelect].forEach(el => {
+            [typeSelect, locationSelect, statusSelect, minPriceInput, maxPriceInput].forEach(el => {
                 el.addEventListener('change', filterProjects);
+                if (el.tagName === 'INPUT') el.addEventListener('input', filterProjects);
             });
             searchInput.addEventListener('input', filterProjects);
 
@@ -208,8 +258,16 @@
                 typeSelect.value = 'all';
                 locationSelect.value = 'all';
                 statusSelect.value = 'all';
+                minPriceInput.value = '';
+                maxPriceInput.value = '';
                 filterProjects();
             };
+
+            clearBtn.addEventListener('click', () => {
+                window.resetFilters();
+                // Add rotation animation
+                gsap.from(clearBtn.querySelector('i'), { rotation: 360, duration: 0.5 });
+            });
 
             // Init
             filterProjects();

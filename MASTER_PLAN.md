@@ -10,20 +10,20 @@ Chào Thạch Vũ! Đây là kế hoạch tổng thể để đưa website từ 
     *   [x] Tích hợp Bộ công cụ tính toán lợi nhuận (Calculator).
     *   [ ] **Đang thực hiện**: Đồng bộ header/footer cho toàn bộ hệ thống trang con.
 
-## Giai Đoạn 2: Trải Nghiệm Dự Án "Thực Tế Ảo" (Ưu tiên Cao)
+## Giai Đoạn 2: Trải Nghiệm Dự Án "Thực Tế Ảo" (Hoàn tất 100%)
 *   **Mục tiêu**: Biến trang Dự Án thành một showroom trực tuyến đẳng cấp.
 *   **Các đầu việc**:
-    *   **Redesign `projects.html`**: Sử dụng lưới Bento hiện đại, bộ lọc dự án thông minh (Theo giá, khu vực, trạng thái).
-    *   **Nâng cấp `project-detail.html`**: 
-        *   Tích hợp Gallery ảnh dạng Masonry (đẹp hơn dạng slide thông thường).
-        *   Thêm mục "Mặt bằng VR/3D" (Sử dụng ảnh mặt bằng bạn vừa gửi).
-        *   Sticky Sidebar (Thanh thông tin liên hệ luôn đi theo khi khách cuộn trang).
+    *   [x] **Redesign `projects.html`**: Sử dụng Bento Grid Layout thông minh, Smart Filter Bar (Giá, Khu vực, Trạng thái) và Nút xóa bộ lọc.
+    *   [x] **Nâng cấp `project-detail.html`**: 
+        *   [x] Tích hợp Masonry Gallery với Lightbox full-screen.
+        *   [x] Thêm mục "Mặt bằng VR/3D" (Matterport Integration) với hiệu ứng chuyển cảnh mượt mà.
+        *   [x] Sticky Sidebar (Thanh thông tin liên hệ luôn đi theo khi khách cuộn trang).
 
-## Giai Đoạn 3: Kể Chuyện Thương Hiệu & Uy Tín
+## Giai Đoạn 3: Kể Chuyện Thương Hiệu & Uy Tín (Hoàn tất 100%)
 *   **Mục tiêu**: Xây dựng niềm tin tuyệt đối với khách hàng thượng lưu.
 *   **Các đầu việc**:
-    *   **Trang `Về Chúng Tôi`**: Kế thừa nội dung Legacy & Trust, thêm Timeline quá trình phát triển và các giải thưởng/chứng nhận.
-    *   **Trang `Liên Hệ`**: Form thu thập thông tin khách hàng chuyên nghiệp, bản đồ nhiệt (Interactive Map) các khu vực Thạch Vũ Land đang phân phối mạnh.
+    *   [x] **Trang `Về Chúng Tôi` (`about.html`)**: Kế thừa nội dung Legacy & Trust, thêm Timeline quá trình phát triển và các giải thưởng/chứng nhận.
+    *   [x] **Trang `Liên Hệ` (`contact.html`)**: Form thu thập thông tin khách hàng chuyên nghiệp, bản đồ nhiệt (Interactive Map) các khu vực Thạch Vũ Land đang phân phối mạnh.
 
 ## Giai Đoạn 4: Tối Ưu Hóa "Tàng Hình" (Kỹ Thuật SEO & Tốc độ)
 *   **Mục tiêu**: Tải trang cực nhanh và đứng top Google.

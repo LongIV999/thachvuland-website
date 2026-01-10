@@ -1,0 +1,296 @@
+{
+    "name": "RSS News Automation with AI Categorization",
+    "nodes": [
+        {
+            "parameters": {
+                "rule": {
+                    "interval": [
+                        {
+                            "field": "hours",
+                            "hoursInterval": 4
+                        }
+                    ]
+                }
+            },
+            "name": "Schedule Trigger",
+            "type": "n8n-nodes-base.scheduleTrigger",
+            "typeVersion": 1,
+            "position": [250, 300],
+            "id": "schedule-001"
+        },
+        {
+            "parameters": {
+                "url": "https://vnexpress.net/rss/bat-dong-san.rss",
+                "options": {}
+            },
+            "name": "Fetch VnExpress RSS",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [450, 200],
+            "id": "rss-vnexpress"
+        },
+        {
+            "parameters": {
+                "url": "https://cafef.vn/bat-dong-san.rss",
+                "options": {}
+            },
+            "name": "Fetch CafeF RSS",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [450, 400],
+            "id": "rss-cafef"
+        },
+        {
+            "parameters": {
+                "url": "https://nhadatviet.vn/rss/tin-tuc-bat-dong-san.rss",
+                "options": {}
+            },
+            "name": "Fetch NhaDatViet RSS",
+            "type": "n8n-nodes-base.httpRequest",
+            "typeVersion": 3,
+            "position": [450, 600],
+            "id": "rss-nhadatviet"
+        },
+        {
+            "parameters": {
+                "mode": "combine",
+                "combineBy": "combineAll",
+                "options": {}
+            },
+            "name": "Merge RSS Sources",
+            "type": "n8n-nodes-base.merge",
+            "typeVersion": 2,
+            "position": [650, 400],
+            "id": "merge-rss"
+        },
+        {
+            "parameters": {
+                "functionCode": "// Parse RSS XML and extract items\nconst xml2js = require('xml2js');\nconst parser = new xml2js.Parser();\n\nconst results = [];\nconst seenTitles = new Set();\n\nfor (const item of items) {\n  try {\n    const xmlData = item.json.data;\n    const parsed = await parser.parseStringPromise(xmlData);\n    const channel = parsed.rss?.channel?.[0];\n    \n    if (channel && channel.item) {\n      for (const rssItem of channel.item.slice(0, 5)) {\n        const title = rssItem.title?.[0] || '';\n        \n        // Skip duplicates\n        if (seenTitles.has(title)) continue;\n        seenTitles.add(title);\n        \n        const link = rssItem.link?.[0] || '';\n        const description = rssItem.description?.[0] || '';\n        const pubDate = rssItem.pubDate?.[0] || new Date().toISOString();\n        \n        // Extract image from description or enclosure\n        let image = '';\n        const enclosure = rssItem.enclosure?.[0];\n        if (enclosure && enclosure.$) {\n          image = enclosure.$.url || '';\n        }\n        if (!image) {\n          const imgMatch = description.match(/<img[^>]+src=\"([^\"]+)\"/i);\n          if (imgMatch) image = imgMatch[1];\n        }\n        if (!image) {\n          image = 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800';\n        }\n        \n        // Clean description (remove HTML tags)\n        const cleanDescription = description.replace(/<[^>]*>/g, '').trim();\n        \n        results.push({\n          json: {\n            title: title,\n            link: link,\n            excerpt: cleanDescription.substring(0, 200) + '...',\n            image: image,\n            pubDate: pubDate,\n            source: link.includes('vnexpress') ? 'VnExpress' : \n                   link.includes('cafef') ? 'CafeF' : 'NhaDatViet'\n          }\n        });\n      }\n    }\n  } catch (e) {\n    console.error('Parse error:', e.message);\n  }\n}\n\n// Return only the 3 newest unique items\nreturn results.slice(0, 3);"
+            },
+            "name": "Parse RSS Items",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [850, 400],
+            "id": "parse-rss"
+        },
+        {
+            "parameters": {
+                "batchSize": 1,
+                "options": {}
+            },
+            "name": "Split Into Batches",
+            "type": "n8n-nodes-base.splitInBatches",
+            "typeVersion": 3,
+            "position": [1050, 400],
+            "id": "split-batches"
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o-mini",
+                "messages": {
+                    "values": [
+                        {
+                            "role": "system",
+                            "content": "You are a real estate news categorization assistant for Thach Vu Land, a premium real estate company in Vietnam.\n\nYour task:\n1. Categorize the news article into ONE of these categories:\n   - Thị Trường (market trends, price changes, supply/demand)\n   - Pháp Lý (legal, regulations, policies)\n   - Tài Chính (finance, loans, investment returns)\n   - Dự Án (specific projects, new developments)\n   - Kiến Thức (tips, guides, education)\n\n2. Identify any related projects from this list:\n   - Green Skyline (TBS Land) - Dĩ An, Bình Dương\n   - Setia Edenia - Thuận An, Bình Dương\n   - Fiato Uptown - Thủ Đức, TP.HCM\n   - The Rivana - Bình Dương\n   - Astral City - Thuận An, Bình Dương\n   - Picity Sky Park - Dĩ An, Bình Dương\n\n3. Generate a brief 3-bullet summary of the article.\n\nRespond ONLY with valid JSON in this exact format:\n{\n  \"category\": \"Thị Trường\",\n  \"relatedProjects\": [\"Green Skyline\", \"Setia Edenia\"],\n  \"summary\": [\n    \"Key point 1\",\n    \"Key point 2\",\n    \"Key point 3\"\n  ]\n}"
+                        },
+                        {
+                            "role": "user",
+                            "content": "Title: {{$json.title}}\n\nExcerpt: {{$json.excerpt}}"
+                        }
+                    ]
+                },
+                "options": {
+                    "temperature": 0.3
+                }
+            },
+            "name": "AI Categorize & Link Projects",
+            "type": "@n8n/n8n-nodes-langchain.openAi",
+            "typeVersion": 1,
+            "position": [1250, 400],
+            "id": "ai-categorize"
+        },
+        {
+            "parameters": {
+                "model": "gpt-4o-mini",
+                "messages": {
+                    "values": [
+                        {
+                            "role": "system",
+                            "content": "You are a professional real estate content writer for Thach Vu Land, a premium real estate consultancy in Vietnam.\n\nRewrite the following news article with:\n1. Professional, authoritative tone\n2. Clear, engaging Vietnamese language\n3. Add insights relevant to investors in Binh Duong and HCM City\n4. Format with proper HTML tags (<p>, <h2>, <ul>, <li>, <strong>)\n5. Keep the content factual and informative\n6. Length: 300-500 words\n\nDo NOT include the title in your response - only the body content."
+                        },
+                        {
+                            "role": "user",
+                            "content": "Title: {{$json.title}}\n\nOriginal content: {{$json.excerpt}}"
+                        }
+                    ]
+                },
+                "options": {
+                    "temperature": 0.7
+                }
+            },
+            "name": "AI Rewrite Content",
+            "type": "@n8n/n8n-nodes-langchain.openAi",
+            "typeVersion": 1,
+            "position": [1450, 400],
+            "id": "ai-rewrite"
+        },
+        {
+            "parameters": {
+                "functionCode": "// Combine all AI outputs with original data\nconst originalData = $('Split Into Batches').first().json;\nconst categoryData = $('AI Categorize & Link Projects').first().json;\nconst rewrittenContent = $('AI Rewrite Content').first().json;\n\n// Parse category JSON safely\nlet parsed = {};\ntry {\n  const categoryText = categoryData.message?.content || categoryData.content || '{}';\n  // Extract JSON from the response\n  const jsonMatch = categoryText.match(/\\{[\\s\\S]*\\}/);\n  if (jsonMatch) {\n    parsed = JSON.parse(jsonMatch[0]);\n  }\n} catch (e) {\n  parsed = {\n    category: 'Kiến Thức',\n    relatedProjects: [],\n    summary: []\n  };\n}\n\n// Format date\nconst now = new Date();\nconst formattedDate = `${now.getDate().toString().padStart(2, '0')}/${(now.getMonth() + 1).toString().padStart(2, '0')}/${now.getFullYear()}`;\n\nreturn {\n  json: {\n    title: originalData.title,\n    image: originalData.image,\n    category: parsed.category || 'Kiến Thức',\n    date: formattedDate,\n    excerpt: originalData.excerpt,\n    content: rewrittenContent.message?.content || rewrittenContent.content || originalData.excerpt,\n    author: 'Thạch Vũ AI',\n    source: originalData.source,\n    sourceUrl: originalData.link,\n    relatedProjects: parsed.relatedProjects || [],\n    aiSummary: parsed.summary || []\n  }\n};"
+            },
+            "name": "Combine AI Results",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [1650, 400],
+            "id": "combine-results"
+        },
+        {
+            "parameters": {
+                "operation": "getFile",
+                "owner": "LongIV999",
+                "repository": "thachvuland-website",
+                "filePath": "data/articles.json"
+            },
+            "name": "Get Current Data",
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [1850, 400],
+            "id": "get-github-data"
+        },
+        {
+            "parameters": {
+                "functionCode": "// Decode current articles.json\nconst currentFile = JSON.parse(Buffer.from(items[0].json.content, 'base64').toString('utf-8'));\nconst newsList = currentFile.newsData || [];\nconst projectList = currentFile.projectData || [];\n\n// Get new article data from previous node\nconst newArticle = $('Combine AI Results').first().json;\n\n// Check for duplicates by title\nconst titleExists = newsList.some(article => \n  article.title.toLowerCase().trim() === newArticle.title.toLowerCase().trim()\n);\n\nif (titleExists) {\n  // Skip duplicate\n  return {\n    json: {\n      skip: true,\n      message: 'Duplicate article detected'\n    }\n  };\n}\n\n// Map related project names to project IDs\nconst relatedProjectIds = [];\nif (newArticle.relatedProjects && newArticle.relatedProjects.length > 0) {\n  for (const projectName of newArticle.relatedProjects) {\n    const matchedProject = projectList.find(p => \n      p.title.toLowerCase().includes(projectName.toLowerCase())\n    );\n    if (matchedProject) {\n      relatedProjectIds.push(matchedProject.id);\n    }\n  }\n}\n\n// Generate new ID\nconst maxId = newsList.reduce((max, article) => Math.max(max, article.id || 0), 0);\n\n// Create new article object\nconst newItem = {\n  id: maxId + 1,\n  title: newArticle.title,\n  image: newArticle.image,\n  category: newArticle.category,\n  date: newArticle.date,\n  excerpt: newArticle.excerpt,\n  content: newArticle.content,\n  author: newArticle.author,\n  source: newArticle.source,\n  sourceUrl: newArticle.sourceUrl,\n  relatedProjects: relatedProjectIds,\n  aiSummary: newArticle.aiSummary\n};\n\n// Add to beginning of news array\ncurrentFile.newsData = [newItem, ...newsList];\n\n// Keep only last 100 articles\nif (currentFile.newsData.length > 100) {\n  currentFile.newsData = currentFile.newsData.slice(0, 100);\n}\n\nreturn {\n  json: {\n    skip: false,\n    content: Buffer.from(JSON.stringify(currentFile, null, 4)).toString('base64'),\n    message: `Auto-add: ${newArticle.title.substring(0, 50)}...`,\n    sha: items[0].json.sha\n  }\n};"
+            },
+            "name": "Merge New Article",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [2050, 400],
+            "id": "merge-article"
+        },
+        {
+            "parameters": {
+                "conditions": {
+                    "boolean": [
+                        {
+                            "value1": "={{$json.skip}}",
+                            "value2": false
+                        }
+                    ]
+                }
+            },
+            "name": "Skip Duplicates",
+            "type": "n8n-nodes-base.if",
+            "typeVersion": 1,
+            "position": [2250, 400],
+            "id": "check-duplicate"
+        },
+        {
+            "parameters": {
+                "operation": "updateFile",
+                "owner": "LongIV999",
+                "repository": "thachvuland-website",
+                "filePath": "data/articles.json",
+                "fileContent": "={{$json.content}}",
+                "commitMessage": "={{$json.message}}",
+                "additionalFields": {
+                    "sha": "={{$json.sha}}"
+                }
+            },
+            "name": "Update GitHub",
+            "type": "n8n-nodes-base.github",
+            "typeVersion": 1,
+            "position": [2450, 300],
+            "id": "update-github"
+        },
+        {
+            "parameters": {
+                "functionCode": "return { json: { status: 'skipped', reason: 'Duplicate article' } };"
+            },
+            "name": "Log Skip",
+            "type": "n8n-nodes-base.function",
+            "typeVersion": 1,
+            "position": [2450, 500],
+            "id": "log-skip"
+        }
+    ],
+    "connections": {
+        "Schedule Trigger": {
+            "main": [
+                [
+                    {"node": "Fetch VnExpress RSS", "type": "main", "index": 0},
+                    {"node": "Fetch CafeF RSS", "type": "main", "index": 0},
+                    {"node": "Fetch NhaDatViet RSS", "type": "main", "index": 0}
+                ]
+            ]
+        },
+        "Fetch VnExpress RSS": {
+            "main": [
+                [{"node": "Merge RSS Sources", "type": "main", "index": 0}]
+            ]
+        },
+        "Fetch CafeF RSS": {
+            "main": [
+                [{"node": "Merge RSS Sources", "type": "main", "index": 1}]
+            ]
+        },
+        "Fetch NhaDatViet RSS": {
+            "main": [
+                [{"node": "Merge RSS Sources", "type": "main", "index": 2}]
+            ]
+        },
+        "Merge RSS Sources": {
+            "main": [
+                [{"node": "Parse RSS Items", "type": "main", "index": 0}]
+            ]
+        },
+        "Parse RSS Items": {
+            "main": [
+                [{"node": "Split Into Batches", "type": "main", "index": 0}]
+            ]
+        },
+        "Split Into Batches": {
+            "main": [
+                [{"node": "AI Categorize & Link Projects", "type": "main", "index": 0}]
+            ]
+        },
+        "AI Categorize & Link Projects": {
+            "main": [
+                [{"node": "AI Rewrite Content", "type": "main", "index": 0}]
+            ]
+        },
+        "AI Rewrite Content": {
+            "main": [
+                [{"node": "Combine AI Results", "type": "main", "index": 0}]
+            ]
+        },
+        "Combine AI Results": {
+            "main": [
+                [{"node": "Get Current Data", "type": "main", "index": 0}]
+            ]
+        },
+        "Get Current Data": {
+            "main": [
+                [{"node": "Merge New Article", "type": "main", "index": 0}]
+            ]
+        },
+        "Merge New Article": {
+            "main": [
+                [{"node": "Skip Duplicates", "type": "main", "index": 0}]
+            ]
+        },
+        "Skip Duplicates": {
+            "main": [
+                [{"node": "Update GitHub", "type": "main", "index": 0}],
+                [{"node": "Log Skip", "type": "main", "index": 0}]
+            ]
+        }
+    },
+    "settings": {
+        "executionOrder": "v1"
+    },
+    "staticData": null,
+    "tags": ["automation", "news", "rss", "ai"],
+    "triggerCount": 0,
+    "updatedAt": "2026-01-10T00:00:00.000Z",
+    "versionId": "2.0.0"
+}
