@@ -1,0 +1,33 @@
+[build]
+  publish = "."
+  command = "python3 scripts/generate_data.py"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer-when-downgrade"
+    Permissions-Policy = "geolocation=(), megaphone=(), camera=(), microphone=(), payment=(), usb=()"
+    Content-Security-Policy = "upgrade-insecure-requests"
+
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
+  status = 200
+
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/news"
+  to = "/news-anthropic.html"
+  status = 200

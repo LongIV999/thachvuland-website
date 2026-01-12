@@ -216,36 +216,24 @@ function renderProjects() {
 
     wrapper.innerHTML = projectData.map(project => `
         <div class="swiper-slide">
-            <div class="project-card glass-morphism">
-                <div class="project-aurora-glow"></div>
-                <div class="project-card-image">
-                    <img src="${project.image}" alt="${project.title}" loading="lazy">
-                    <span class="project-card-badge neon-glow">${project.status}</span>
+            <div class="sales-card">
+                <div class="sales-card__image-container">
+                    <img src="${project.image}" alt="${project.title}" class="sales-card__image" loading="lazy">
+                    <span class="sales-card__status ${project.status === 'Đang Booking' ? 'booking' : (project.status === 'Sắp Mở Bán' ? 'sap-mo-ban' : '')}">${project.status}</span>
                 </div>
-                <div class="project-card-content">
-                    <h3 class="project-card-title text-gradient">${project.title}</h3>
-                    <div class="project-card-meta">
-                        <div class="project-card-meta-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>${project.location}</span>
-                        </div>
-                        ${project.specs ? `
-                        <div class="project-card-meta-item">
-                            <i class="fas fa-building"></i>
-                            <span>${project.specs}</span>
-                        </div>` : ''}
-                        ${project.time ? `
-                        <div class="project-card-meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>${project.time}</span>
-                        </div>` : ''}
-                        ${project.price ? `
-                        <div class="project-card-meta-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>${project.price}</span>
-                        </div>` : ''}
+                <div class="sales-card__content">
+                    <h3 class="sales-card__title">${project.title}</h3>
+                    <div class="sales-card__location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${project.location}</span>
                     </div>
-                    <a href="${project.link}" class="btn-ghost">${project.cta} <i class="fas fa-arrow-right"></i></a>
+                    <div class="sales-card__specs">
+                        <div class="spec-item">
+                            <i class="fas fa-building"></i> <span>${project.specs}</span>
+                        </div>
+                    </div>
+                    <div class="sales-card__price">${project.price}</div>
+                    <a href="${project.link}" class="btn-primary" style="margin-top: 16px; width: 100%; text-align: center;">Xem Chi Tiết</a>
                 </div>
             </div>
         </div>
@@ -354,8 +342,8 @@ function initSwiper() {
             disableOnInteraction: false,
         },
         navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
+            nextEl: '.project-next',
+            prevEl: '.project-prev',
         },
         breakpoints: {
             640: {

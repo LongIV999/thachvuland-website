@@ -10,6 +10,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles/anthropic.css">
+    <link rel="stylesheet" href="styles/mobile-actions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -49,8 +50,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Data & Scripts -->
-    <script src="scripts/data.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/data.js?v=2"></script>
+    <script src="scripts/main.js?v=2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
@@ -69,9 +70,9 @@
                 <section class="project-hero-canvas">
                     <img src="${project.image}" class="project-hero-canvas__bg" alt="${project.title}">
                     <div class="container project-hero-canvas__content">
-                        <span class="category-tag" style="background: white; padding: 4px 12px; border-radius: 4px;">${project.status}</span>
-                        <h1 class="article-title-large">${project.title}</h1>
-                        <p class="article-meta-modern" style="justify-content: flex-start; color: white; opacity: 0.8;">
+                        <span class="category-tag" style="background: rgba(255,255,255,0.95); color: #1a1a1a; padding: 6px 14px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: inline-block; margin-bottom: 24px; animation: badge-pulse 2s infinite;">${project.status}</span>
+                        <h1 class="article-title-large" style="text-shadow: 0 2px 4px rgba(0,0,0,0.5);">${project.title}</h1>
+                        <p class="article-meta-modern" style="justify-content: flex-start; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.9); font-weight: 500;">
                             <span><i class="fas fa-map-marker-alt"></i> ${project.location}</span>
                             <span><i class="fas fa-tag"></i> ${project.price}</span>
                         </p>
@@ -86,11 +87,22 @@
                             <p class="article-body">${project.description || 'Đang cập nhật...'}</p>
                         </section>
 
-                        <!-- Masonry Gallery -->
+                        <!-- Main Image Gallery -->
                         <section style="margin-top: 60px;">
                             <h2 class="article-body" style="font-weight: 600; font-size: 1.8rem; margin-bottom: 32px;">Thư viện hình ảnh</h2>
-                            <div class="gallery-masonry">
-                                ${project.gallery ? project.gallery.map(img => `<img src="${img}" alt="${project.title} Gallery" loading="lazy">`).join('') : ''}
+                            
+                            <!-- New Gallery Structure -->
+                            <div class="gallery-container">
+                                <div class="gallery-main">
+                                    <img src="${project.gallery && project.gallery.length > 0 ? project.gallery[0] : project.image}" id="mainGalleryImage" alt="${project.title} Main View">
+                                </div>
+                                <div class="gallery-thumbs">
+                                    ${project.gallery ? project.gallery.map((img, index) => `
+                                        <div class="gallery-thumb ${index === 0 ? 'active' : ''}" onclick="changeGalleryImage('${img}', this)">
+                                            <img src="${img}" alt="Thumbnail ${index + 1}">
+                                        </div>
+                                    `).join('') : ''}
+                                </div>
                             </div>
                         </section>
 
@@ -113,7 +125,7 @@
 
                     <!-- Sidebar -->
                     <aside class="detail-sidebar">
-                        <div class="sidebar-widget sidebar-sticky">
+                        <div class="sidebar-widget sidebar-sticky contact-widget">
                             <h4 class="sidebar-heading">Liên Hệ Tư Vấn</h4>
                             <div class="price-text" style="font-size: 1.8rem; margin-bottom: 24px; color: var(--anthropic-orange);">${project.price}</div>
                             
@@ -135,6 +147,16 @@
                             </form>
                         </div>
                     </aside>
+                </div>
+
+                <!-- Mobile Action Bar -->
+                <div class="mobile-action-bar">
+                    <a href="tel:0903469888" class="action-btn call-btn">
+                        <i class="fas fa-phone-alt"></i> <span>Gọi Ngay</span>
+                    </a>
+                    <button class="action-btn register-btn" onclick="document.querySelector('.contact-widget').scrollIntoView({behavior: 'smooth'})">
+                        <i class="fas fa-file-signature"></i> <span>Đăng Ký</span>
+                    </button>
                 </div>
             `;
 
@@ -172,6 +194,23 @@
                     start: "top 80%"
                 }
             });
+
+            // Global function for Gallery Interaction
+            window.changeGalleryImage = function (src, thumbElement) {
+                const mainImg = document.getElementById('mainGalleryImage');
+
+                // Fade effect
+                mainImg.style.opacity = '0';
+
+                setTimeout(() => {
+                    mainImg.src = src;
+                    mainImg.style.opacity = '1';
+                }, 200);
+
+                // Update active state
+                document.querySelectorAll('.gallery-thumb').forEach(el => el.classList.remove('active'));
+                thumbElement.classList.add('active');
+            };
 
             // Global function for VR Tour
             window.loadVrTour = function (url) {

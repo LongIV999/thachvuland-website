@@ -96,6 +96,8 @@
                 <option value="all">Tất cả</option>
                 <option value="Sắp Mở Bán">Sắp Mở Bán</option>
                 <option value="Đang Booking">Đang Booking</option>
+                <option value="Đang Mở Bán">Đang Mở Bán</option>
+                <option value="Sắp Bàn Giao">Sắp Bàn Giao</option>
                 <option value="Đang Bàn Giao">Đang Bàn Giao</option>
             </select>
         </div>
@@ -134,8 +136,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Data & Scripts -->
-    <script src="scripts/data.js"></script>
-    <script src="scripts/main.js"></script>
+    <script src="scripts/data.js?v=2"></script>
+    <script src="scripts/main.js?v=2"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const grid = document.getElementById('projectsBentoGrid');
@@ -209,14 +211,14 @@
                     // This is a simple pattern loop every 8 items
                     const patternIndex = index % 8;
                     if (patternIndex === 0) modifier = 'project-card--tall';
-                    else if (patternIndex === 3) modifier = 'project-card--wide';
-                    else if (patternIndex === 6) modifier = 'project-card--wide';
+                    else if (patternIndex === 2) modifier = 'project-card--wide';
+                    else if (patternIndex === 5) modifier = 'project-card--wide';
 
                     return `
                         <div class="project-card ${modifier}">
                             <div class="project-card__image-wrapper">
                                 <img src="${project.image}" alt="${project.title}" class="project-card__image" loading="lazy">
-                                <div class="project-card__badge">${project.status}</div>
+                                <div class="project-card__badge ${project.status === 'Đang Booking' ? 'booking' : (project.status === 'Đang Mở Bán' ? 'open-for-sale' : (project.status === 'Sắp Mở Bán' ? 'upcoming' : ''))}">${project.status}</div>
                             </div>
                             <div class="project-card__content">
                                 <div class="project-card__category">${project.category === 'can-ho' ? 'Căn Hộ' : (project.category === 'shophouse' ? 'Shophouse' : 'Đất Nền')}</div>

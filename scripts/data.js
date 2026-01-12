@@ -9,18 +9,19 @@ const projectData = [
         "title": "Green Skyline (TBS Land)",
         "image": "assets/images/projects/tbs/flycam/hero-aerial-1.jpg",
         "status": "Đang Booking",
-        "location": "Mặt tiền Phạm Văn Đồng, Dĩ An, Bình Dương",
-        "specs": "4 Tòa, 28-40 tầng, 1,296 căn",
+        "location": "Mặt tiền đại lộ Phạm Văn Đồng – QL1K, phường Đông Hòa, TP Dĩ An, tỉnh Bình Dương",
+        "specs": "1.32 ha, 4 Tòa, 28-40 Tầng, 1,296 Căn",
         "price": "Liên hệ để biết giá",
         "link": "project-detail.html?id=1",
         "cta": "Liên Hệ Tư Vấn",
         "category": "can-ho",
-        "description": "Green Skyline là biểu tượng kiến trúc mới tại cửa ngõ phía Đông Sài Gòn. Dự án sở hữu vị trí đắc địa ngay mặt tiền Phạm Văn Đồng, kết nối nhanh chóng đến sân bay Tân Sơn Nhất và trung tâm TP.HCM. Với thiết kế hiện đại, hệ thống tiện ích đẳng cấp 5 sao, Green Skyline mang đến không gian sống xanh, sang trọng và biệt lập.",
+        "description": "Green Skyline tọa lạc tại mặt tiền đại lộ Phạm Văn Đồng – QL1K, cách GO! Dĩ An, Bệnh viện Quốc tế Hoàn Mỹ và Đại học Quốc Gia chỉ 50m. Dự án sở hữu thiết kế đồng bộ theo phong cách resort, mang đến không gian sống chất lượng cao và là biểu tượng an cư mới tại cửa ngõ Đông Bắc TP.HCM.",
         "features": [
-            "Hồ bơi vô cực trên không",
-            "Công viên nội khu 2000m²",
-            "Phòng Gym & Yoga tiêu chuẩn quốc tế",
-            "Trung tâm thương mại podium",
+            "Vị trí đắc địa: Cửa ngõ Đông TP.HCM",
+            "Hồ bơi phong cách Resort",
+            "Công viên xanh & Vườn trên không (Sky Garden)",
+            "Cầu kính trên không độc đáo",
+            "Thư viện đọc sách hiện đại",
             "An ninh 4 lớp 24/7"
         ],
         "floorplans": [
@@ -32,35 +33,36 @@ const projectData = [
         "vrUrl": "https://my.matterport.com/show/?m=JGPnGQFjj7n&play=1",
         "gallery": [
             "assets/images/projects/tbs/flycam/hero-aerial-1.jpg",
-            "assets/images/projects/tbs/flycam/hero-aerial-2.jpg",
+            "assets/images/projects/tbs/amenity-pool.jpg",
+            "assets/images/projects/tbs/amenity-landscape.jpg",
+            "assets/images/projects/tbs/model-closeup.jpg",
             "assets/images/projects/tbs/flycam/road-view-1.jpg",
-            "assets/images/projects/tbs/flycam/road-view-2.jpg",
-            "assets/images/projects/tbs/flycam/road-view-3.jpg",
+            "assets/images/projects/tbs/construction-topping-out.jpg",
             "assets/images/projects/tbs/interior-real.jpg"
         ]
     },
     {
         "id": 2,
-        "title": "Setia Edenia - Camellia (EcoXuân)",
+        "title": "Setia Edenia (EcoXuân Phase 3)",
         "image": "assets/images/projects/setia-edenia/camellia-marketing.jpg",
-        "status": "Sắp Mở Bán",
-        "location": "Mặt tiền QL13, Lai Thiêu, Thuận An, Bình Dương",
-        "specs": "3 Block, 21-28 tầng, ~740-865 căn (Chỉ 240 căn Camellia)",
-        "price": "Liên hệ để biết giá",
+        "status": "Đang Mở Bán",
+        "location": "Mặt tiền Quốc lộ 13, Lái Thiêu, Thuận An, Bình Dương",
+        "specs": "3 Block, 27-28 tầng, ~865 căn",
+        "price": "Từ 48 triệu/m²",
         "link": "project-detail.html?id=2",
         "cta": "Đăng Ký Tư Vấn",
         "category": "can-ho",
-        "description": "Setia Edenia nằm trong tổng thể khu đô thị xanh EcoXuân, nổi bật với mật độ cây xanh bao phủ lớn và không gian sống trong lành. Dự án được phát triển bởi tập đoàn S P Setia danh tiếng từ Malaysia, cam kết chất lượng xây dựng vượt trội và pháp lý minh bạch. Tháp Camellia - TOP 1 tại Setia Edenia với chỉ 9 căn/tầng, mật độ thấp nhất, view thoáng nhất.",
+        "description": "Setia Edenia là giai đoạn 3 của khu đô thị sinh thái EcoXuân tiêu chuẩn quốc tế, được phát triển bởi tập đoàn S P Setia danh tiếng từ Malaysia. Dự án mang đến không gian sống xanh đúng nghĩa với mật độ xây dựng thấp, hệ thống tiện ích đa tầng và chất lượng xây dựng đạt chuẩn quốc tế. Với vị trí đắc địa ngay mặt tiền Quốc lộ 13, cư dân dễ dàng kết nối đến TP.HCM và các khu công nghiệp trọng điểm.",
         "features": [
-            "Hệ thống Sky Garden đa lớp",
-            "Khu vui chơi trẻ em Kid Zone",
-            "Sân Tennis & Đường chạy bộ",
-            "Hồ bơi nghỉ dưỡng",
-            "Khu BBQ ngoài trời",
-            "1 phút đi bộ tới Lifestyle Center"
+            "Hệ thống công viên Sky Park đa trải nghiệm",
+            "Hồ bơi phong cách resort & khu thư giãn",
+            "Phòng Gym & Yoga hiện đại nhìn ra mảng xanh",
+            "Khu vui chơi trẻ em tiêu chuẩn quốc tế",
+            "An ninh đa lớp 24/7 với hệ thống Smart Access",
+            "Liền kề Aeon Mall, Lotte Mart & Sân Golf Sông Bé"
         ],
         "floorplans": [
-            { "name": "Studio & 1BR Options", "image": "assets/images/projects/setia-edenia/layout-studio-options.jpg" }
+            { "name": "Mặt bằng tổng thể", "image": "assets/images/projects/setia-edenia/layout-studio-options.jpg" }
         ],
         "gallery": [
             "assets/images/projects/setia-edenia/camellia-marketing.jpg",
@@ -95,70 +97,96 @@ const projectData = [
             "assets/images/projects/fiato-uptown/koi-pond.jpg"
         ]
     },
-    {
-        "id": 4,
-        "title": "The Rivana",
-        "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
-        "status": "Sắp Bàn Giao",
-        "location": "Đại lộ Bình Dương",
-        "specs": "3 Block, 1023 căn hộ",
-        "price": "Từ 31 triệu/m²",
-        "link": "project-detail.html?id=4",
-        "cta": "Xem Chi Tiết",
-        "category": "can-ho",
-        "description": "The Rivana sở hữu view sông Sài Gòn đắt giá, thiết kế tinh tế và hiện đại. Dự án tập trung vào trải nghiệm sống nghỉ dưỡng tại gia với hệ thống tiện ích phong phú.",
-        "features": [
-            "View trực diện sông Sài Gòn",
-            "Hồ bơi resort 1000m²",
-            "Công viên ven sông",
-            "Khu vui chơi nước trẻ em"
-        ],
-        "gallery": [
-            "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800"
-        ]
-    },
-    {
-        "id": 5,
-        "title": "Astral City",
-        "image": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800",
-        "status": "Đang Bàn Giao",
-        "location": "Thuận An, Bình Dương",
-        "specs": "8 Tòa tháp, 4966 căn hộ",
-        "price": "Đang cập nhật",
-        "link": "project-detail.html?id=5",
-        "cta": "Liên Hệ Ngay",
-        "category": "shophouse",
-        "description": "Astral City là phức hợp thương mại và căn hộ cao cấp bậc nhất Bình Dương. Với 8 tòa tháp chọc trời, đây là biểu tượng của sự thịnh vượng và đẳng cấp.",
-        "features": [
-            "Suối nhiệt đới dài 300m",
-            "Rạp chiếu phim CGV",
-            "4 tầng trung tâm thương mại",
-            "Sky Bar tầng 40"
-        ],
-        "gallery": [
-            "https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=800"
-        ]
-    },
+
+
     {
         "id": 6,
         "title": "Picity Sky Park",
-        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800",
+        "image": "assets/images/projects/picity-sky-park/hero.jpg",
         "status": "Đang Booking",
-        "location": "Dĩ An, Bình Dương",
-        "specs": "2 Block, 1567 căn",
-        "price": "39 triệu/m²",
+        "location": "Quốc lộ 1A, An Bình, TP. Dĩ An, Bình Dương",
+        "specs": "1.1 ha, 2 Tòa, 39 tầng, ~1,794 căn",
+        "price": "Liên hệ để biết giá",
         "link": "project-detail.html?id=6",
         "cta": "Đăng Ký Tham Quan",
         "category": "can-ho",
-        "description": "Picity Sky Park ứng dụng công nghệ IoT vào quản lý vận hành, mang đến cuộc sống tiện nghi và an toàn tối đa. Thiết kế Indochine kết hợp hiện đại tạo nên dấu ấn riêng biệt.",
+        "description": "Picity Sky Park là khu đô thị số văn minh chuẩn quốc tế ngay cửa ngõ TP. Thủ Đức. Dự án sở hữu kiến trúc Indochine hiện đại kết hợp không gian xanh 'Sky Park' độc đáo. Với hệ thống công nghệ IoT - Smart Living và chuỗi tiện ích đẳng cấp như hồ bơi vô cực tầng 21, đây là biểu tượng sống mới năng động và tiện nghi.",
         "features": [
-            "Hồ bơi vô cực tầng 21",
-            "Cầu kính Sky Walk",
-            "Hệ thống Face ID an ninh",
-            "Khu BBQ tầng thượng"
+            "Vị trí cửa ngõ TP. Thủ Đức & Bình Dương",
+            "Hồ bơi vô cực tầng 21 & Sky Park",
+            "Công nghệ Smart Home & IoT toàn diện",
+            "Hệ thống Face ID an ninh tuyệt đối",
+            "Thiết kế 100% căn hộ tiếp xúc ánh sáng",
+            "Trường học & Trung tâm thương mại nội khu"
         ],
         "gallery": [
-            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800"
+            "assets/images/projects/picity-sky-park/hero.jpg",
+            "assets/images/projects/picity-sky-park/location.jpg",
+            "assets/images/projects/picity-sky-park/amenity-sky.jpg",
+            "assets/images/projects/picity-sky-park/amenity-pool.jpg",
+            "assets/images/projects/picity-sky-park/interior.jpg",
+            "assets/images/projects/picity-sky-park/master-plan.jpg"
+        ],
+        "floorplans": [
+            { "name": "Mặt bằng tổng thể", "image": "assets/images/projects/picity-sky-park/master-plan.jpg" }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Phú Đông SkyOne",
+        "image": "assets/images/projects/phu-dong-sky-one/image-01.png",
+        "status": "Sắp Mở Bán",
+        "location": "Dĩ An, Bình Dương",
+        "specs": "2 Block, 30 tầng, 780 căn",
+        "price": "Từ 37 triệu/m²",
+        "link": "project-detail.html?id=7",
+        "cta": "Liên Hệ Ngay",
+        "category": "can-ho",
+        "description": "Phú Đông SkyOne là dự án căn hộ tâm điểm dành cho giới trẻ, tọa lạc tại vị trí đắc địa Dĩ An, Bình Dương. Dự án được thiết kế với hơn 30 tiện ích 'đo ni đóng giày', mang đến không gian sống hiện đại, tiện nghi và thông minh.",
+        "features": [
+            "Hồ bơi nước ấm",
+            "Gym, Spa & Yoga",
+            "Khu vui chơi trẻ em",
+            "Sân vườn & BBQ",
+            "Hệ thống Smart Home"
+        ],
+        "gallery": [
+            "assets/images/projects/phu-dong-sky-one/image-01.png",
+            "assets/images/projects/phu-dong-sky-one/image-02.jpg",
+            "assets/images/projects/phu-dong-sky-one/image-03.png",
+            "assets/images/projects/phu-dong-sky-one/interior-duplex.jpg",
+            "assets/images/projects/phu-dong-sky-one/interior-2pn.jpg",
+            "assets/images/projects/phu-dong-sky-one/interior-studio.jpg",
+            "assets/images/projects/phu-dong-sky-one/pool-area.jpg",
+            "assets/images/projects/phu-dong-sky-one/map-location.png",
+            "assets/images/projects/phu-dong-sky-one/map-amenities.png",
+            "assets/images/projects/phu-dong-sky-one/floor-plan-ground.png"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Happy One Mori",
+        "image": "assets/images/projects/happy-one-mori/hero.jpg",
+        "status": "Đang Booking",
+        "location": "Lái Thiêu, Thuận An, Bình Dương",
+        "specs": "2 Block, 33 tầng, 1,400+ sản phẩm",
+        "price": "Từ 38.6 triệu/m²",
+        "link": "project-detail.html?id=8",
+        "cta": "Đăng Ký Tư Vấn",
+        "category": "can-ho",
+        "description": "Happy One Mori mang phong cách sống Nhật Bản 'Mori' (Rừng) vào lòng đô thị Thuận An. Dự án sở hữu thiết kế Modern Tropical độc đáo with mật độ xanh cao và 33+ tiện ích đẳng cấp. Tọa lạc tại vị trí cửa ngõ Lái Thiêu, dự án là lựa chọn an cư lý tưởng cho các gia đình tìm kiếm không gian sống cân bằng và hiện đại.",
+        "features": [
+            "Công viên rừng nội khu Mori Style",
+            "Hồ bơi tràn nhiệt đới",
+            "Sky Park & Zen Garden tầng thượng",
+            "Hệ thống Smart Home & Face ID",
+            "An ninh 4 lớp tiêu chuẩn quốc tế"
+        ],
+        "gallery": [
+            "assets/images/projects/happy-one-mori/hero.jpg",
+            "assets/images/projects/happy-one-mori/gallery-1.jpg",
+            "assets/images/projects/happy-one-mori/gallery-2.jpg",
+            "assets/images/projects/happy-one-mori/gallery-3.jpg"
         ]
     }
 ];
